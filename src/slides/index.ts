@@ -16,7 +16,8 @@ import { Slide14_PatchSizeQuadraticCost } from './Slide14_PatchSizeQuadraticCost
 import { Slide15_WhenToUseCnnVsVit } from './Slide15_WhenToUseCnnVsVit'
 import { Slide16_ModelVariants } from './Slide16_ModelVariants'
 import { Slide17_Conclusion } from './Slide17_Conclusion'
-import { Slide18_ThankYouAndKahoot } from './Slide18_ThankYouAndKahoot'
+import { Slide18_References } from './Slide18_References'
+import { Slide19_ThankYouAndKahoot } from './Slide19_ThankYouAndKahoot'
 
 export const presentationSlides: SlideMeta[] = [
   {
@@ -139,10 +140,17 @@ export const presentationSlides: SlideMeta[] = [
     component: Slide17_Conclusion,
   },
   {
+    id: 'references',
+    title: 'Kaynakça ve Referanslar',
+    subtitle: 'Temel Makaleler, Akademik Kaynaklar ve İnteraktif Görselleştirme Araçları',
+    section: 'BÖLÜM 6: KAYNAKÇA',
+    component: Slide18_References,
+  },
+  {
     id: 'thank-you-kahoot',
     title: 'Teşekkürler & Kahoot!',
     subtitle: 'Soru & Cevap (Q&A) ve Canlı Kahoot! Bilgi Yarışması',
     section: 'KAPANIŞ VE DEĞERLENDİRME',
-    component: Slide18_ThankYouAndKahoot,
+    component: Slide19_ThankYouAndKahoot,
   },
 ]

@@ -16,7 +16,7 @@ import {
   Sparkles as SparklesIcon // unused
 } from 'lucide-react'
 
-export const Slide18_ThankYouAndKahoot: React.FC = () => {
+export const Slide19_ThankYouAndKahoot: React.FC = () => {
   const PUNCHY_EASE = [0.16, 1, 0.3, 1] as const
   const [platform, setPlatform] = useState<'wayground' | 'kahoot'>('wayground')
 
@@ -60,7 +60,7 @@ export const Slide18_ThankYouAndKahoot: React.FC = () => {
           </span>
           <div className="flex items-center gap-1.5 text-xs font-semibold text-purple-700 bg-purple-50 px-3 py-1.5 rounded-full border border-purple-200/80">
             <span className="w-2 h-2 rounded-full bg-purple-600 animate-pulse" />
-            <span>Slayt 18</span>
+            <span>Slayt 19</span>
           </div>
         </div>
       </motion.div>
