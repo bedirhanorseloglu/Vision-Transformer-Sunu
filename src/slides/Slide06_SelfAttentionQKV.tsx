@@ -96,15 +96,15 @@ export const Slide06_SelfAttentionQKV: React.FC = () => {
       >
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <span className="text-xs font-mono font-bold tracking-wider text-blue-700 bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-200/60">
+            <span className="text-xs font-sans font-bold tracking-wider text-blue-700 bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-200/60">
               BÖLÜM 2: TRANSFORMER TEMELLERİ</span>
-            <span className="text-xs text-slate-400 font-mono">| Query, Key, Value Matrisleri & Çok Başlı Dikkat (h=8)</span>
+            <span className="text-xs text-slate-400 font-sans">| Query, Key, Value Matrisleri & Çok Başlı Dikkat (h=8)</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-montserrat tracking-tight">
             Self-Attention: QKV ve Çok Başlı Dikkat</h2>
         </div>
 
-        <div className="hidden sm:flex items-center gap-2 text-xs font-mono font-semibold text-slate-500 bg-slate-50 px-3 py-1.5 rounded-full border border-slate-200">
+        <div className="hidden sm:flex items-center gap-2 text-xs font-sans font-semibold text-slate-500 bg-slate-50 px-3 py-1.5 rounded-full border border-slate-200">
           <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
           <span>Slayt 06</span>
         </div>
@@ -140,7 +140,7 @@ export const Slide06_SelfAttentionQKV: React.FC = () => {
             {!isPlaying && (
               <div className="absolute top-3 right-3 bg-black/60 border border-white/20 text-white text-xs px-2.5 py-1 rounded-full flex items-center gap-1.5 pointer-events-none select-none">
                 <span className="w-2 h-2 rounded-full bg-amber-400" />
-                <span className="font-mono font-medium">Durduruldu</span>
+                <span className="font-sans font-medium">Durduruldu</span>
               </div>
             )}
           </div>
@@ -149,7 +149,7 @@ export const Slide06_SelfAttentionQKV: React.FC = () => {
           <div className="mt-3 bg-white rounded-xl p-2.5 sm:p-3 border border-slate-200/80 flex flex-col gap-2 shrink-0 shadow-xs">
             {/* Scrubber Progress Bar */}
             <div className="flex items-center gap-3">
-              <span className="text-[11px] font-mono text-slate-500 shrink-0 w-9 text-right font-medium">
+              <span className="text-[11px] font-sans text-slate-500 shrink-0 w-9 text-right font-medium">
                 {formatTime(currentTime)}
               </span>
               <input
@@ -161,7 +161,7 @@ export const Slide06_SelfAttentionQKV: React.FC = () => {
                 onChange={handleSeek}
                 className="w-full h-1.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600 hover:accent-blue-500"
               />
-              <span className="text-[11px] font-mono text-slate-500 shrink-0 w-9 font-medium">
+              <span className="text-[11px] font-sans text-slate-500 shrink-0 w-9 font-medium">
                 {formatTime(duration)}
               </span>
             </div>
@@ -209,7 +209,7 @@ export const Slide06_SelfAttentionQKV: React.FC = () => {
                   title={isMuted ? "Sesi Aç" : "Sesi Kapat"}
                 >
                   {isMuted ? <VolumeX className="w-4 h-4 text-amber-600" /> : <Volume2 className="w-4 h-4 text-emerald-600" />}
-                  <span className="hidden sm:inline text-[11px] font-mono font-medium">{isMuted ? "Sessiz" : "Sesli"}</span>
+                  <span className="hidden sm:inline text-[11px] font-sans font-medium">{isMuted ? "Sessiz" : "Sesli"}</span>
                 </button>
               </div>
             </div>
@@ -225,7 +225,7 @@ export const Slide06_SelfAttentionQKV: React.FC = () => {
         >
           {/* Card 1: Q, K, V Somut Açıklama */}
           <div className="bg-white rounded-2xl p-4 border border-slate-200 shadow-sm shrink-0">
-            <h3 className="text-xs font-mono font-bold tracking-wider text-blue-700 uppercase mb-2.5 pb-1.5 border-b border-slate-100">
+            <h3 className="text-xs font-sans font-bold tracking-wider text-blue-700 uppercase mb-2.5 pb-1.5 border-b border-slate-100">
               Q, K, V Vektörleri Ne İşe Yarar?
             </h3>
             <ul className="space-y-2 text-xs sm:text-[13px]">
@@ -259,7 +259,7 @@ export const Slide06_SelfAttentionQKV: React.FC = () => {
               Softmax ile Alakasız Kelimeleri Eleme
             </h4>
             <p className="text-[11px] sm:text-xs text-slate-700 leading-relaxed">
-              İlgili kelimelerin puanları büyütülürken, alakasız kelimeler <span className="font-mono font-bold text-amber-900">0.001</span> gibi küçük katsayılarla çarpılarak geri plana itilir.
+              İlgili kelimelerin puanları büyütülürken, alakasız kelimeler <span className="font-sans font-bold text-amber-900">0.001</span> gibi küçük katsayılarla çarpılarak geri plana itilir.
             </p>
           </div>
 
@@ -272,15 +272,15 @@ export const Slide06_SelfAttentionQKV: React.FC = () => {
                   Multi-Head Attention (h = 8 Kafa)
                 </h4>
               </div>
-              <span className="text-[10px] font-mono font-semibold text-blue-700 bg-blue-100/70 px-2 py-0.5 rounded">
+              <span className="text-[10px] font-sans font-semibold text-blue-700 bg-blue-100/70 px-2 py-0.5 rounded">
                 Hiperparametre
               </span>
             </div>
             <p className="text-[11px] sm:text-xs text-slate-700 leading-relaxed">
-              Kafa sayısı bir <strong>hiperparametredir</strong> (burada <span className="font-mono font-bold">h = 8</span>); model anlam ve bağlam gibi farklı yönlere aynı anda odaklanır.
+              Kafa sayısı bir <strong>hiperparametredir</strong> (burada <span className="font-sans font-bold">h = 8</span>); model anlam ve bağlam gibi farklı yönlere aynı anda odaklanır.
             </p>
             <p className="text-[11px] sm:text-xs text-blue-900 font-medium mt-1 leading-snug">
-              ➔ Kafaların birleşiminden çıkan <span className="font-mono font-bold">Z matrisi</span>, Encoder'ın 2. katmanı olan <strong>Fully Connected (Linear) katmana</strong> aktarılır.
+              ➔ Kafaların birleşiminden çıkan <span className="font-sans font-bold">Z matrisi</span>, Encoder'ın 2. katmanı olan <strong>Fully Connected (Linear) katmana</strong> aktarılır.
             </p>
           </div>
 

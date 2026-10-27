@@ -31,10 +31,10 @@ export const Slide11_ClsAndPositionDetail: React.FC = () => {
       >
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <span className="text-xs font-mono font-bold tracking-wider text-blue-700 bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-200/60">
+            <span className="text-xs font-sans font-bold tracking-wider text-blue-700 bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-200/60">
               BÖLÜM 3: VISION TRANSFORMER (ViT)
             </span>
-            <span className="text-xs text-slate-400 font-mono">| BERT Tipi [CLS] Token ve 1D Konum Vektörleri</span>
+            <span className="text-xs text-slate-400 font-sans">| BERT Tipi [CLS] Token ve 1D Konum Vektörleri</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-montserrat tracking-tight">
             3. Adım Detayı: [CLS] Token ve Position Embeddings
@@ -43,10 +43,8 @@ export const Slide11_ClsAndPositionDetail: React.FC = () => {
 
         {/* Sağ Üst: Slayt Numarası & Referans */}
         <div className="hidden sm:flex items-center gap-2">
-          <span className="text-xs font-mono text-slate-500 bg-slate-50 px-3 py-1.5 rounded-full border border-slate-200 font-medium">
-            Aman Arora (Fig-4)
-          </span>
-          <div className="flex items-center gap-1.5 text-xs font-mono font-semibold text-blue-700 bg-blue-50 px-3 py-1.5 rounded-full border border-blue-200">
+
+          <div className="flex items-center gap-1.5 text-xs font-sans font-semibold text-blue-700 bg-blue-50 px-3 py-1.5 rounded-full border border-blue-200">
             <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
             <span>Slayt 11</span>
           </div>
@@ -76,7 +74,7 @@ export const Slide11_ClsAndPositionDetail: React.FC = () => {
             <span className="font-semibold text-slate-900 text-xs">Matematiksel Dönüşüm:</span>
           </div>
 
-          <div className="flex items-center gap-2 font-mono text-[11px] sm:text-xs">
+          <div className="flex items-center gap-2 font-sans text-[11px] sm:text-xs">
             <span className="bg-purple-50 text-purple-800 px-2 py-0.5 rounded font-bold border border-purple-200">
               [CLS] Token: (1 × 768)
             </span>
@@ -112,14 +110,14 @@ export const Slide11_ClsAndPositionDetail: React.FC = () => {
         >
           <div className="flex items-center justify-between mb-1.5">
             <div className="flex items-center gap-2">
-              <div className="w-5 h-5 rounded-lg bg-blue-600 text-white font-mono font-bold text-xs flex items-center justify-center shadow-xs">
+              <div className="w-5 h-5 rounded-lg bg-blue-600 text-white font-sans font-bold text-xs flex items-center justify-center shadow-xs">
                 1
               </div>
               <h3 className="text-xs sm:text-sm font-bold text-slate-900 font-montserrat">
                 1D Position Embeddings
               </h3>
             </div>
-            <span className="text-[10px] font-mono font-semibold text-blue-700 bg-blue-100/70 px-2 py-0.5 rounded">
+            <span className="text-[10px] font-sans font-semibold text-blue-700 bg-blue-100/70 px-2 py-0.5 rounded">
               Uzamsal Sıra
             </span>
           </div>
@@ -128,7 +126,7 @@ export const Slide11_ClsAndPositionDetail: React.FC = () => {
             Görseli patch'lere ayırdık ancak Transformer bunların resmin neresine ait olduğunu bilmez; tıpkı masaya karışık saçılmış bir <span className="font-semibold text-slate-900">yapboz</span> gibidir. Hangi parçanın nerede durduğunu öğretmek için her patch'e birer <span className="font-semibold text-slate-900">1D Position Embedding</span> eklenir; böylece yapboz anlamlı bir bütün haline gelir.
           </p>
 
-          <div className="mt-2 bg-white/90 rounded-lg p-1.5 border border-blue-200/60 text-[11px] font-mono text-blue-900 font-medium flex items-center justify-between">
+          <div className="mt-2 bg-white/90 rounded-lg p-1.5 border border-blue-200/60 text-[11px] font-sans text-blue-900 font-medium flex items-center justify-between">
             <span>Matris Toplamı:</span>
             <strong>(197 × 768)</strong>
           </div>
@@ -143,14 +141,14 @@ export const Slide11_ClsAndPositionDetail: React.FC = () => {
         >
           <div className="flex items-center justify-between mb-1.5">
             <div className="flex items-center gap-2">
-              <div className="w-5 h-5 rounded-lg bg-purple-600 text-white font-mono font-bold text-xs flex items-center justify-center shadow-xs">
+              <div className="w-5 h-5 rounded-lg bg-purple-600 text-white font-sans font-bold text-xs flex items-center justify-center shadow-xs">
                 2
               </div>
               <h3 className="text-xs sm:text-sm font-bold text-slate-900 font-montserrat">
                 [CLS] Token
               </h3>
             </div>
-            <span className="text-[10px] font-mono font-semibold text-purple-700 bg-purple-100/70 px-2 py-0.5 rounded">
+            <span className="text-[10px] font-sans font-semibold text-purple-700 bg-purple-100/70 px-2 py-0.5 rounded">
               196 ➔ 197 × 768
             </span>
           </div>
@@ -159,7 +157,7 @@ export const Slide11_ClsAndPositionDetail: React.FC = () => {
             Derse (Encoder'a) <strong>bütün sınıf birlikte girer</strong>. Ders boyunca başkan (<span className="font-semibold text-purple-900">[CLS]</span>), 196 öğrencinin hepsiyle konuşup notlarını toplar. Dersin sonunda müdürün (<span className="font-semibold text-slate-900">MLP Head</span>) odasına sınıf adına <strong>sadece başkan ([CLS])</strong> gidip rapor verir.
           </p>
 
-          <div className="mt-2 bg-white/90 rounded-lg p-1.5 border border-purple-200/60 text-[11px] font-mono text-purple-900 font-medium flex items-center justify-between">
+          <div className="mt-2 bg-white/90 rounded-lg p-1.5 border border-purple-200/60 text-[11px] font-sans text-purple-900 font-medium flex items-center justify-between">
             <span>Giriş / Çıkış:</span>
             <strong>Giriş: 197 ➔ Tahmin: Sadece [CLS]</strong>
           </div>
@@ -174,14 +172,14 @@ export const Slide11_ClsAndPositionDetail: React.FC = () => {
         >
           <div className="flex items-center justify-between mb-1.5">
             <div className="flex items-center gap-2">
-              <div className="w-5 h-5 rounded-lg bg-emerald-600 text-white font-mono font-bold text-xs flex items-center justify-center shadow-xs">
+              <div className="w-5 h-5 rounded-lg bg-emerald-600 text-white font-sans font-bold text-xs flex items-center justify-center shadow-xs">
                 3
               </div>
               <h3 className="text-xs sm:text-sm font-bold text-slate-900 font-montserrat">
                 Encoder Çıktısı
               </h3>
             </div>
-            <span className="text-[10px] font-mono font-semibold text-emerald-700 bg-emerald-100/70 px-2 py-0.5 rounded">
+            <span className="text-[10px] font-sans font-semibold text-emerald-700 bg-emerald-100/70 px-2 py-0.5 rounded">
               Makaleden Alıntı
             </span>
           </div>
@@ -190,7 +188,7 @@ export const Slide11_ClsAndPositionDetail: React.FC = () => {
             Transformer Encoder çıkışındaki [CLS] token durumu, resmin nihai temsilidir. Hem ön eğitimde hem ince ayarda sınıflandırma başlığı doğrudan bu duruma bağlanır.
           </p>
 
-          <div className="mt-2 bg-white/90 rounded-lg p-1.5 border border-emerald-200/60 text-[11px] font-mono text-emerald-900 font-medium flex items-center justify-between">
+          <div className="mt-2 bg-white/90 rounded-lg p-1.5 border border-emerald-200/60 text-[11px] font-sans text-emerald-900 font-medium flex items-center justify-between">
             <span>Bağlantı Noktası:</span>
             <strong>[CLS] Çıktısı ➔ MLP Head </strong>
           </div>

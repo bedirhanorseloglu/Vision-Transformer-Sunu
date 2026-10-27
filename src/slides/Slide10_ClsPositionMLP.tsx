@@ -45,10 +45,10 @@ export const Slide10_ClsPositionMLP: React.FC = () => {
       >
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <span className="text-xs font-mono font-bold tracking-wider text-purple-700 bg-purple-50 px-2.5 py-0.5 rounded-full border border-purple-200/60">
+            <span className="text-xs font-sans font-bold tracking-wider text-purple-700 bg-purple-50 px-2.5 py-0.5 rounded-full border border-purple-200/60">
               BÖLÜM 3: VISION TRANSFORMER (ViT)
             </span>
-            <span className="text-xs text-slate-400 font-mono">| 197×768 Matrisi, Encoder & MLP Head Tahmini</span>
+            <span className="text-xs text-slate-400 font-sans">| 197×768 Matrisi, Encoder & MLP Head Tahmini</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-montserrat tracking-tight">
             3, 4 ve 5. Adım: [CLS] Token, Position Embedding ve Sınıflandırma
@@ -57,10 +57,8 @@ export const Slide10_ClsPositionMLP: React.FC = () => {
 
         {/* Sağ Üst: Slayt Numarası & Referans */}
         <div className="hidden sm:flex items-center gap-2">
-          <span className="text-xs font-mono text-slate-500 bg-slate-50 px-3 py-1.5 rounded-full border border-slate-200 font-medium">
-            Aman Arora (Fig-2 Devamı)
-          </span>
-          <div className="flex items-center gap-1.5 text-xs font-mono font-semibold text-purple-700 bg-purple-50 px-3 py-1.5 rounded-full border border-purple-200">
+
+          <div className="flex items-center gap-1.5 text-xs font-sans font-semibold text-purple-700 bg-purple-50 px-3 py-1.5 rounded-full border border-purple-200">
             <span className="w-2 h-2 rounded-full bg-purple-600 animate-pulse" />
             <span>Slayt 10</span>
           </div>
@@ -82,7 +80,7 @@ export const Slide10_ClsPositionMLP: React.FC = () => {
               [CLS] Token (1) + 196 Patch = 197×768 Matris ➔ Transformer Encoder ➔ MLP Head ➔ Sınıf Tahmini
             </span>
           </div>
-          <span className="text-[10px] font-mono text-purple-700 bg-purple-50 px-2 py-0.5 rounded border border-purple-200 font-semibold">
+          <span className="text-[10px] font-sans text-purple-700 bg-purple-50 px-2 py-0.5 rounded border border-purple-200 font-semibold">
             Matris Boyutu: 197 × 768
           </span>
         </div>
@@ -110,14 +108,14 @@ export const Slide10_ClsPositionMLP: React.FC = () => {
           <div>
             <div className="flex items-center justify-between mb-1.5">
               <div className="flex items-center gap-2">
-                <div className="w-5 h-5 rounded-lg bg-purple-600 text-white font-mono font-bold text-xs flex items-center justify-center shadow-xs">
+                <div className="w-5 h-5 rounded-lg bg-purple-600 text-white font-sans font-bold text-xs flex items-center justify-center shadow-xs">
                   3
                 </div>
                 <h3 className="text-xs sm:text-sm font-bold text-slate-900 font-montserrat">
                   [CLS] Token & Position Embedding
                 </h3>
               </div>
-              <span className="text-[10px] font-mono font-semibold text-purple-700 bg-purple-100/70 px-2 py-0.5 rounded">
+              <span className="text-[10px] font-sans font-semibold text-purple-700 bg-purple-100/70 px-2 py-0.5 rounded">
                 196 ➔ 197×768
               </span>
             </div>
@@ -127,7 +125,7 @@ export const Slide10_ClsPositionMLP: React.FC = () => {
             </p>
           </div>
 
-          <div className="mt-2 bg-white/90 rounded-lg p-1.5 border border-purple-200/60 text-[11px] font-mono text-purple-900 font-medium flex items-center justify-between shadow-2xs">
+          <div className="mt-2 bg-white/90 rounded-lg p-1.5 border border-purple-200/60 text-[11px] font-sans text-purple-900 font-medium flex items-center justify-between shadow-2xs">
             <span>[CLS] (1) + 196 Patch:</span>
             <strong>➔ 197 × 768</strong>
           </div>
@@ -143,7 +141,7 @@ export const Slide10_ClsPositionMLP: React.FC = () => {
           <div>
             <div className="flex items-center justify-between mb-1.5">
               <div className="flex items-center gap-2">
-                <div className="w-5 h-5 rounded-lg bg-amber-600 text-white font-mono font-bold text-xs flex items-center justify-center shadow-xs">
+                <div className="w-5 h-5 rounded-lg bg-amber-600 text-white font-sans font-bold text-xs flex items-center justify-center shadow-xs">
                   4
                 </div>
                 <h3 className="text-xs sm:text-sm font-bold text-slate-900 font-montserrat">
@@ -169,7 +167,7 @@ export const Slide10_ClsPositionMLP: React.FC = () => {
                 whileHover={{ scale: 1.08 }}
                 whileTap={{ scale: 0.96 }}
                 onClick={() => setIsAttentionModalOpen(true)}
-                className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-amber-500 via-amber-600 to-orange-500 text-white font-mono text-[11px] font-bold border border-amber-300 shadow-md cursor-pointer group"
+                className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-amber-500 via-amber-600 to-orange-500 text-white font-sans text-[11px] font-bold border border-amber-300 shadow-md cursor-pointer group"
                 title="Şekil 6 Dikkat Haritasını Büyüt (Tıkla)"
               >
                 <span className="relative flex h-2 w-2">
@@ -186,9 +184,9 @@ export const Slide10_ClsPositionMLP: React.FC = () => {
             </p>
           </div>
 
-          <div 
+          <div
             onClick={() => setIsAttentionModalOpen(true)}
-            className="mt-2 bg-amber-100/50 hover:bg-amber-100 rounded-lg p-1.5 border border-amber-300/80 text-[11px] font-mono text-amber-950 font-medium flex items-center justify-between shadow-2xs cursor-pointer transition-all hover:scale-[1.01]"
+            className="mt-2 bg-amber-100/50 hover:bg-amber-100 rounded-lg p-1.5 border border-amber-300/80 text-[11px] font-sans text-amber-950 font-medium flex items-center justify-between shadow-2xs cursor-pointer transition-all hover:scale-[1.01]"
             title="Dikkat Haritasını Açmak İçin Tıklayın"
           >
             <span>Özet Çıktı: <strong>[CLS] = 1 × 768</strong></span>
@@ -208,14 +206,14 @@ export const Slide10_ClsPositionMLP: React.FC = () => {
           <div>
             <div className="flex items-center justify-between mb-1.5">
               <div className="flex items-center gap-2">
-                <div className="w-5 h-5 rounded-lg bg-emerald-600 text-white font-mono font-bold text-xs flex items-center justify-center shadow-xs">
+                <div className="w-5 h-5 rounded-lg bg-emerald-600 text-white font-sans font-bold text-xs flex items-center justify-center shadow-xs">
                   5
                 </div>
                 <h3 className="text-xs sm:text-sm font-bold text-slate-900 font-montserrat">
                   MLP Head & Tahmin
                 </h3>
               </div>
-              <span className="text-[10px] font-mono font-semibold text-emerald-700 bg-emerald-100/70 px-2 py-0.5 rounded">
+              <span className="text-[10px] font-sans font-semibold text-emerald-700 bg-emerald-100/70 px-2 py-0.5 rounded">
                 Sınıflandırma
               </span>
             </div>
@@ -225,7 +223,7 @@ export const Slide10_ClsPositionMLP: React.FC = () => {
             </p>
           </div>
 
-          <div className="mt-2 bg-white/90 rounded-lg p-1.5 border border-emerald-200/60 text-[11px] font-mono text-emerald-900 font-medium flex items-center justify-between shadow-2xs">
+          <div className="mt-2 bg-white/90 rounded-lg p-1.5 border border-emerald-200/60 text-[11px] font-sans text-emerald-900 font-medium flex items-center justify-between shadow-2xs">
             <span>Tahmin Sonucu:</span>
             <strong>FROG (Kurbağa) %94</strong>
           </div>
@@ -261,7 +259,7 @@ export const Slide10_ClsPositionMLP: React.FC = () => {
                     <h3 className="text-sm sm:text-base font-extrabold text-slate-900 font-montserrat">
                       Self-Attention Dikkat Haritaları
                     </h3>
-                    <p className="text-[11px] text-slate-500 font-mono">
+                    <p className="text-[11px] text-slate-500 font-sans">
                       Makale Şekil 6 (Figure 6) — Dosovitskiy et al.
                     </p>
                   </div>

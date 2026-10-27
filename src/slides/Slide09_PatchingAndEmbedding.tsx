@@ -27,15 +27,15 @@ export const Slide09_PatchingAndEmbedding: React.FC = () => {
       >
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <span className="text-xs font-mono font-bold tracking-wider text-blue-700 bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-200/60">
+            <span className="text-xs font-sans font-bold tracking-wider text-blue-700 bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-200/60">
               BÖLÜM 3: VISION TRANSFORMER (ViT)</span>
-            <span className="text-xs text-slate-400 font-mono">| 224×224 Görüntüden 196×768 Matrisine Geçiş</span>
+            <span className="text-xs text-slate-400 font-sans">| 224×224 Görüntüden 196×768 Matrisine Geçiş</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-montserrat tracking-tight">
             1. ve 2. Adım: Patch'lere Bölme ve Patch Embedding</h2>
         </div>
 
-        <div className="hidden sm:flex items-center gap-2 text-xs font-mono font-semibold text-slate-500 bg-slate-50 px-3 py-1.5 rounded-full border border-slate-200">
+        <div className="hidden sm:flex items-center gap-2 text-xs font-sans font-semibold text-slate-500 bg-slate-50 px-3 py-1.5 rounded-full border border-slate-200">
           <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
           <span>Slayt 09</span>
         </div>
@@ -56,7 +56,7 @@ export const Slide09_PatchingAndEmbedding: React.FC = () => {
               Görüntü (224×224×3) ➔ 196 Patch ➔ Linear Projection ➔ Patch Embeddings (196×768)
             </span>
           </div>
-          <span className="text-[10px] font-mono text-slate-500 bg-white px-2 py-0.5 rounded border border-slate-200">
+          <span className="text-[10px] font-sans text-slate-500 bg-white px-2 py-0.5 rounded border border-slate-200">
             Aman Arora (Fig-2)
           </span>
         </div>
@@ -83,14 +83,14 @@ export const Slide09_PatchingAndEmbedding: React.FC = () => {
         >
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-2">
-              <div className="w-7 h-7 rounded-lg bg-blue-600 text-white font-mono font-bold text-xs flex items-center justify-center">
+              <div className="w-7 h-7 rounded-lg bg-blue-600 text-white font-sans font-bold text-xs flex items-center justify-center">
                 1
               </div>
               <h3 className="text-sm sm:text-base font-bold text-slate-900 font-montserrat">
                 Patch'lere Bölme
               </h3>
             </div>
-            <span className="text-[10px] font-mono font-semibold text-blue-700 bg-blue-100/70 px-2 py-0.5 rounded">
+            <span className="text-[10px] font-sans font-semibold text-blue-700 bg-blue-100/70 px-2 py-0.5 rounded">
               196 Patch
             </span>
           </div>
@@ -99,7 +99,7 @@ export const Slide09_PatchingAndEmbedding: React.FC = () => {
             <span className="font-semibold text-slate-900">224×224</span> boyutundaki 3 kanallı (RGB) görüntü, <span className="font-semibold text-slate-900">16×16</span> boyutunda küçük kare patch'lere ayrılır.
           </p>
 
-          <div className="bg-white/90 rounded-xl p-2.5 border border-blue-200/60 flex items-center justify-between text-xs font-mono">
+          <div className="bg-white/90 rounded-xl p-2.5 border border-blue-200/60 flex items-center justify-between text-xs font-sans">
             <span className="text-slate-600">Patch Sayısı (N):</span>
             <span className="font-bold text-blue-700">14 × 14 = 196 adet</span>
             <span className="text-slate-400">|</span>
@@ -117,14 +117,14 @@ export const Slide09_PatchingAndEmbedding: React.FC = () => {
         >
           <div className="flex items-center justify-between mb-2">
             <div className="flex items-center gap-2">
-              <div className="w-7 h-7 rounded-lg bg-purple-600 text-white font-mono font-bold text-xs flex items-center justify-center">
+              <div className="w-7 h-7 rounded-lg bg-purple-600 text-white font-sans font-bold text-xs flex items-center justify-center">
                 2
               </div>
               <h3 className="text-sm sm:text-base font-bold text-slate-900 font-montserrat">
                 Patch Embedding ve Lineer Projection
               </h3>
             </div>
-            <span className="text-[10px] font-mono font-semibold text-purple-700 bg-purple-100/70 px-2 py-0.5 rounded">
+            <span className="text-[10px] font-sans font-semibold text-purple-700 bg-purple-100/70 px-2 py-0.5 rounded">
               196 × 768 Matris
             </span>
           </div>
@@ -133,7 +133,7 @@ export const Slide09_PatchingAndEmbedding: React.FC = () => {
             Her patch düzleştirilir ve eğitilebilir bir <strong className="text-slate-900">Linear Projection</strong> ile <span className="font-semibold text-purple-900">1×768</span> boyutlu bir vektöre (mor kutular) dönüştürülür.
           </p>
 
-          <div className="bg-white/90 rounded-xl p-2.5 border border-purple-200/60 flex items-center justify-between text-xs font-mono">
+          <div className="bg-white/90 rounded-xl p-2.5 border border-purple-200/60 flex items-center justify-between text-xs font-sans">
             <span className="text-slate-600">Çıktı Matrisi:</span>
             <span className="font-bold text-purple-700">196 (Patch) × 768 (D)</span>
             <span className="text-slate-400">|</span>

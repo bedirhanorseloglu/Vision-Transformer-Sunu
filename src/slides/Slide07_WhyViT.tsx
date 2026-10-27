@@ -59,9 +59,7 @@ export const Slide07_WhyViT: React.FC = () => {
                 Büyük Fikir: Standart Transformer'ı Görüntüye Taşımak
               </h3>
             </div>
-            <span className="text-[10px] font-mono font-semibold text-blue-700 bg-blue-100/70 px-2 py-0.5 rounded">
-              Dosovitskiy et al. (Google Research)
-            </span>
+
           </div>
 
           {/* Large Image/GIF Container */}

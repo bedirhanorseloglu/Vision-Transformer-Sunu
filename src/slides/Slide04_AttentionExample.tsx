@@ -94,15 +94,15 @@ export const Slide04_AttentionExample: React.FC = () => {
       >
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <span className="text-xs font-mono font-bold tracking-wider text-blue-700 bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-200/60">
+            <span className="text-xs font-sans font-bold tracking-wider text-blue-700 bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-200/60">
               BÖLÜM 1: DİKKAT (ATTENTION) & SEQ2SEQ</span>
-            <span className="text-xs text-slate-400 font-mono">| Sıra Değişimi & Dikkat Hizalaması</span>
+            <span className="text-xs text-slate-400 font-sans">| Sıra Değişimi & Dikkat Hizalaması</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-montserrat tracking-tight">
             Uygulamalı Örnek: Çeviri ve Attention</h2>
         </div>
 
-        <div className="hidden sm:flex items-center gap-2 text-xs font-mono font-semibold text-slate-500 bg-slate-50 px-3 py-1.5 rounded-full border border-slate-200">
+        <div className="hidden sm:flex items-center gap-2 text-xs font-sans font-semibold text-slate-500 bg-slate-50 px-3 py-1.5 rounded-full border border-slate-200">
           <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
           <span>Slayt 04</span>
         </div>
@@ -139,7 +139,7 @@ export const Slide04_AttentionExample: React.FC = () => {
             {!isPlaying && (
               <div className="absolute top-3 right-3 bg-black/60 border border-white/20 text-white text-xs px-2.5 py-1 rounded-full flex items-center gap-1.5 pointer-events-none select-none">
                 <span className="w-2 h-2 rounded-full bg-amber-400" />
-                <span className="font-mono font-medium">Durduruldu</span>
+                <span className="font-sans font-medium">Durduruldu</span>
               </div>
             )}
           </div>
@@ -148,7 +148,7 @@ export const Slide04_AttentionExample: React.FC = () => {
           <div className="mt-3 bg-white rounded-xl p-2.5 sm:p-3 border border-slate-200/80 flex flex-col gap-2 shrink-0 shadow-xs">
             {/* Scrubber Progress Bar */}
             <div className="flex items-center gap-3">
-              <span className="text-[11px] font-mono text-slate-500 shrink-0 w-9 text-right font-medium">
+              <span className="text-[11px] font-sans text-slate-500 shrink-0 w-9 text-right font-medium">
                 {formatTime(currentTime)}
               </span>
               <input
@@ -160,7 +160,7 @@ export const Slide04_AttentionExample: React.FC = () => {
                 onChange={handleSeek}
                 className="w-full h-1.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-blue-600 hover:accent-blue-500"
               />
-              <span className="text-[11px] font-mono text-slate-500 shrink-0 w-9 font-medium">
+              <span className="text-[11px] font-sans text-slate-500 shrink-0 w-9 font-medium">
                 {formatTime(duration)}
               </span>
             </div>
@@ -213,7 +213,7 @@ export const Slide04_AttentionExample: React.FC = () => {
                   title={isMuted ? "Sesi Aç" : "Sesi Kapat"}
                 >
                   {isMuted ? <VolumeX className="w-4 h-4 text-amber-600" /> : <Volume2 className="w-4 h-4 text-emerald-600" />}
-                  <span className="hidden sm:inline text-[11px] font-mono font-medium">{isMuted ? "Sessiz" : "Sesli"}</span>
+                  <span className="hidden sm:inline text-[11px] font-sans font-medium">{isMuted ? "Sessiz" : "Sesli"}</span>
                 </button>
               </div>
             </div>
@@ -231,7 +231,7 @@ export const Slide04_AttentionExample: React.FC = () => {
           <div className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200 shadow-sm shrink-0">
             <div className="flex items-center gap-2 mb-3 pb-2 border-b border-slate-100">
               <BookmarkCheck className="w-4 h-4 text-blue-600" />
-              <h3 className="text-xs font-mono font-bold tracking-wider text-blue-700 uppercase">
+              <h3 className="text-xs font-sans font-bold tracking-wider text-blue-700 uppercase">
                 Temel Notasyonlar
               </h3>
             </div>
@@ -240,28 +240,28 @@ export const Slide04_AttentionExample: React.FC = () => {
               <li className="flex items-start gap-2.5">
                 <span className="w-2 h-2 rounded-full bg-blue-600 mt-1.5 shrink-0" />
                 <span>
-                  <strong className="text-slate-900 font-bold font-mono">Alfa (α):</strong>{' '}
+                  <strong className="text-slate-900 font-bold font-sans">Alfa (α):</strong>{' '}
                   <span className="text-slate-600">Attention ağırlıkları (Her kelimeye verilen önem skoru).</span>
                 </span>
               </li>
               <li className="flex items-start gap-2.5">
                 <span className="w-2 h-2 rounded-full bg-indigo-600 mt-1.5 shrink-0" />
                 <span>
-                  <strong className="text-slate-900 font-bold font-mono">H:</strong>{' '}
+                  <strong className="text-slate-900 font-bold font-sans">H:</strong>{' '}
                   <span className="text-slate-600">Encoder gizli durumları (Girdi kelimelerinin hafıza vektörleri).</span>
                 </span>
               </li>
               <li className="flex items-start gap-2.5">
                 <span className="w-2 h-2 rounded-full bg-amber-500 mt-1.5 shrink-0" />
                 <span>
-                  <strong className="text-slate-900 font-bold font-mono">HD:</strong>{' '}
+                  <strong className="text-slate-900 font-bold font-sans">HD:</strong>{' '}
                   <span className="text-slate-600">Decoder gizli durumları (O ana kadar üretilen çıktının hafızası).</span>
                 </span>
               </li>
               <li className="flex items-start gap-2.5">
                 <span className="w-2 h-2 rounded-full bg-emerald-600 mt-1.5 shrink-0" />
                 <span>
-                  <strong className="text-slate-900 font-bold font-mono">A:</strong>{' '}
+                  <strong className="text-slate-900 font-bold font-sans">A:</strong>{' '}
                   <span className="text-slate-600">Context vektörü (Ağırlıklı toplamla oluşturulan odak özeti).</span>
                 </span>
               </li>

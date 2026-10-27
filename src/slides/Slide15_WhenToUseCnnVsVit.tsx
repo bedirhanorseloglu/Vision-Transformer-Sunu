@@ -12,7 +12,7 @@ export const Slide15_WhenToUseCnnVsVit: React.FC = () => {
 
   return (
     <div className="relative w-full h-full bg-white rounded-3xl shadow-[0_20px_50px_-15px_rgba(37,99,235,0.07)] border border-slate-200/90 overflow-hidden flex flex-col justify-between p-5 sm:p-7 md:p-8 select-none">
-      
+
       {/* Background soft ambient accents */}
       <div className="absolute top-0 right-0 w-[500px] h-[350px] bg-blue-500/5 rounded-full blur-[90px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[450px] h-[300px] bg-indigo-500/5 rounded-full blur-[90px] pointer-events-none" />
@@ -26,10 +26,10 @@ export const Slide15_WhenToUseCnnVsVit: React.FC = () => {
       >
         <div>
           <div className="flex items-center gap-2 mb-1">
-            <span className="text-xs font-mono font-bold tracking-wider text-blue-700 bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-200/60">
+            <span className="text-xs font-sans font-bold tracking-wider text-blue-700 bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-200/60">
               BÖLÜM 4: DENEYSEL ANALİZ & PRATİK SEÇİM
             </span>
-            <span className="text-xs text-slate-400 font-mono">
+            <span className="text-xs text-slate-400 font-sans">
               | Hangi Senaryoda Hangi Mimari Tercih Edilmeli?
             </span>
           </div>
@@ -40,10 +40,10 @@ export const Slide15_WhenToUseCnnVsVit: React.FC = () => {
 
         {/* Sağ Üst: Referans & Slayt Numarası */}
         <div className="hidden sm:flex items-center gap-2">
-          <span className="text-xs font-mono text-slate-500 bg-slate-50 px-3 py-1.5 rounded-full border border-slate-200 font-medium">
+          <span className="text-xs font-sans text-slate-500 bg-slate-50 px-3 py-1.5 rounded-full border border-slate-200 font-medium">
             Makale Bölüm 4.2 & 4.3
           </span>
-          <div className="flex items-center gap-1.5 text-xs font-mono font-semibold text-blue-700 bg-blue-50 px-3 py-1.5 rounded-full border border-blue-200">
+          <div className="flex items-center gap-1.5 text-xs font-sans font-semibold text-blue-700 bg-blue-50 px-3 py-1.5 rounded-full border border-blue-200">
             <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
             <span>Slayt 15</span>
           </div>
@@ -69,17 +69,7 @@ export const Slide15_WhenToUseCnnVsVit: React.FC = () => {
             />
           </div>
 
-          {/* Alt Bilgi Bandı: İki Dünyanın Karşılaştırması */}
-          <div className="mt-3 pt-2 border-t border-slate-200/80 flex items-center justify-between text-xs text-slate-600 font-medium">
-            <div className="flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-blue-600 shrink-0" />
-              <span><strong>CNN:</strong> Kayan pencere (Dar yerel alan) ➔ Az veride güvenli liman</span>
-            </div>
-            <div className="flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-emerald-600 shrink-0" />
-              <span><strong>ViT:</strong> Tüm resme yayılan dikkat ➔ Büyük veride lider</span>
-            </div>
-          </div>
+
         </motion.div>
 
         {/* SAĞ: HANGİ DURUMDA NE KULLANILIR? (5 Kolon - 3 Net Kart) */}
@@ -101,7 +91,7 @@ export const Slide15_WhenToUseCnnVsVit: React.FC = () => {
                     1. Küçük & Orta Veri (&lt; 10M Görsel)
                   </h3>
                 </div>
-                <span className="text-[10px] font-mono font-bold text-blue-700 bg-white px-2 py-0.5 rounded-full border border-blue-200">
+                <span className="text-[10px] font-sans font-bold text-blue-700 bg-white px-2 py-0.5 rounded-full border border-blue-200">
                   CNN Tercih Edilmeli
                 </span>
               </div>
@@ -109,7 +99,7 @@ export const Slide15_WhenToUseCnnVsVit: React.FC = () => {
                 Veriniz kısıtlıysa (ImageNet-1K gibi), <strong>CNN (ResNet)</strong> daha başarılıdır. CNN'in doğuştan gelen <em>yerel arama kuralı</em> az veride rehber olur. ViT ise bu kurallardan yoksun olduğu için az veriyi ezberler (overfitting).
               </p>
             </div>
-            <div className="mt-2 bg-white/90 rounded-lg py-1 px-2.5 border border-blue-100 text-[11px] font-mono text-slate-700 flex items-center justify-between">
+            <div className="mt-2 bg-white/90 rounded-lg py-1 px-2.5 border border-blue-100 text-[11px] font-sans text-slate-700 flex items-center justify-between">
               <span>Makale Sonucu:</span>
               <strong className="text-blue-700 font-bold">ImageNet-1K'da ResNet Öndedir</strong>
             </div>
@@ -127,7 +117,7 @@ export const Slide15_WhenToUseCnnVsVit: React.FC = () => {
                     2. Devasa Büyük Veri (&gt; 100M-300M)
                   </h3>
                 </div>
-                <span className="text-[10px] font-mono font-bold text-emerald-800 bg-white px-2 py-0.5 rounded-full border border-emerald-200">
+                <span className="text-[10px] font-sans font-bold text-emerald-800 bg-white px-2 py-0.5 rounded-full border border-emerald-200">
                   ViT Tercih Edilmeli
                 </span>
               </div>
@@ -135,7 +125,7 @@ export const Slide15_WhenToUseCnnVsVit: React.FC = () => {
                 Elinizde JFT-300M gibi yüz milyonlarca görsel varsa, <strong>Vision Transformer</strong> seçilmelidir. CNN yerel filtreleri yüzünden bir süre sonra doygunluğa (tavana) ulaşır; ViT ise küresel dikkatiyle sınırsızca öğrenir ve rekor kırar.
               </p>
             </div>
-            <div className="mt-2 bg-white/90 rounded-lg py-1 px-2.5 border border-emerald-100 text-[11px] font-mono text-slate-700 flex items-center justify-between">
+            <div className="mt-2 bg-white/90 rounded-lg py-1 px-2.5 border border-emerald-100 text-[11px] font-sans text-slate-700 flex items-center justify-between">
               <span>Makale Sonucu:</span>
               <strong className="text-emerald-800 font-bold">JFT-300M'de ViT SOTA (%88.55)</strong>
             </div>
@@ -153,7 +143,7 @@ export const Slide15_WhenToUseCnnVsVit: React.FC = () => {
                     3. Pratikteki Çözüm: Fine-Tuning
                   </h3>
                 </div>
-                <span className="text-[10px] font-mono font-bold text-purple-800 bg-white px-2 py-0.5 rounded-full border border-purple-200">
+                <span className="text-[10px] font-sans font-bold text-purple-800 bg-white px-2 py-0.5 rounded-full border border-purple-200">
                   En Yaygın Kullanım
                 </span>
               </div>
@@ -161,7 +151,7 @@ export const Slide15_WhenToUseCnnVsVit: React.FC = () => {
                 Kimsenin sıfırdan 300 milyon resim eğitecek TPU bütçesi yoktur. Bu yüzden pratikte <strong>büyük veride önceden eğitilmiş (Pre-trained) ViT alınır</strong> ve kendi küçük hedef verimize <strong>ince ayar (Fine-tuning)</strong> yapılır.
               </p>
             </div>
-            <div className="mt-2 bg-white/90 rounded-lg py-1 px-2.5 border border-purple-100 text-[11px] font-mono text-purple-900 flex items-center justify-between">
+            <div className="mt-2 bg-white/90 rounded-lg py-1 px-2.5 border border-purple-100 text-[11px] font-sans text-purple-900 flex items-center justify-between">
               <span>En İyi Pratik:</span>
               <strong className="text-purple-800 font-bold">Pre-trained ViT + Fine-Tuning</strong>
             </div>

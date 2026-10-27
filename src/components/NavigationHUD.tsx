@@ -1,11 +1,11 @@
 import React from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { 
-  ChevronLeft, 
-  ChevronRight, 
-  Maximize2, 
-  Minimize2, 
-  Layers 
+import {
+  ChevronLeft,
+  ChevronRight,
+  Maximize2,
+  Minimize2,
+  Layers
 } from 'lucide-react'
 import type { SlideMeta } from '../types/presentation'
 
@@ -54,15 +54,12 @@ export const NavigationHUD: React.FC<NavigationHUDProps> = ({
         <div className="glass-capsule hairline-border px-3.5 py-1.5 rounded-full flex items-center gap-2.5 shadow-sm">
           <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_6px_#10b981]" />
           <span className="text-xs font-semibold tracking-wider text-slate-800 uppercase">
-            ViT Seminar
-          </span>
-          <span className="text-[10px] px-1.5 py-0.5 rounded-md bg-indigo-50 text-indigo-700 font-mono font-semibold border border-indigo-100">
-            ICLR 2021
+            Vısıon Transformer
           </span>
         </div>
 
         {currentMeta?.section && (
-          <motion.div 
+          <motion.div
             key={currentMeta.section}
             initial={{ opacity: 0, x: -8 }}
             animate={{ opacity: 1, x: 0 }}
@@ -76,7 +73,7 @@ export const NavigationHUD: React.FC<NavigationHUDProps> = ({
       </header>
 
       {/* Floating Bottom Navigation Capsule */}
-      <nav 
+      <nav
         aria-label="Presentation Navigation"
         className="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 pointer-events-auto flex items-center"
       >
@@ -180,18 +177,16 @@ export const NavigationHUD: React.FC<NavigationHUDProps> = ({
                         onSelectSlide(idx)
                         setIsOverviewOpen(false)
                       }}
-                      className={`text-left p-4 rounded-2xl border transition-all duration-200 group relative ${
-                        isActive 
-                          ? 'bg-indigo-50/80 border-indigo-300 ring-2 ring-indigo-500/20 shadow-md' 
-                          : 'bg-slate-50/70 border-slate-200/70 hover:bg-white hover:border-slate-300 hover:shadow-sm'
-                      }`}
+                      className={`text-left p-4 rounded-2xl border transition-all duration-200 group relative ${isActive
+                        ? 'bg-indigo-50/80 border-indigo-300 ring-2 ring-indigo-500/20 shadow-md'
+                        : 'bg-slate-50/70 border-slate-200/70 hover:bg-white hover:border-slate-300 hover:shadow-sm'
+                        }`}
                     >
                       <div className="flex items-center justify-between mb-2">
-                        <span className={`text-[10px] font-mono px-2 py-0.5 rounded-md ${
-                          isActive 
-                            ? 'bg-indigo-600 text-white font-bold' 
-                            : 'bg-white text-slate-600 border border-slate-200 group-hover:text-slate-900'
-                        }`}>
+                        <span className={`text-[10px] font-mono px-2 py-0.5 rounded-md ${isActive
+                          ? 'bg-indigo-600 text-white font-bold'
+                          : 'bg-white text-slate-600 border border-slate-200 group-hover:text-slate-900'
+                          }`}>
                           #{idx + 1}
                         </span>
                         {s.section && (

@@ -12,7 +12,7 @@ export const Slide13_InductiveBiasComparison: React.FC = () => {
 
   return (
     <div className="relative w-full h-full bg-white rounded-3xl shadow-[0_20px_50px_-15px_rgba(37,99,235,0.07)] border border-slate-200/90 overflow-hidden flex flex-col justify-between p-6 sm:p-8 md:p-9 select-none">
-      
+
       {/* Background soft ambient accents */}
       <div className="absolute top-0 right-0 w-[500px] h-[350px] bg-blue-500/5 rounded-full blur-[90px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[450px] h-[300px] bg-indigo-500/5 rounded-full blur-[90px] pointer-events-none" />
@@ -77,9 +77,7 @@ export const Slide13_InductiveBiasComparison: React.FC = () => {
                 <strong className="text-slate-900 font-semibold">CNN Şablonu:</strong> Girdi küçük yerel konilerle işlenir; küresel bağlam ancak en son katmanda kurulur.
               </span>
             </div>
-            <span className="font-mono text-[11px] text-blue-700 font-bold bg-blue-50 px-2 py-0.5 rounded border border-blue-200/60 shrink-0 ml-2">
-              A lot of guidance
-            </span>
+
           </div>
         </motion.div>
 
@@ -101,7 +99,7 @@ export const Slide13_InductiveBiasComparison: React.FC = () => {
                   CNN: Yüksek Inductive Bias (Katı Rehberlik)
                 </h3>
               </div>
-              
+
               <div className="space-y-2 text-xs sm:text-sm text-slate-700 leading-relaxed">
                 <p>
                   <strong>İnsan Eliyle Rehberlik:</strong> Modele baştan <em>"Görüntüyü anlamak için önce sadece yan yana piksellere (kenar/çizgi) bakacaksın"</em> kuralı dikte edilir.

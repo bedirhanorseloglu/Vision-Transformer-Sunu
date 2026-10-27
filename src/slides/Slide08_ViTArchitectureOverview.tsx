@@ -108,9 +108,7 @@ export const Slide08_ViTArchitectureOverview: React.FC = () => {
                 Baştan Sona ViT Mimarisi (Pipeline)
               </h3>
             </div>
-            <span className="text-[10px] font-mono font-semibold text-blue-700 bg-blue-100/70 px-2 py-0.5 rounded">
-              Dosovitskiy et al. (2021)
-            </span>
+
           </div>
 
           {/* Large Image/GIF Container */}

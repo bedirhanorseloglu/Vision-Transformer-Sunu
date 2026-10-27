@@ -72,18 +72,7 @@ export const Slide17_Conclusion: React.FC = () => {
           transition={{ duration: 0.28, delay: 0.08, ease: PUNCHY_EASE }}
           className="lg:col-span-5 flex flex-col justify-between bg-slate-50/80 rounded-2xl p-3.5 border border-slate-200/90 shadow-2xs h-full group"
         >
-          {/* Görsel Kartı Başlığı */}
-          <div className="flex items-center justify-between pb-2 mb-2 border-b border-slate-200/80 shrink-0">
-            <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-blue-600" />
-              <h3 className="text-xs sm:text-sm font-bold text-slate-800 font-montserrat">
-                Geleceğe Yön Veren 3 Araştırma Alanı
-              </h3>
-            </div>
-            <span className="text-xs font-medium text-slate-500 font-sans">
-              İnfografik
-            </span>
-          </div>
+
 
           {/* Görsel Kutusu */}
           <div
