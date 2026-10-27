@@ -16,7 +16,7 @@ import {
   Wrench
 } from 'lucide-react'
 
-export const Slide13_InductiveBiasLack: React.FC = () => {
+export const Slide14_PatchSizeQuadraticCost: React.FC = () => {
   const PUNCHY_EASE = [0.16, 1, 0.3, 1] as const
   const videoRef = useRef<HTMLVideoElement>(null)
 
@@ -121,7 +121,7 @@ export const Slide13_InductiveBiasLack: React.FC = () => {
           </span>
           <div className="flex items-center gap-1.5 text-xs font-mono font-semibold text-blue-700 bg-blue-50 px-3 py-1.5 rounded-full border border-blue-200">
             <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
-            <span>Slayt 13</span>
+            <span>Slayt 14</span>
           </div>
         </div>
       </motion.div>

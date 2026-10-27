@@ -4,6 +4,7 @@ import { SlideContainer } from './components/SlideContainer'
 import { presentationSlides } from './slides'
 
 export function App() {
+  const isExportMode = window.location.search.includes('export=true')
   const [currentSlide, setCurrentSlide] = useState<number>(() => {
     const hash = window.location.hash.replace('#', '')
     const num = parseInt(hash, 10)
@@ -90,11 +91,11 @@ export function App() {
 
   return (
     <main className="relative w-screen h-screen overflow-hidden bg-[#f8fafc] text-slate-900 select-none">
-      <SlideContainer currentSlide={currentSlide} direction={direction}>
+      <SlideContainer currentSlide={currentSlide} direction={direction} isExportMode={isExportMode}>
         <CurrentSlideComponent />
       </SlideContainer>
 
-      <NavigationHUD
+      {!isExportMode && <NavigationHUD
         currentSlide={currentSlide}
         totalSlides={presentationSlides.length}
         slides={presentationSlides}
@@ -105,7 +106,7 @@ export function App() {
         setIsOverviewOpen={setIsOverviewOpen}
         isFullscreen={isFullscreen}
         toggleFullscreen={toggleFullscreen}
-      />
+      />}
     </main>
   )
 }

@@ -4,12 +4,14 @@ import { motion, AnimatePresence, type Variants } from 'framer-motion'
 interface SlideContainerProps {
   currentSlide: number
   direction: number
+  isExportMode?: boolean
   children: React.ReactNode
 }
 
 export const SlideContainer: React.FC<SlideContainerProps> = ({
   currentSlide,
   direction,
+  isExportMode,
   children,
 }) => {
   const PUNCHY_EASE = [0.16, 1, 0.3, 1] as const
@@ -41,7 +43,7 @@ export const SlideContainer: React.FC<SlideContainerProps> = ({
   }
 
   return (
-    <div className="relative w-full h-screen flex items-center justify-center p-3 sm:p-5 md:p-6 lg:p-8 pt-4 pb-20 overflow-hidden select-none">
+    <div className={`relative w-full h-screen flex items-center justify-center ${isExportMode ? "p-3 sm:p-4" : "p-3 sm:p-5 md:p-6 lg:p-8 pt-4 pb-20"} overflow-hidden select-none`}>
       {/* Dynamic Ambient Glow Backdrops */}
       <div className="absolute top-1/4 -left-32 w-96 h-96 ambient-glow-indigo rounded-full pointer-events-none opacity-20" />
       <div className="absolute bottom-1/4 -right-32 w-96 h-96 ambient-glow-cyan rounded-full pointer-events-none opacity-15" />

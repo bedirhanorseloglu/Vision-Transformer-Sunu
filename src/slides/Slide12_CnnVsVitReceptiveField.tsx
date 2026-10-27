@@ -357,9 +357,6 @@ export const Slide12_CnnVsVitReceptiveField: React.FC = () => {
             <strong className="text-slate-900 font-semibold">Temel Çıkarım:</strong> CNN yerel filtreleriyle nesneleri daha çok dokusundan (kürk, desen) yakalarken; ViT ilk katmandan itibaren tüm patch'leri eşleştirerek küresel şekil ve silüete odaklanır.
           </span>
         </div>
-        <div className="hidden sm:flex items-center gap-1 font-mono text-[11px] text-blue-700 bg-blue-50 px-2.5 py-0.5 rounded border border-blue-200 font-semibold shrink-0">
-          <span>Sırada: Neden 16×16 Patch? ➔</span>
-        </div>
       </motion.div>
 
     </div>

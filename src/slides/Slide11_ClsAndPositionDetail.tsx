@@ -1,6 +1,7 @@
 ﻿import React from 'react'
 import {
-  motion } from 'framer-motion'
+  motion
+} from 'framer-motion'
 import {
   Key,
   MapPin,
@@ -102,48 +103,17 @@ export const Slide11_ClsAndPositionDetail: React.FC = () => {
       {/* 3. BOTTOM: 3 CONCISE SPEAKER CARDS */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 sm:gap-4 z-10 shrink-0">
 
-        {/* KART 1: [CLS] Token (BERT Mantığı) */}
+        {/* KART 1: Position Embeddings (1D Konum Bilgisi) */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.28, delay: 0.1, ease: PUNCHY_EASE }}
-          className="bg-purple-50/40 hover:bg-purple-50/70 rounded-2xl p-3.5 border border-purple-200/80 shadow-xs flex flex-col justify-between transition-all"
-        >
-          <div className="flex items-center justify-between mb-1.5">
-            <div className="flex items-center gap-2">
-              <div className="w-5 h-5 rounded-lg bg-purple-600 text-white font-mono font-bold text-xs flex items-center justify-center shadow-xs">
-                1
-              </div>
-              <h3 className="text-xs sm:text-sm font-bold text-slate-900 font-montserrat">
-                [CLS] Token (BERT Mirası)
-              </h3>
-            </div>
-            <span className="text-[10px] font-mono font-semibold text-purple-700 bg-purple-100/70 px-2 py-0.5 rounded">
-              196 ➔ 197 × 768
-            </span>
-          </div>
-
-          <p className="text-[11px] sm:text-xs text-slate-700 leading-relaxed">
-            Tıpkı BERT'teki gibi 196 patchnın en önüne öğrenilebilir <span className="font-semibold text-slate-900">1×768 boyutlu [CLS] token</span> eklenir. Hiçbir patchyı kayırmadan tüm resmi tek başına tarafsızca temsil eder.
-          </p>
-
-          <div className="mt-2 bg-white/90 rounded-lg p-1.5 border border-purple-200/60 text-[11px] font-mono text-purple-900 font-medium flex items-center justify-between">
-            <span>Dizi Boyutu:</span>
-            <strong>197 × 768 Vektör</strong>
-          </div>
-        </motion.div>
-
-        {/* KART 2: Position Embeddings (1D Konum Bilgisi) */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.28, delay: 0.13, ease: PUNCHY_EASE }}
           className="bg-blue-50/40 hover:bg-blue-50/70 rounded-2xl p-3.5 border border-blue-200/80 shadow-xs flex flex-col justify-between transition-all"
         >
           <div className="flex items-center justify-between mb-1.5">
             <div className="flex items-center gap-2">
               <div className="w-5 h-5 rounded-lg bg-blue-600 text-white font-mono font-bold text-xs flex items-center justify-center shadow-xs">
-                2
+                1
               </div>
               <h3 className="text-xs sm:text-sm font-bold text-slate-900 font-montserrat">
                 1D Position Embeddings
@@ -155,12 +125,43 @@ export const Slide11_ClsAndPositionDetail: React.FC = () => {
           </div>
 
           <p className="text-[11px] sm:text-xs text-slate-700 leading-relaxed">
-            Transformer mimarisi doğası gereği permütasyon-değişmezdir (sıra bilmez). Patch'lerin nerede olduğunu korumak için <span className="font-semibold text-slate-900">1D öğrenilebilir konum vektörleri</span> matrise doğrudan toplanır.
+            Görseli patch'lere ayırdık ancak Transformer bunların resmin neresine ait olduğunu bilmez; tıpkı masaya karışık saçılmış bir <span className="font-semibold text-slate-900">yapboz</span> gibidir. Hangi parçanın nerede durduğunu öğretmek için her patch'e birer <span className="font-semibold text-slate-900">1D Position Embedding</span> eklenir; böylece yapboz anlamlı bir bütün haline gelir.
           </p>
 
           <div className="mt-2 bg-white/90 rounded-lg p-1.5 border border-blue-200/60 text-[11px] font-mono text-blue-900 font-medium flex items-center justify-between">
             <span>Matris Toplamı:</span>
             <strong>(197 × 768)</strong>
+          </div>
+        </motion.div>
+
+        {/* KART 2: [CLS] Token (BERT Mantığı) */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.28, delay: 0.13, ease: PUNCHY_EASE }}
+          className="bg-purple-50/40 hover:bg-purple-50/70 rounded-2xl p-3.5 border border-purple-200/80 shadow-xs flex flex-col justify-between transition-all"
+        >
+          <div className="flex items-center justify-between mb-1.5">
+            <div className="flex items-center gap-2">
+              <div className="w-5 h-5 rounded-lg bg-purple-600 text-white font-mono font-bold text-xs flex items-center justify-center shadow-xs">
+                2
+              </div>
+              <h3 className="text-xs sm:text-sm font-bold text-slate-900 font-montserrat">
+                [CLS] Token
+              </h3>
+            </div>
+            <span className="text-[10px] font-mono font-semibold text-purple-700 bg-purple-100/70 px-2 py-0.5 rounded">
+              196 ➔ 197 × 768
+            </span>
+          </div>
+
+          <p className="text-[11px] sm:text-xs text-slate-700 leading-relaxed">
+            Derse (Encoder'a) <strong>bütün sınıf birlikte girer</strong>. Ders boyunca başkan (<span className="font-semibold text-purple-900">[CLS]</span>), 196 öğrencinin hepsiyle konuşup notlarını toplar. Dersin sonunda müdürün (<span className="font-semibold text-slate-900">MLP Head</span>) odasına sınıf adına <strong>sadece başkan ([CLS])</strong> gidip rapor verir.
+          </p>
+
+          <div className="mt-2 bg-white/90 rounded-lg p-1.5 border border-purple-200/60 text-[11px] font-mono text-purple-900 font-medium flex items-center justify-between">
+            <span>Giriş / Çıkış:</span>
+            <strong>Giriş: 197 ➔ Tahmin: Sadece [CLS]</strong>
           </div>
         </motion.div>
 

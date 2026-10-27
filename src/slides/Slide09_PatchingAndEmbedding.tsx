@@ -5,7 +5,8 @@ import {
   Layers,
   ArrowRight,
   Maximize2,
-  Hash, } from 'lucide-react'
+  Hash,
+} from 'lucide-react'
 
 export const Slide09_PatchingAndEmbedding: React.FC = () => {
   const PUNCHY_EASE = [0.16, 1, 0.3, 1] as const
@@ -120,7 +121,7 @@ export const Slide09_PatchingAndEmbedding: React.FC = () => {
                 2
               </div>
               <h3 className="text-sm sm:text-base font-bold text-slate-900 font-montserrat">
-                Patch Embedding (Doğrusal Eşleme)
+                Patch Embedding ve Lineer Projection
               </h3>
             </div>
             <span className="text-[10px] font-mono font-semibold text-purple-700 bg-purple-100/70 px-2 py-0.5 rounded">
@@ -129,7 +130,7 @@ export const Slide09_PatchingAndEmbedding: React.FC = () => {
           </div>
 
           <p className="text-xs sm:text-sm text-slate-700 leading-relaxed mb-2">
-            Her patch düzleştirilir ve eğitilebilir bir <strong className="text-slate-900">Linear Katman (Projection)</strong> ile <span className="font-semibold text-purple-900">1×768</span> boyutlu bir vektöre (mor kutular) dönüştürülür.
+            Her patch düzleştirilir ve eğitilebilir bir <strong className="text-slate-900">Linear Projection</strong> ile <span className="font-semibold text-purple-900">1×768</span> boyutlu bir vektöre (mor kutular) dönüştürülür.
           </p>
 
           <div className="bg-white/90 rounded-xl p-2.5 border border-purple-200/60 flex items-center justify-between text-xs font-mono">
