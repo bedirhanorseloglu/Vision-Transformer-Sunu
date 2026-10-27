@@ -10,6 +10,7 @@ import { Slide08_ViTArchitectureOverview } from './Slide08_ViTArchitectureOvervi
 import { Slide09_PatchingAndEmbedding } from './Slide09_PatchingAndEmbedding'
 import { Slide10_ClsPositionMLP } from './Slide10_ClsPositionMLP'
 import { Slide11_ClsAndPositionDetail } from './Slide11_ClsAndPositionDetail'
+import { Slide12_InductiveBiasLack } from './Slide12_InductiveBiasLack'
 
 export const presentationSlides: SlideMeta[] = [
   {
@@ -88,5 +89,12 @@ export const presentationSlides: SlideMeta[] = [
     subtitle: 'BERT Tipi [CLS] Token Ekleme, 1D Konum Vektörleri ve Encoder Girişi',
     section: 'BÖLÜM 3: VISION TRANSFORMER (ViT)',
     component: Slide11_ClsAndPositionDetail,
+  },
+  {
+    id: 'vit-inductive-bias',
+    title: 'ViT\'in Dezavantajı: Inductive Bias Eksikliği',
+    subtitle: 'Neden Küçük Veride CNN\'in Gerisinde Kalır? Veri Açlığı ve Overfitting',
+    section: 'BÖLÜM 3: VISION TRANSFORMER (ViT)',
+    component: Slide12_InductiveBiasLack,
   },
 ]

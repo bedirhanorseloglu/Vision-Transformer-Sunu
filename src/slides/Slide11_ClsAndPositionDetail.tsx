@@ -160,7 +160,7 @@ export const Slide11_ClsAndPositionDetail: React.FC = () => {
 
           <div className="mt-2 bg-white/90 rounded-lg p-1.5 border border-blue-200/60 text-[11px] font-mono text-blue-900 font-medium flex items-center justify-between">
             <span>Matris Toplamı:</span>
-            <strong>+ E_pos (197 × 768)</strong>
+            <strong>(197 × 768)</strong>
           </div>
         </motion.div>
 
