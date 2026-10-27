@@ -1,5 +1,5 @@
-import React from 'react'
-import { motion } from 'framer-motion'
+import React, { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import {
   Award,
   HelpCircle,
@@ -13,6 +13,7 @@ import {
 
 export const Slide18_ThankYouAndKahoot: React.FC = () => {
   const PUNCHY_EASE = [0.16, 1, 0.3, 1] as const
+  const [platform, setPlatform] = useState<'wayground' | 'kahoot'>('wayground')
 
   return (
     <div className="relative w-full h-full bg-white rounded-3xl shadow-[0_20px_50px_-15px_rgba(37,99,235,0.07)] border border-slate-200/90 overflow-hidden flex flex-col justify-between p-5 sm:p-7 md:p-8 select-none font-sans">
@@ -34,11 +35,11 @@ export const Slide18_ThankYouAndKahoot: React.FC = () => {
               KAPANIŞ VE DEĞERLENDİRME
             </span>
             <span className="text-xs text-slate-500 font-sans">
-              | Soru & Cevap (Q&A) ve Kahoot! Bilgi Yarışması
+              | Soru & Cevap (Q&A) ve Canlı Bilgi Yarışması
             </span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-montserrat tracking-tight">
-            Teşekkürler & Kahoot!
+            Teşekkürler & Canlı Quiz
           </h2>
         </div>
 
@@ -54,7 +55,7 @@ export const Slide18_ThankYouAndKahoot: React.FC = () => {
         </div>
       </motion.div>
 
-      {/* 2. MAIN CONTENT: 2 KOLON (SOL TEŞEKKÜR & KÜNYE, SAĞ KAHOOT QR & GİRİŞ) */}
+      {/* 2. MAIN CONTENT: 2 KOLON (SOL TEŞEKKÜR & KÜNYE, SAĞ CANLI QUIZ QR & GİRİŞ) */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 my-auto z-10 items-stretch flex-1 py-1.5 w-full min-h-0 font-sans">
 
         {/* SOL: TEŞEKKÜR & SUNUM KÜNYESİ (6 Kolon) */}
@@ -115,22 +116,30 @@ export const Slide18_ThankYouAndKahoot: React.FC = () => {
           </div>
         </motion.div>
 
-        {/* SAĞ: KAHOOT! BİLGİ YARIŞMASI & QR KOD (6 Kolon) */}
+        {/* SAĞ: CANLI QUIZ BİLGİ YARIŞMASI & DİREKT QR KOD (6 Kolon) */}
         <motion.div
           initial={{ opacity: 0, x: 20, scale: 0.98 }}
           animate={{ opacity: 1, x: 0, scale: 1 }}
           transition={{ duration: 0.28, delay: 0.1, ease: PUNCHY_EASE }}
-          className="lg:col-span-6 flex flex-col justify-between bg-gradient-to-br from-purple-50/90 via-indigo-50/40 to-slate-50/80 rounded-2xl p-5 border border-purple-200/80 shadow-2xs h-full"
+          className={`lg:col-span-6 flex flex-col justify-between rounded-2xl p-5 border shadow-2xs h-full transition-all duration-300 ${
+            platform === 'wayground'
+              ? 'bg-gradient-to-br from-indigo-50/90 via-sky-50/40 to-slate-50/80 border-indigo-200/80'
+              : 'bg-gradient-to-br from-purple-50/90 via-indigo-50/40 to-slate-50/80 border-purple-200/80'
+          }`}
         >
-          {/* Kahoot Başlık */}
-          <div className="flex items-center justify-between pb-2 border-b border-purple-200/60">
+          {/* Üst Kısım: Platform Başlığı & Hızlı Geçiş Butonları */}
+          <div className="flex items-center justify-between pb-2 border-b border-slate-200/80">
             <div className="flex items-center gap-2">
-              <div className="w-7 h-7 rounded-lg bg-[#46178F] text-white flex items-center justify-center font-bold text-sm shadow-xs font-montserrat">
-                K!
+              <div
+                className={`w-7 h-7 rounded-lg text-white flex items-center justify-center font-bold text-xs shadow-xs font-montserrat transition-colors ${
+                  platform === 'wayground' ? 'bg-[#4F46E5]' : 'bg-[#46178F]'
+                }`}
+              >
+                {platform === 'wayground' ? 'W!' : 'K!'}
               </div>
               <div>
-                <h3 className="text-base font-extrabold text-[#46178F] font-montserrat tracking-tight leading-tight">
-                  Kahoot! Bilgi Yarışması
+                <h3 className="text-base font-extrabold text-slate-900 font-montserrat tracking-tight leading-tight">
+                  {platform === 'wayground' ? 'Wayground Quiz' : 'Kahoot! Quiz'}
                 </h3>
                 <span className="text-[11px] text-slate-500 font-sans">
                   Sunum Değerlendirmesi • 10 Soru
@@ -138,19 +147,46 @@ export const Slide18_ThankYouAndKahoot: React.FC = () => {
               </div>
             </div>
 
-            <div className="flex items-center gap-1.5 bg-white px-2.5 py-1 rounded-full border border-purple-200 text-xs font-bold text-[#46178F] shadow-2xs">
-              <Trophy className="w-3.5 h-3.5 text-amber-500" />
-              <span>Canlı Quiz</span>
+            {/* Platform Seçim Butonları (Kişi Sayısına Göre Tek Tıkla Geçiş) */}
+            <div className="flex items-center bg-white p-1 rounded-xl border border-slate-200 shadow-2xs gap-1">
+              <button
+                type="button"
+                onClick={() => setPlatform('wayground')}
+                className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition-all ${
+                  platform === 'wayground'
+                    ? 'bg-[#4F46E5] text-white shadow-xs'
+                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                }`}
+                title="Sınırsız Katılımcı"
+              >
+                Wayground
+              </button>
+              <button
+                type="button"
+                onClick={() => setPlatform('kahoot')}
+                className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition-all ${
+                  platform === 'kahoot'
+                    ? 'bg-[#46178F] text-white shadow-xs'
+                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                }`}
+                title="Kahoot"
+              >
+                Kahoot!
+              </button>
             </div>
           </div>
 
-          {/* QR Kod Vitrini */}
+          {/* QR Kod & Katılım Yönergeleri */}
           <div className="my-auto py-2 flex flex-col sm:flex-row items-center justify-center gap-5">
-            {/* QR Kod Çerçevesi */}
-            <div className="relative bg-white rounded-2xl p-3 border-2 border-purple-200 shadow-md group hover:border-purple-400 transition-colors">
+            {/* QR Kod Çerçevesi (Doğrudan Uygulama Girişine Yönlendirir) */}
+            <div
+              className={`relative bg-white rounded-2xl p-3 border-2 shadow-md transition-colors ${
+                platform === 'wayground' ? 'border-indigo-300' : 'border-purple-300'
+              }`}
+            >
               <img
-                src="/kahoot_qr.png"
-                alt="Kahoot Join QR Code"
+                src={platform === 'wayground' ? '/wayground_qr.png' : '/kahoot_qr.png'}
+                alt={platform === 'wayground' ? 'Wayground Join QR Code' : 'Kahoot Join QR Code'}
                 className="w-36 h-36 sm:w-40 sm:h-40 object-contain rounded-lg"
               />
               <span className="absolute -top-2 -right-2 w-4 h-4 rounded-full bg-emerald-500 animate-ping pointer-events-none" />
@@ -160,46 +196,74 @@ export const Slide18_ThankYouAndKahoot: React.FC = () => {
             {/* Katılım Yönergeleri */}
             <div className="space-y-2 text-xs font-sans text-slate-700 max-w-[210px]">
               <div className="flex items-start gap-2">
-                <div className="w-5 h-5 rounded-full bg-purple-100 text-purple-800 font-bold text-[10px] flex items-center justify-center shrink-0 mt-0.5">
+                <div
+                  className={`w-5 h-5 rounded-full font-bold text-[10px] flex items-center justify-center shrink-0 mt-0.5 ${
+                    platform === 'wayground'
+                      ? 'bg-indigo-100 text-indigo-800'
+                      : 'bg-purple-100 text-purple-800'
+                  }`}
+                >
                   1
                 </div>
                 <p className="leading-snug">
-                  Telefon kamerasını <strong>QR koda</strong> tutun veya <strong>kahoot.it</strong> adresine gidin.
+                  Telefon kamerasını <strong>QR koda</strong> tutun veya{' '}
+                  <strong>{platform === 'wayground' ? 'wayground.com' : 'kahoot.it'}</strong> adresine gidin.
                 </p>
               </div>
 
               <div className="flex items-start gap-2">
-                <div className="w-5 h-5 rounded-full bg-purple-100 text-purple-800 font-bold text-[10px] flex items-center justify-center shrink-0 mt-0.5">
+                <div
+                  className={`w-5 h-5 rounded-full font-bold text-[10px] flex items-center justify-center shrink-0 mt-0.5 ${
+                    platform === 'wayground'
+                      ? 'bg-indigo-100 text-indigo-800'
+                      : 'bg-purple-100 text-purple-800'
+                  }`}
+                >
                   2
                 </div>
                 <p className="leading-snug">
-                  Ekranda açılacak <strong>Game PIN</strong> numarasını ve isminizi girin.
+                  Ekranda açılacak{' '}
+                  <strong>{platform === 'wayground' ? 'Katılım Kodunu' : 'Game PIN'}</strong> ve isminizi girin.
                 </p>
               </div>
 
               <div className="flex items-start gap-2">
-                <div className="w-5 h-5 rounded-full bg-purple-100 text-purple-800 font-bold text-[10px] flex items-center justify-center shrink-0 mt-0.5">
+                <div
+                  className={`w-5 h-5 rounded-full font-bold text-[10px] flex items-center justify-center shrink-0 mt-0.5 ${
+                    platform === 'wayground'
+                      ? 'bg-indigo-100 text-indigo-800'
+                      : 'bg-purple-100 text-purple-800'
+                  }`}
+                >
                   3
                 </div>
                 <p className="leading-snug">
-                  10 soruluk eğlenceli <strong>ViT Quiz</strong> yarışmasına başlayın!
+                  10 soruluk interaktif <strong>ViT Quiz</strong> yarışmasına başlayın!
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Kahoot Şekilleri Dekoratif Şerit */}
-          <div className="pt-2.5 border-t border-purple-200/60 flex items-center justify-between text-xs font-semibold">
+          {/* Alt Bilgi Şeridi */}
+          <div className="pt-2.5 border-t border-slate-200/80 flex items-center justify-between text-xs font-semibold">
             <div className="flex items-center gap-2">
-              <span className="w-3.5 h-3.5 rounded-sm bg-[#E21B3C]" title="Üçgen" />
-              <span className="w-3.5 h-3.5 rounded-sm bg-[#1368CE]" title="Elmas" />
-              <span className="w-3.5 h-3.5 rounded-sm bg-[#D89E00]" title="Daire" />
-              <span className="w-3.5 h-3.5 rounded-sm bg-[#26890C]" title="Kare" />
-              <span className="text-slate-600 font-sans text-[11px] ml-1">kahoot.it</span>
+              <span className="w-3.5 h-3.5 rounded-sm bg-[#E21B3C]" />
+              <span className="w-3.5 h-3.5 rounded-sm bg-[#1368CE]" />
+              <span className="w-3.5 h-3.5 rounded-sm bg-[#D89E00]" />
+              <span className="w-3.5 h-3.5 rounded-sm bg-[#26890C]" />
+              <span className="text-slate-600 font-sans text-[11px] ml-1">
+                {platform === 'wayground' ? 'wayground.com' : 'kahoot.it'}
+              </span>
             </div>
 
-            <span className="font-sans font-bold text-xs text-purple-700 bg-white px-2.5 py-0.5 rounded border border-purple-200">
-              PIN: CANLI YAYINDA
+            <span
+              className={`font-sans font-bold text-xs bg-white px-2.5 py-0.5 rounded border ${
+                platform === 'wayground'
+                  ? 'text-indigo-700 border-indigo-200'
+                  : 'text-purple-700 border-purple-200'
+              }`}
+            >
+              {platform === 'wayground' ? 'KOD: CANLI YAYINDA' : 'PIN: CANLI YAYINDA'}
             </span>
           </div>
         </motion.div>
