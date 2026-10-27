@@ -4,9 +4,7 @@ import {
   Key, 
   MapPin, 
   Cpu, 
-  ArrowRight, 
-  Sparkles, 
-  CheckCircle2,
+  ArrowRight, CheckCircle2,
   Layers,
   Target
 } from 'lucide-react'
@@ -105,7 +103,7 @@ export const Slide10_ClsPositionMLP: React.FC = () => {
           </div>
 
           <p className="text-[11px] sm:text-xs text-slate-700 leading-relaxed">
-            <span className="font-semibold text-slate-900">BERT benzeri [CLS] token</span> başa eklenir (197×768). CNN'ler gibi sıra bilmeyen Transformer'a yamaların uzamsal yerini öğretmek için <span className="font-semibold text-slate-900">Position Embeddings</span> matrisi eklenir.
+            <span className="font-semibold text-slate-900">BERT benzeri [CLS] token</span> başa eklenir (197×768). CNN'ler gibi sıra bilmeyen Transformer'a patch'lerin uzamsal yerini öğretmek için <span className="font-semibold text-slate-900">Position Embeddings</span> matrisi eklenir.
           </p>
 
           <div className="mt-2 bg-white/90 rounded-lg p-2 border border-purple-200/60 text-[11px] font-mono text-purple-900 font-medium flex items-center justify-between">
@@ -136,7 +134,7 @@ export const Slide10_ClsPositionMLP: React.FC = () => {
           </div>
 
           <p className="text-[11px] sm:text-xs text-slate-700 leading-relaxed">
-            197 vektör Encoder katmanlarından geçer. Self-Attention ile tüm yamalar birbirleriyle ilişki kurar. [CLS] token'ın son durumu (<span className="font-mono font-semibold text-amber-900">1×768</span>), tüm görüntünün ortak özeti olur.
+            197 vektör Encoder katmanlarından geçer. Self-Attention ile tüm patch'ler birbirleriyle ilişki kurar. [CLS] token'ın son durumu (<span className="font-mono font-semibold text-amber-900">1×768</span>), tüm görüntünün ortak özeti olur.
           </p>
 
           <div className="mt-2 bg-white/90 rounded-lg p-2 border border-amber-200/60 text-[11px] font-mono text-amber-900 font-medium flex items-center justify-between">

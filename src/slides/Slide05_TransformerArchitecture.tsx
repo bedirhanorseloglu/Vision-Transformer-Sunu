@@ -11,7 +11,7 @@ import {
   Zap, 
   Layers, 
   Cpu, 
-  Sparkles 
+  Lightbulb 
 } from 'lucide-react'
 
 export const Slide05_TransformerArchitecture: React.FC = () => {
@@ -275,7 +275,7 @@ export const Slide05_TransformerArchitecture: React.FC = () => {
           {/* Decoder Difference Note */}
           <div className="bg-white rounded-xl p-3 border border-slate-200 shadow-xs shrink-0">
             <div className="flex items-center gap-2 text-xs">
-              <Sparkles className="w-4 h-4 text-blue-600 shrink-0" />
+              <Lightbulb className="w-4 h-4 text-blue-600 shrink-0" />
               <span className="text-slate-700">
                 <strong className="text-slate-900">Decoder Farkı:</strong> Ek olarak Encoder çıktısını dinleyen <em>Cross-Attention</em> katmanı içerir.
               </span>

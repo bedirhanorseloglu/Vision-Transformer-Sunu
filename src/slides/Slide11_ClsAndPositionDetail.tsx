@@ -1,13 +1,13 @@
 ﻿import React from 'react'
-import { motion } from 'framer-motion'
+import {
+  motion } from 'framer-motion'
 import {
   Key,
   MapPin,
   ArrowRight,
-  Sparkles,
+  Layers,
   Plus,
   Cpu,
-  Layers,
   Target
 } from 'lucide-react'
 
@@ -71,7 +71,7 @@ export const Slide11_ClsAndPositionDetail: React.FC = () => {
         {/* Tensör Akış ve Toplam Bandı */}
         <div className="mt-2 bg-white rounded-xl py-1.5 px-3 border border-slate-200/80 shadow-xs flex flex-wrap items-center justify-between gap-2 text-xs">
           <div className="flex items-center gap-1.5 text-slate-600 font-medium">
-            <Sparkles className="w-3.5 h-3.5 text-purple-600 shrink-0" />
+            <Layers className="w-3.5 h-3.5 text-purple-600 shrink-0" />
             <span className="font-semibold text-slate-900 text-xs">Matematiksel Dönüşüm:</span>
           </div>
 
@@ -124,7 +124,7 @@ export const Slide11_ClsAndPositionDetail: React.FC = () => {
           </div>
 
           <p className="text-[11px] sm:text-xs text-slate-700 leading-relaxed">
-            Tıpkı BERT'teki gibi 196 yamanın en önüne öğrenilebilir <span className="font-semibold text-slate-900">1×768 boyutlu [CLS] token</span> eklenir. Hiçbir yamayı kayırmadan tüm resmi tek başına tarafsızca temsil eder.
+            Tıpkı BERT'teki gibi 196 patchnın en önüne öğrenilebilir <span className="font-semibold text-slate-900">1×768 boyutlu [CLS] token</span> eklenir. Hiçbir patchyı kayırmadan tüm resmi tek başına tarafsızca temsil eder.
           </p>
 
           <div className="mt-2 bg-white/90 rounded-lg p-1.5 border border-purple-200/60 text-[11px] font-mono text-purple-900 font-medium flex items-center justify-between">
@@ -155,7 +155,7 @@ export const Slide11_ClsAndPositionDetail: React.FC = () => {
           </div>
 
           <p className="text-[11px] sm:text-xs text-slate-700 leading-relaxed">
-            Transformer mimarisi doğası gereği permütasyon-değişmezdir (sıra bilmez). Yamaların nerede olduğunu korumak için <span className="font-semibold text-slate-900">1D öğrenilebilir konum vektörleri</span> matrise doğrudan toplanır.
+            Transformer mimarisi doğası gereği permütasyon-değişmezdir (sıra bilmez). Patch'lerin nerede olduğunu korumak için <span className="font-semibold text-slate-900">1D öğrenilebilir konum vektörleri</span> matrise doğrudan toplanır.
           </p>
 
           <div className="mt-2 bg-white/90 rounded-lg p-1.5 border border-blue-200/60 text-[11px] font-mono text-blue-900 font-medium flex items-center justify-between">

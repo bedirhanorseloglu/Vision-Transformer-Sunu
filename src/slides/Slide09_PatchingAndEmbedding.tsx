@@ -5,9 +5,7 @@ import {
   Layers,
   ArrowRight,
   Maximize2,
-  Hash,
-  Sparkles
-} from 'lucide-react'
+  Hash, } from 'lucide-react'
 
 export const Slide09_PatchingAndEmbedding: React.FC = () => {
   const PUNCHY_EASE = [0.16, 1, 0.3, 1] as const
@@ -33,7 +31,7 @@ export const Slide09_PatchingAndEmbedding: React.FC = () => {
             <span className="text-xs text-slate-400 font-mono">| 224×224 Görüntüden 196×768 Matrisine Geçiş</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-montserrat tracking-tight">
-            1. ve 2. Adım: Yamalama ve Patch Embedding</h2>
+            1. ve 2. Adım: Patch'lere Bölme ve Patch Embedding</h2>
         </div>
 
         <div className="hidden sm:flex items-center gap-2 text-xs font-mono font-semibold text-slate-500 bg-slate-50 px-3 py-1.5 rounded-full border border-slate-200">
@@ -54,7 +52,7 @@ export const Slide09_PatchingAndEmbedding: React.FC = () => {
           <div className="flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-indigo-600" />
             <span className="font-bold text-slate-900 font-montserrat">
-              Görüntü (224×224×3) ➔ 196 Yama ➔ Linear Projection ➔ Patch Embeddings (196×768)
+              Görüntü (224×224×3) ➔ 196 Patch ➔ Linear Projection ➔ Patch Embeddings (196×768)
             </span>
           </div>
           <span className="text-[10px] font-mono text-slate-500 bg-white px-2 py-0.5 rounded border border-slate-200">
@@ -75,7 +73,7 @@ export const Slide09_PatchingAndEmbedding: React.FC = () => {
       {/* 3. BOTTOM: 2 BALANCED EXPLANATION CARDS (Step 1 & Step 2) */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 z-10 shrink-0">
 
-        {/* SOL: 1. Adım - Yamalara Bölme */}
+        {/* SOL: 1. Adım - Patch'lere Bölme */}
         <motion.div
           initial={{ opacity: 0, x: -15 }}
           animate={{ opacity: 1, x: 0 }}
@@ -88,11 +86,11 @@ export const Slide09_PatchingAndEmbedding: React.FC = () => {
                 1
               </div>
               <h3 className="text-sm sm:text-base font-bold text-slate-900 font-montserrat">
-                Yamalara (Patch) Bölme
+                Patch'lere Bölme
               </h3>
             </div>
             <span className="text-[10px] font-mono font-semibold text-blue-700 bg-blue-100/70 px-2 py-0.5 rounded">
-              196 Yama
+              196 Patch
             </span>
           </div>
 
@@ -101,10 +99,10 @@ export const Slide09_PatchingAndEmbedding: React.FC = () => {
           </p>
 
           <div className="bg-white/90 rounded-xl p-2.5 border border-blue-200/60 flex items-center justify-between text-xs font-mono">
-            <span className="text-slate-600">Yama Sayısı (N):</span>
+            <span className="text-slate-600">Patch Sayısı (N):</span>
             <span className="font-bold text-blue-700">14 × 14 = 196 adet</span>
             <span className="text-slate-400">|</span>
-            <span className="text-slate-600">Piksel/Yama:</span>
+            <span className="text-slate-600">Piksel/Patch:</span>
             <span className="font-bold text-blue-700">3 × 16 × 16 = 768</span>
           </div>
         </motion.div>
@@ -131,12 +129,12 @@ export const Slide09_PatchingAndEmbedding: React.FC = () => {
           </div>
 
           <p className="text-xs sm:text-sm text-slate-700 leading-relaxed mb-2">
-            Her yama düzleştirilir ve eğitilebilir bir <strong className="text-slate-900">Linear Katman (Projection)</strong> ile <span className="font-semibold text-purple-900">1×768</span> boyutlu bir vektöre (mor kutular) dönüştürülür.
+            Her patch düzleştirilir ve eğitilebilir bir <strong className="text-slate-900">Linear Katman (Projection)</strong> ile <span className="font-semibold text-purple-900">1×768</span> boyutlu bir vektöre (mor kutular) dönüştürülür.
           </p>
 
           <div className="bg-white/90 rounded-xl p-2.5 border border-purple-200/60 flex items-center justify-between text-xs font-mono">
             <span className="text-slate-600">Çıktı Matrisi:</span>
-            <span className="font-bold text-purple-700">196 (Yama) × 768 (D)</span>
+            <span className="font-bold text-purple-700">196 (Patch) × 768 (D)</span>
             <span className="text-slate-400">|</span>
             <span className="text-slate-600">Literatür Adı:</span>
             <span className="font-bold text-purple-700">Patch Embeddings</span>

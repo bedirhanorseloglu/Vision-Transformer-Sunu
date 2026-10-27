@@ -1,4 +1,4 @@
-﻿import type { SlideMeta } from '../types/presentation'
+import type { SlideMeta } from '../types/presentation'
 import { Slide01_Cover } from './Slide01_Cover'
 import { Slide02_AttentionMechanism } from './Slide02_AttentionMechanism'
 import { Slide03_AttentionWalkthrough } from './Slide03_AttentionWalkthrough'
@@ -10,7 +10,8 @@ import { Slide08_ViTArchitectureOverview } from './Slide08_ViTArchitectureOvervi
 import { Slide09_PatchingAndEmbedding } from './Slide09_PatchingAndEmbedding'
 import { Slide10_ClsPositionMLP } from './Slide10_ClsPositionMLP'
 import { Slide11_ClsAndPositionDetail } from './Slide11_ClsAndPositionDetail'
-import { Slide12_InductiveBiasLack } from './Slide12_InductiveBiasLack'
+import { Slide12_CnnVsVitReceptiveField } from './Slide12_CnnVsVitReceptiveField'
+import { Slide13_InductiveBiasLack } from './Slide13_InductiveBiasLack'
 
 export const presentationSlides: SlideMeta[] = [
   {
@@ -65,14 +66,14 @@ export const presentationSlides: SlideMeta[] = [
   {
     id: 'vit-architecture-overview',
     title: 'ViT Mimarisi: 5 Temel Adıma Genel Bakış',
-    subtitle: 'Yamalama, Patch Embedding, [CLS] Token, Encoder ve MLP Head',
+    subtitle: 'Patch\'lere Bölme, Patch Embedding, [CLS] Token, Encoder ve MLP Head',
     section: 'BÖLÜM 3: VISION TRANSFORMER (ViT)',
     component: Slide08_ViTArchitectureOverview,
   },
   {
     id: 'vit-patching-embedding',
-    title: '1. ve 2. Adım: Yamalama ve Patch Embedding',
-    subtitle: '196 Yama ve 196x768 Boyutlu Patch Embedding Matrisi',
+    title: '1. ve 2. Adım: Patch\'lere Bölme ve Patch Embedding',
+    subtitle: '196 Patch ve 196x768 Boyutlu Patch Embedding Matrisi',
     section: 'BÖLÜM 3: VISION TRANSFORMER (ViT)',
     component: Slide09_PatchingAndEmbedding,
   },
@@ -91,10 +92,17 @@ export const presentationSlides: SlideMeta[] = [
     component: Slide11_ClsAndPositionDetail,
   },
   {
-    id: 'vit-inductive-bias',
-    title: 'ViT\'in Dezavantajı: Inductive Bias Eksikliği',
-    subtitle: 'Neden Küçük Veride CNN\'in Gerisinde Kalır? Veri Açlığı ve Overfitting',
+    id: 'cnn-vs-vit-receptive-field',
+    title: 'CNN vs ViT: Alıcı Alanı ve Görsel Algı',
+    subtitle: 'Küresel (Global) vs Yerel (Local) Alıcı Alanı: Doku Odaklılık vs Şekil Odaklılık',
     section: 'BÖLÜM 3: VISION TRANSFORMER (ViT)',
-    component: Slide12_InductiveBiasLack,
+    component: Slide12_CnnVsVitReceptiveField,
+  },
+  {
+    id: 'vit-inductive-bias',
+    title: 'Neden 16×16 Patch? Karesel Maliyet ve Çözüm Yolları',
+    subtitle: 'Çözünürlük Büyüdükçe O(N²) Patlaması, Donanım Kısıtı ve 2D İnterpolasyon',
+    section: 'BÖLÜM 3: VISION TRANSFORMER (ViT)',
+    component: Slide13_InductiveBiasLack,
   },
 ]
