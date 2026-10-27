@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-heading: 'Plus Jakarta Sans', var(--font-sans);
+    --font-mono: 'JetBrains Mono', monospace;
+    --ease-punchy: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #f8fafc;
+    color: #0f172a;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.025em;
+  }
+
+  code, pre, .font-mono {
+    font-family: var(--font-mono);
+  }
+
+  .font-shoulders {
+    font-family: 'Big Shoulders Display', sans-serif;
+  }
+
+  .font-montserrat {
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .font-cursive {
+    font-family: 'Great Vibes', cursive;
+  }
+}
+
+/* 21st.dev Style Utilities — Light Luxury Aesthetic */
+.glass-capsule {
+  background: rgba(255, 255, 255, 0.78);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  box-shadow: 
+    0 1px 0 0 rgba(255, 255, 255, 0.95) inset,
+    0 10px 25px -5px rgba(15, 23, 42, 0.04),
+    0 20px 48px -12px rgba(99, 102, 241, 0.06);
+}
+
+.glass-capsule-interactive {
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-capsule-interactive:hover {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(199, 210, 254, 0.8);
+  box-shadow: 
+    0 1px 0 0 rgba(255, 255, 255, 1) inset,
+    0 16px 36px -8px rgba(15, 23, 42, 0.08),
+    0 0 24px 0 rgba(99, 102, 241, 0.12);
+  transform: translateY(-2px);
+}
+
+.hairline-border {
+  position: relative;
+}
+
+.hairline-border::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg, 
+    rgba(255, 255, 255, 0.9) 0%, 
+    rgba(226, 232, 240, 0.6) 40%, 
+    rgba(226, 232, 240, 0.2) 70%,
+    rgba(99, 102, 241, 0.25) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.academic-heading-gradient {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 60%, #334155 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Ambient Glow Auras (Pastel on Pristine Canvas) */
+.ambient-glow-indigo {
+  background: radial-gradient(circle at center, rgba(99, 102, 241, 0.12) 0%, rgba(99, 102, 241, 0) 70%);
+  filter: blur(60px);
+}
+
+.ambient-glow-cyan {
+  background: radial-gradient(circle at center, rgba(6, 182, 212, 0.10) 0%, rgba(6, 182, 212, 0) 70%);
+  filter: blur(60px);
+}
+
+.ambient-glow-violet {
+  background: radial-gradient(circle at center, rgba(168, 85, 247, 0.09) 0%, rgba(168, 85, 247, 0) 70%);
+  filter: blur(60px);
+}
+
+/* Clean Minimal Matrix Dots */
+.bg-grid-pattern {
+  background-image: radial-gradient(rgba(148, 163, 184, 0.18) 1.2px, transparent 1.2px);
+  background-size: 28px 28px;
+}
+
+/* Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(241, 245, 249, 0.5);
+  border-radius: 9999px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(203, 213, 225, 0.8);
+  border-radius: 9999px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.9);
+}
