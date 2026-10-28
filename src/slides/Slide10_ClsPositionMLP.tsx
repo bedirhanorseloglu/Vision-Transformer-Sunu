@@ -99,7 +99,7 @@ export const Slide10_ClsPositionMLP: React.FC = () => {
                 <div className="w-5 h-5 rounded-lg bg-purple-600 text-white font-sans font-bold text-xs flex items-center justify-center shadow-xs">
                   3
                 </div>
-                <h3 className="text-xs sm:text-sm font-bold text-slate-900 font-montserrat">
+                <h3 className="text-sm sm:text-[15px] font-bold text-slate-900 font-montserrat">
                   [CLS] Token &amp; Position
                 </h3>
               </div>
@@ -134,10 +134,10 @@ export const Slide10_ClsPositionMLP: React.FC = () => {
               </motion.button>
             </div>
 
-            <p className="text-[11px] sm:text-xs text-slate-700 leading-snug">
+            <p className="text-xs sm:text-[13px] text-slate-700 leading-snug">
               Sınıflandırma için en başa bir <span className="font-semibold text-slate-900">[CLS] token</span> eklenir. Karışık bir yapboz gibi parça sırasını bilmeyen Transformer&apos;a konum düzenini öğretmek için de her patch&apos;e birer <span className="font-semibold text-slate-900">1D Position Embedding</span> toplanır.
             </p>
-            <p className="text-[11px] sm:text-xs text-slate-700 leading-snug mt-1.5">
+            <p className="text-xs sm:text-[13px] text-slate-700 leading-snug mt-1.5">
               <span className="font-semibold text-purple-800">NOT:</span> <code>[CLS]</code> kullanımı zorunlu değildir; NLP&apos;deki hazır ve verimli Transformer altyapısını <strong>hiç değiştirmeden (<em>out-of-the-box</em>)</strong> kullanabilmek adına orijinal mimariye (BERT) sadık kalınmıştır. (Doğru öğrenme oranıyla <code>3·10⁻⁴</code>, CNN&apos;de de kullanılan <span className="italic">Average Pooling</span> de aynı performansı verir.)
             </p>
           </div>
@@ -167,7 +167,7 @@ export const Slide10_ClsPositionMLP: React.FC = () => {
                 <div className="w-5 h-5 rounded-lg bg-amber-600 text-white font-sans font-bold text-xs flex items-center justify-center shadow-xs">
                   4
                 </div>
-                <h3 className="text-xs sm:text-sm font-bold text-slate-900 font-montserrat">
+                <h3 className="text-sm sm:text-[15px] font-bold text-slate-900 font-montserrat">
                   Transformer Encoder
                 </h3>
               </div>
@@ -202,10 +202,10 @@ export const Slide10_ClsPositionMLP: React.FC = () => {
               </motion.button>
             </div>
 
-            <p className="text-[11px] sm:text-xs text-slate-700 leading-snug">
+            <p className="text-xs sm:text-[13px] text-slate-700 leading-snug">
               197 vektör Encoder katmanlarından geçer. <strong>Self-Attention</strong> ile tüm patch&apos;ler birbiriyle konuşur; arka planı karartıp doğrudan ana nesneye (köpek, uçak) odaklanır.
             </p>
-            <p className="text-[11px] sm:text-xs text-slate-700 leading-snug mt-1.5">
+            <p className="text-xs sm:text-[13px] text-slate-700 leading-snug mt-1.5">
               <span className="font-semibold text-amber-900">Neden 2D değil de 1D Konum?</span> Model <code>224×224</code> piksel yerine <code>14×14</code> gibi küçük bir yama ızgarasında çalıştığı için 2 boyutlu komşuluğu 1D vektörlerden de kolayca öğrenebilmektedir.
             </p>
           </div>
@@ -235,7 +235,7 @@ export const Slide10_ClsPositionMLP: React.FC = () => {
                 <div className="w-5 h-5 rounded-lg bg-emerald-600 text-white font-sans font-bold text-xs flex items-center justify-center shadow-xs">
                   5
                 </div>
-                <h3 className="text-xs sm:text-sm font-bold text-slate-900 font-montserrat">
+                <h3 className="text-sm sm:text-[15px] font-bold text-slate-900 font-montserrat">
                   MLP Head &amp; Tahmin
                 </h3>
               </div>
@@ -244,7 +244,7 @@ export const Slide10_ClsPositionMLP: React.FC = () => {
               </span>
             </div>
 
-            <p className="text-[11px] sm:text-xs text-slate-700 leading-snug">
+            <p className="text-xs sm:text-[13px] text-slate-700 leading-snug">
               Encoder çıkışındaki [CLS] token durumu (<code>1×768</code>), resmin nihai temsilidir. Hem ön eğitimde hem ince ayarda <span className="font-semibold text-slate-900">Linear Katman (MLP Head)</span> doğrudan bu duruma bağlanarak sınıf tahminini üretir.
             </p>
           </div>

@@ -83,12 +83,12 @@ export const Slide13_InductiveBiasComparison: React.FC = () => {
                 <span className="p-1 rounded-lg bg-blue-100 text-blue-800">
                   <Layers className="w-4 h-4" />
                 </span>
-                <h3 className="text-sm sm:text-base font-bold text-slate-900 font-montserrat">
+                <h3 className="text-base sm:text-lg font-bold text-slate-900 font-montserrat">
                   CNN: Yüksek Inductive Bias (Katı Rehberlik)
                 </h3>
               </div>
 
-              <div className="space-y-2 text-xs sm:text-sm text-slate-700 leading-relaxed">
+              <div className="space-y-2 text-xs sm:text-[14.5px] text-slate-700 leading-relaxed">
                 <p>
                   <strong>İnsan Eliyle Rehberlik:</strong> Modele baştan <em>"Görüntüyü anlamak için önce sadece yan yana piksellere (kenar/çizgi) bakacaksın"</em> kuralı dikte edilir.
                 </p>
@@ -111,12 +111,12 @@ export const Slide13_InductiveBiasComparison: React.FC = () => {
                 <span className="p-1 rounded-lg bg-emerald-100 text-emerald-800">
                   <Network className="w-4 h-4" />
                 </span>
-                <h3 className="text-sm sm:text-base font-bold text-slate-900 font-montserrat">
+                <h3 className="text-base sm:text-lg font-bold text-slate-900 font-montserrat">
                   ViT: Düşük Inductive Bias (Serbest Öğrenme)
                 </h3>
               </div>
 
-              <div className="space-y-2 text-xs sm:text-sm text-slate-700 leading-relaxed">
+              <div className="space-y-2 text-xs sm:text-[14.5px] text-slate-700 leading-relaxed">
                 <p>
                   <strong>Sıfır Kısıt (Özgür Bakış):</strong> Modele <em>"önce yerel bak"</em> dayatması yapılmaz. Self-Attention ile 1. katmanda bile sol üstteki bir patch, sağ alttakiyle doğrudan konuşabilir.
                 </p>

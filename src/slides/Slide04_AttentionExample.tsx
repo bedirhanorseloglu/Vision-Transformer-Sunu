@@ -236,7 +236,7 @@ export const Slide04_AttentionExample: React.FC = () => {
               </h3>
             </div>
             
-            <ul className="space-y-2 text-xs sm:text-[13px]">
+            <ul className="space-y-2 text-xs sm:text-sm">
               <li className="flex items-start gap-2.5">
                 <span className="w-2 h-2 rounded-full bg-blue-600 mt-1.5 shrink-0" />
                 <span>
@@ -274,11 +274,11 @@ export const Slide04_AttentionExample: React.FC = () => {
               <span className="p-1 rounded-lg bg-amber-100 text-amber-800">
                 <Shuffle className="w-3.5 h-3.5" />
               </span>
-              <h4 className="text-xs sm:text-sm font-bold text-slate-900 font-montserrat">
+              <h4 className="text-sm sm:text-base font-bold text-slate-900 font-montserrat">
                 Ters Kelime Sırası (Inversion)
               </h4>
             </div>
-            <p className="text-[11px] sm:text-xs text-slate-700 leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
               İngilizce'de sıfat öndedir (<span className="font-semibold text-slate-900">"Black cat"</span>), Fransızca'da ise isim (<span className="font-semibold text-slate-900">"Le chat noir"</span>). 
               Model ilk kelimeyi (<em>"chat"</em>) üretirken ilk kelime <em>"black"</em> yerine doğrudan ikinci kelime olan <strong className="text-amber-900">"cat"</strong>e odaklanır.
             </p>
@@ -290,11 +290,11 @@ export const Slide04_AttentionExample: React.FC = () => {
               <span className="p-1 rounded-lg bg-blue-100 text-blue-800">
                 <Repeat className="w-3.5 h-3.5" />
               </span>
-              <h4 className="text-xs sm:text-sm font-bold text-slate-900 font-montserrat">
+              <h4 className="text-sm sm:text-base font-bold text-slate-900 font-montserrat">
                 Bire-Çok Eşleşme (1-to-Many)
               </h4>
             </div>
-            <p className="text-[11px] sm:text-xs text-slate-700 leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
               İngilizce tek kelimelik <span className="font-semibold text-slate-900">"ate"</span>, Fransızca'da iki kelimeye (<span className="font-semibold text-slate-900">"a mangé"</span>) karşılık gelir. Attention ağı ardışık iki adım boyunca <strong className="text-blue-900">"ate"</strong> üzerinde odaklı kalır.
             </p>
           </div>

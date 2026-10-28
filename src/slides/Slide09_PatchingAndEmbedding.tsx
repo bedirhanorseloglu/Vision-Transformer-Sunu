@@ -86,7 +86,7 @@ export const Slide09_PatchingAndEmbedding: React.FC = () => {
               <div className="w-7 h-7 rounded-lg bg-blue-600 text-white font-sans font-bold text-xs flex items-center justify-center">
                 1
               </div>
-              <h3 className="text-sm sm:text-base font-bold text-slate-900 font-montserrat">
+              <h3 className="text-base sm:text-lg font-bold text-slate-900 font-montserrat">
                 Patch'lere Bölme
               </h3>
             </div>
@@ -95,7 +95,7 @@ export const Slide09_PatchingAndEmbedding: React.FC = () => {
             </span>
           </div>
 
-          <p className="text-xs sm:text-sm text-slate-700 leading-relaxed mb-2">
+          <p className="text-sm sm:text-[15px] text-slate-700 leading-relaxed mb-2">
             <span className="font-semibold text-slate-900">224×224</span> boyutundaki 3 kanallı (RGB) görüntü, <span className="font-semibold text-slate-900">16×16</span> boyutunda küçük kare patch'lere ayrılır.
           </p>
 
@@ -120,7 +120,7 @@ export const Slide09_PatchingAndEmbedding: React.FC = () => {
               <div className="w-7 h-7 rounded-lg bg-purple-600 text-white font-sans font-bold text-xs flex items-center justify-center">
                 2
               </div>
-              <h3 className="text-sm sm:text-base font-bold text-slate-900 font-montserrat">
+              <h3 className="text-base sm:text-lg font-bold text-slate-900 font-montserrat">
                 Patch Embedding ve Lineer Projection
               </h3>
             </div>
@@ -129,7 +129,7 @@ export const Slide09_PatchingAndEmbedding: React.FC = () => {
             </span>
           </div>
 
-          <p className="text-xs sm:text-sm text-slate-700 leading-relaxed mb-2">
+          <p className="text-sm sm:text-[15px] text-slate-700 leading-relaxed mb-2">
             Her patch düzleştirilir ve eğitilebilir bir <strong className="text-slate-900">Linear Projection</strong> ile <span className="font-semibold text-purple-900">1×768</span> boyutlu bir vektöre (mor kutular) dönüştürülür.
           </p>
 

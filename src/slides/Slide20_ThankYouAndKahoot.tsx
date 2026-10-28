@@ -120,11 +120,11 @@ export const Slide20_ThankYouAndKahoot: React.FC = () => {
                 <div className="w-7 h-7 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
                   <Layers className="w-4 h-4" />
                 </div>
-                <span className="text-xs sm:text-[13px] font-bold text-slate-900 font-montserrat">
+                <span className="text-sm sm:text-[15px] font-bold text-slate-900 font-montserrat">
                   16×16 Patch Dizisi
                 </span>
               </div>
-              <p className="text-[11px] text-slate-600 leading-snug pl-0.5">
+              <p className="text-xs sm:text-[13px] text-slate-600 leading-snug pl-0.5">
                 Görüntüyü pikseller yerine 196 görsel kelimeye (token) bölerek karesel maliyeti aşma.
               </p>
             </div>
@@ -134,11 +134,11 @@ export const Slide20_ThankYouAndKahoot: React.FC = () => {
                 <div className="w-7 h-7 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center shrink-0">
                   <Globe className="w-4 h-4" />
                 </div>
-                <span className="text-xs sm:text-[13px] font-bold text-slate-900 font-montserrat">
+                <span className="text-sm sm:text-[15px] font-bold text-slate-900 font-montserrat">
                   Küresel (Global) Algı
                 </span>
               </div>
-              <p className="text-[11px] text-slate-600 leading-snug pl-0.5">
+              <p className="text-xs sm:text-[13px] text-slate-600 leading-snug pl-0.5">
                 İlk katmandan itibaren tüm resme bütüncül ve şekil odaklı (shape-biased) bakış.
               </p>
             </div>
@@ -148,11 +148,11 @@ export const Slide20_ThankYouAndKahoot: React.FC = () => {
                 <div className="w-7 h-7 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center shrink-0">
                   <Zap className="w-4 h-4" />
                 </div>
-                <span className="text-xs sm:text-[13px] font-bold text-slate-900 font-montserrat">
+                <span className="text-sm sm:text-[15px] font-bold text-slate-900 font-montserrat">
                   Büyük Ölçekli Güç
                 </span>
               </div>
-              <p className="text-[11px] text-slate-600 leading-snug pl-0.5">
+              <p className="text-xs sm:text-[13px] text-slate-600 leading-snug pl-0.5">
                 JFT-300M ön eğitimiyle inductive bias eksikliğini telafi edip CNN rekorlarını kırma.
               </p>
             </div>
@@ -162,11 +162,11 @@ export const Slide20_ThankYouAndKahoot: React.FC = () => {
                 <div className="w-7 h-7 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
                   <Cpu className="w-4 h-4" />
                 </div>
-                <span className="text-xs sm:text-[13px] font-bold text-slate-900 font-montserrat">
+                <span className="text-sm sm:text-[15px] font-bold text-slate-900 font-montserrat">
                   Yüksek Hesaplama Verimi
                 </span>
               </div>
-              <p className="text-[11px] text-slate-600 leading-snug pl-0.5">
+              <p className="text-xs sm:text-[13px] text-slate-600 leading-snug pl-0.5">
                 Standart NLP mimarisiyle en gelişmiş CNN&apos;lerden çok daha az ön eğitim maliyeti.
               </p>
             </div>
@@ -354,10 +354,10 @@ export const Slide20_ThankYouAndKahoot: React.FC = () => {
                   1
                 </div>
                 <div>
-                  <span className="font-bold text-slate-900 block leading-tight text-xs sm:text-[13px]">
+                  <span className="font-bold text-slate-900 block leading-tight text-sm sm:text-[15px]">
                     QR Kodu Okutun
                   </span>
-                  <span className="text-[11px] text-slate-500">
+                  <span className="text-xs text-slate-500">
                     Telefon kameranızla doğrudan taratın
                   </span>
                 </div>
@@ -371,10 +371,10 @@ export const Slide20_ThankYouAndKahoot: React.FC = () => {
                   2
                 </div>
                 <div>
-                  <span className="font-bold text-slate-900 block leading-tight text-xs sm:text-[13px]">
+                  <span className="font-bold text-slate-900 block leading-tight text-sm sm:text-[15px]">
                     {platform === 'wayground' ? 'Oda Kodunu Girin' : 'Game PIN Girin'}
                   </span>
-                  <span className="text-[11px] text-slate-500">
+                  <span className="text-xs text-slate-500">
                     İsminizi yazıp lobiye bağlanın
                   </span>
                 </div>
@@ -385,10 +385,10 @@ export const Slide20_ThankYouAndKahoot: React.FC = () => {
                   <Trophy className="w-4 h-4" />
                 </div>
                 <div>
-                  <span className="font-bold text-slate-900 block leading-tight text-xs sm:text-[13px]">
+                  <span className="font-bold text-slate-900 block leading-tight text-sm sm:text-[15px]">
                     Zirveye Yarışın!
                   </span>
-                  <span className="text-[11px] text-slate-500">
+                  <span className="text-xs text-slate-500">
                     Hızlı ve doğru cevaplar daha çok puan kazandırır
                   </span>
                 </div>

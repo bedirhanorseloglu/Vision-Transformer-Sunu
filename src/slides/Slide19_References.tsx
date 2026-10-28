@@ -149,14 +149,14 @@ export const Slide19_References: React.FC = () => {
               </div>
               <div className="flex-1 min-w-0">
                 <div className="flex items-center justify-between gap-2 mb-0.5">
-                  <h3 className="text-xs font-bold text-slate-900 font-montserrat truncate">
+                  <h3 className="text-xs sm:text-sm font-bold text-slate-900 font-montserrat truncate">
                     {ref.author}
                   </h3>
                   <span className="text-[10px] font-semibold text-slate-500 bg-white px-2 py-0.5 rounded-md border border-slate-200 shrink-0 font-sans">
                     {ref.type}
                   </span>
                 </div>
-                <p className="text-xs text-slate-700 italic font-medium font-sans line-clamp-1 mb-0.5">
+                <p className="text-xs sm:text-[13px] text-slate-700 italic font-medium font-sans line-clamp-1 mb-0.5">
                   {ref.title}
                 </p>
                 <div className="flex items-center justify-between">
@@ -193,14 +193,14 @@ export const Slide19_References: React.FC = () => {
               </div>
               <div className="flex-1 min-w-0">
                 <div className="flex items-center justify-between gap-2 mb-0.5">
-                  <h3 className="text-xs font-bold text-slate-900 font-montserrat truncate">
+                  <h3 className="text-xs sm:text-sm font-bold text-slate-900 font-montserrat truncate">
                     {ref.author}
                   </h3>
                   <span className="text-[10px] font-semibold text-slate-500 bg-white px-2 py-0.5 rounded-md border border-slate-200 shrink-0 font-sans">
                     {ref.type}
                   </span>
                 </div>
-                <p className="text-xs text-slate-700 italic font-medium font-sans line-clamp-1 mb-0.5">
+                <p className="text-xs sm:text-[13px] text-slate-700 italic font-medium font-sans line-clamp-1 mb-0.5">
                   {ref.title}
                 </p>
                 <div className="flex items-center justify-between">

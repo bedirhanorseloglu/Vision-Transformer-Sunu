@@ -172,7 +172,7 @@ export const Slide08_ViTArchitectureOverview: React.FC = () => {
                         <span className="text-[10px] font-mono font-bold text-slate-400">
                           {step.num}.
                         </span>
-                        <h4 className="text-xs sm:text-sm font-bold text-slate-900 font-montserrat truncate">
+                        <h4 className="text-sm sm:text-base font-bold text-slate-900 font-montserrat truncate">
                           {step.title}
                         </h4>
                       </div>
@@ -180,7 +180,7 @@ export const Slide08_ViTArchitectureOverview: React.FC = () => {
                         {step.badge}
                       </span>
                     </div>
-                    <p className="text-[11px] sm:text-xs text-slate-600 leading-snug">
+                    <p className="text-xs sm:text-[13.5px] text-slate-600 leading-snug">
                       {step.desc}
                     </p>
                   </div>

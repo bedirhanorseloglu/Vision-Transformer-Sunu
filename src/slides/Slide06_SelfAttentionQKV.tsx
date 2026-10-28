@@ -228,7 +228,7 @@ export const Slide06_SelfAttentionQKV: React.FC = () => {
             <h3 className="text-xs font-sans font-bold tracking-wider text-blue-700 uppercase mb-2.5 pb-1.5 border-b border-slate-100">
               Q, K, V Vektörleri Ne İşe Yarar?
             </h3>
-            <ul className="space-y-2 text-xs sm:text-[13px]">
+            <ul className="space-y-2 text-xs sm:text-sm">
               <li className="flex items-start gap-2">
                 <Search className="w-4 h-4 text-blue-600 shrink-0 mt-0.5" />
                 <span>
@@ -255,10 +255,10 @@ export const Slide06_SelfAttentionQKV: React.FC = () => {
 
           {/* Card 2: Softmax Filtrelemesi */}
           <div className="bg-amber-50/50 hover:bg-amber-50/80 rounded-2xl p-3.5 border border-amber-200/70 shadow-xs flex flex-col justify-center flex-1 transition-all">
-            <h4 className="text-xs sm:text-sm font-bold text-slate-900 font-montserrat mb-1">
+            <h4 className="text-sm sm:text-base font-bold text-slate-900 font-montserrat mb-1">
               Softmax ile Alakasız Kelimeleri Eleme
             </h4>
-            <p className="text-[11px] sm:text-xs text-slate-700 leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
               İlgili kelimelerin puanları büyütülürken, alakasız kelimeler <span className="font-sans font-bold text-amber-900">0.001</span> gibi küçük katsayılarla çarpılarak geri plana itilir.
             </p>
           </div>
@@ -268,7 +268,7 @@ export const Slide06_SelfAttentionQKV: React.FC = () => {
             <div className="flex items-center justify-between mb-1">
               <div className="flex items-center gap-1.5">
                 <Layers className="w-4 h-4 text-blue-600" />
-                <h4 className="text-xs sm:text-sm font-bold text-slate-900 font-montserrat">
+                <h4 className="text-sm sm:text-base font-bold text-slate-900 font-montserrat">
                   Multi-Head Attention (h = 8 Kafa)
                 </h4>
               </div>
@@ -276,10 +276,10 @@ export const Slide06_SelfAttentionQKV: React.FC = () => {
                 Hiperparametre
               </span>
             </div>
-            <p className="text-[11px] sm:text-xs text-slate-700 leading-relaxed">
+            <p className="text-xs sm:text-sm text-slate-700 leading-relaxed">
               Kafa sayısı bir <strong>hiperparametredir</strong> (burada <span className="font-sans font-bold">h = 8</span>); model anlam ve bağlam gibi farklı yönlere aynı anda odaklanır.
             </p>
-            <p className="text-[11px] sm:text-xs text-blue-900 font-medium mt-1 leading-snug">
+            <p className="text-xs sm:text-[13px] text-blue-900 font-medium mt-1 leading-snug">
               ➔ Kafaların birleşiminden çıkan <span className="font-sans font-bold">Z matrisi</span>, Encoder'ın 2. katmanı olan <strong>Fully Connected (Linear) katmana</strong> aktarılır.
             </p>
           </div>

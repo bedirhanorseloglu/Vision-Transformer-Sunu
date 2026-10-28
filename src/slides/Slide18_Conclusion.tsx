@@ -4,7 +4,6 @@ import {
   CheckCircle2,
   Award,
   Compass,
-
   X,
   Maximize2
 } from 'lucide-react'
@@ -54,7 +53,6 @@ export const Slide18_Conclusion: React.FC = () => {
 
         {/* Sağ Üst: Referans & Slayt Numarası */}
         <div className="hidden sm:flex items-center gap-2 font-sans">
-
           <div className="flex items-center gap-1.5 text-xs font-semibold text-blue-700 bg-blue-50 px-3 py-1.5 rounded-full border border-blue-200">
             <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
             <span>Slayt 17</span>
@@ -63,7 +61,7 @@ export const Slide18_Conclusion: React.FC = () => {
       </motion.div>
 
       {/* 2. MAIN CONTENT: 2 SÜTUNLU DENGELİ DÜZEN (SOLDA GÖRSEL, SAĞDA 3 NET KART) */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 my-auto z-10 items-stretch flex-1 py-1.5 w-full min-h-0 font-sans">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 my-auto z-10 items-stretch flex-1 py-2 w-full min-h-0 font-sans">
 
         {/* SOL: GÖRSEL PANELİ (5 Kolon) */}
         <motion.div
@@ -72,8 +70,6 @@ export const Slide18_Conclusion: React.FC = () => {
           transition={{ duration: 0.28, delay: 0.08, ease: PUNCHY_EASE }}
           className="lg:col-span-5 flex flex-col justify-between bg-slate-50/80 rounded-2xl p-3.5 border border-slate-200/90 shadow-2xs h-full group"
         >
-
-
           {/* Görsel Kutusu */}
           <div
             onClick={() => setIsModalOpen(true)}
@@ -84,33 +80,29 @@ export const Slide18_Conclusion: React.FC = () => {
               alt="ViT Future Directions"
               className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-[1.01]"
             />
-
-
           </div>
-
-
         </motion.div>
 
-        {/* SAĞ: KULLANICININ İSTEDİĞİ 3 BÖLÜM (7 Kolon) */}
-        <div className="lg:col-span-7 flex flex-col justify-between gap-3 h-full min-h-0 font-sans">
+        {/* SAĞ: 3 BÖLÜM (7 Kolon - Orantılı ve Büyük Tipografi) */}
+        <div className="lg:col-span-7 flex flex-col justify-between gap-3.5 h-full min-h-0 font-sans">
 
           {/* KART 1: ANA SONUÇ */}
           <motion.div
             initial={{ opacity: 0, x: 15 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.28, delay: 0.1, ease: PUNCHY_EASE }}
-            className="bg-blue-50/50 hover:bg-blue-50/70 rounded-2xl p-3.5 sm:p-4 border border-blue-200/80 shadow-2xs flex flex-col justify-center gap-2 flex-1 transition-all"
+            className="bg-blue-50/55 hover:bg-blue-50/80 rounded-2xl p-4 sm:p-5 border border-blue-200/80 shadow-2xs flex flex-col justify-center gap-2.5 transition-all"
           >
-            <div className="flex items-center gap-2">
-              <span className="p-1.5 rounded-lg bg-blue-100 text-blue-700">
-                <CheckCircle2 className="w-4 h-4" />
+            <div className="flex items-center gap-2.5">
+              <span className="p-2 rounded-xl bg-blue-100 text-blue-700">
+                <CheckCircle2 className="w-5 h-5" />
               </span>
-              <h3 className="text-sm sm:text-base font-bold text-slate-900 font-montserrat">
+              <h3 className="text-base sm:text-lg font-extrabold text-slate-900 font-montserrat">
                 Ana Sonuç
               </h3>
             </div>
-            <p className="text-xs sm:text-[13px] text-slate-800 font-medium leading-relaxed font-sans pl-1">
-              Görüntüyü <strong>patch'lere bölüp</strong> standart bir <strong>Transformer’a</strong> vermek; büyük veride <strong>pre-training</strong> yapılıp orta/küçük ölçekli veri kümelerine (<strong>ImageNet, CIFAR-100, VTAB</strong>) aktarıldığında en gelişmiş <strong>CNN’leri geçmekte</strong> ve önemli ölçüde <strong>daha az hesaplama kaynağı</strong> harcamaktadır.
+            <p className="text-sm sm:text-[15px] text-slate-800 font-medium leading-relaxed font-sans pl-1">
+              Görüntüyü <strong>patch&apos;lere bölüp</strong> standart bir <strong>Transformer’a</strong> vermek; büyük veride <strong>pre-training</strong> yapılıp orta/küçük ölçekli veri kümelerine (<strong>ImageNet, CIFAR-100, VTAB</strong>) aktarıldığında en gelişmiş <strong>CNN’leri geçmekte</strong> ve önemli ölçüde <strong>daha az hesaplama kaynağı</strong> harcamaktadır.
             </p>
           </motion.div>
 
@@ -119,27 +111,27 @@ export const Slide18_Conclusion: React.FC = () => {
             initial={{ opacity: 0, x: 15 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.28, delay: 0.14, ease: PUNCHY_EASE }}
-            className="bg-indigo-50/50 hover:bg-indigo-50/70 rounded-2xl p-3.5 sm:p-4 border border-indigo-200/80 shadow-2xs flex flex-col justify-center gap-2 flex-1 transition-all"
+            className="bg-indigo-50/55 hover:bg-indigo-50/80 rounded-2xl p-4 sm:p-5 border border-indigo-200/80 shadow-2xs flex flex-col justify-center gap-2.5 transition-all"
           >
-            <div className="flex items-center gap-2">
-              <span className="p-1.5 rounded-lg bg-indigo-100 text-indigo-700">
-                <Award className="w-4 h-4" />
+            <div className="flex items-center gap-2.5">
+              <span className="p-2 rounded-xl bg-indigo-100 text-indigo-700">
+                <Award className="w-5 h-5" />
               </span>
-              <h3 className="text-sm sm:text-base font-bold text-slate-900 font-montserrat">
+              <h3 className="text-base sm:text-lg font-extrabold text-slate-900 font-montserrat">
                 Önemli Çıkarımlar
               </h3>
             </div>
 
-            <div className="space-y-1.5 pl-1 text-xs sm:text-[12.5px] text-slate-800 font-medium font-sans">
-              <div className="flex items-start gap-2">
-                <span className="w-2 h-2 rounded-full bg-indigo-600 shrink-0 mt-1.5" />
-                <p className="leading-snug">
+            <div className="space-y-2 pl-1 text-sm sm:text-[15px] text-slate-800 font-medium font-sans">
+              <div className="flex items-start gap-2.5">
+                <span className="w-2.5 h-2.5 rounded-full bg-indigo-600 shrink-0 mt-2" />
+                <p className="leading-relaxed">
                   <strong>Büyük ölçekli eğitim</strong>, inductive bias eksikliğini telafi edebiliyor.
                 </p>
               </div>
-              <div className="flex items-start gap-2">
-                <span className="w-2 h-2 rounded-full bg-blue-600 shrink-0 mt-1.5" />
-                <p className="leading-snug">
+              <div className="flex items-start gap-2.5">
+                <span className="w-2.5 h-2.5 rounded-full bg-blue-600 shrink-0 mt-2" />
+                <p className="leading-relaxed">
                   ViT, özellikle çok büyük veri setlerinde <strong>state-of-the-art (o dönemin en iyi)</strong> performansa ulaşıyor.
                 </p>
               </div>
@@ -151,55 +143,55 @@ export const Slide18_Conclusion: React.FC = () => {
             initial={{ opacity: 0, x: 15 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.28, delay: 0.18, ease: PUNCHY_EASE }}
-            className="bg-emerald-50/50 hover:bg-emerald-50/70 rounded-2xl p-3.5 sm:p-4 border border-emerald-200/80 shadow-2xs flex flex-col justify-center gap-2 flex-1 transition-all"
+            className="bg-emerald-50/55 hover:bg-emerald-50/80 rounded-2xl p-4 sm:p-5 border border-emerald-200/80 shadow-2xs flex flex-col justify-between gap-3 flex-1 transition-all"
           >
-            <div className="flex items-center gap-2">
-              <span className="p-1.5 rounded-lg bg-emerald-100 text-emerald-700">
-                <Compass className="w-4 h-4" />
+            <div className="flex items-center gap-2.5">
+              <span className="p-2 rounded-xl bg-emerald-100 text-emerald-700">
+                <Compass className="w-5 h-5" />
               </span>
-              <h3 className="text-sm sm:text-base font-bold text-slate-900 font-montserrat">
-                Açık Noktalar
+              <h3 className="text-base sm:text-lg font-extrabold text-slate-900 font-montserrat">
+                Açık Noktalar (Gelecek Hedefler)
               </h3>
             </div>
 
-            <div className="space-y-2 pl-0.5 text-xs font-sans">
-              <div className="flex items-start gap-2">
-                <span className="w-5 h-5 rounded-md bg-emerald-100 text-emerald-800 font-bold text-[11px] flex items-center justify-center shrink-0 mt-0.5">
+            <div className="space-y-3 pl-0.5 font-sans my-auto">
+              <div className="flex items-start gap-3">
+                <span className="w-6 h-6 rounded-lg bg-emerald-600 text-white font-bold text-xs flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
                   1
                 </span>
                 <div>
-                  <p className="font-semibold text-slate-900 leading-snug text-xs sm:text-[12.5px]">
-                    Detection ve segmentation'a uyarlanması
+                  <p className="font-bold text-slate-900 leading-snug text-sm sm:text-[15px]">
+                    Detection ve segmentation&apos;a uyarlanması
                   </p>
-                  <p className="text-[11px] text-slate-600 font-normal leading-relaxed mt-0.5">
+                  <p className="text-xs sm:text-[13.5px] text-slate-700 font-normal leading-relaxed mt-0.5">
                     ViT makalede sadece tüm resmi sınıflandırdı; nesnelerin yerini bulma (detection) ve piksel sınırlarını çizme görevlerine uyarlanması gerekiyor.
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-2">
-                <span className="w-5 h-5 rounded-md bg-emerald-100 text-emerald-800 font-bold text-[11px] flex items-center justify-center shrink-0 mt-0.5">
+              <div className="flex items-start gap-3">
+                <span className="w-6 h-6 rounded-lg bg-emerald-600 text-white font-bold text-xs flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
                   2
                 </span>
                 <div>
-                  <p className="font-semibold text-slate-900 leading-snug text-xs sm:text-[12.5px]">
+                  <p className="font-bold text-slate-900 leading-snug text-sm sm:text-[15px]">
                     Self-supervised öğrenmenin güçlendirilmesi
                   </p>
-                  <p className="text-[11px] text-slate-600 font-normal leading-relaxed mt-0.5">
+                  <p className="text-xs sm:text-[13.5px] text-slate-700 font-normal leading-relaxed mt-0.5">
                     İnsan etiketine muhtaç olmadan, etiketlenmemiş devasa görsellerden (BERT gibi maskeleme ile) kendi kendine öğrenme başarısı henüz sınırlı.
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-2">
-                <span className="w-5 h-5 rounded-md bg-emerald-100 text-emerald-800 font-bold text-[11px] flex items-center justify-center shrink-0 mt-0.5">
+              <div className="flex items-start gap-3">
+                <span className="w-6 h-6 rounded-lg bg-emerald-600 text-white font-bold text-xs flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
                   3
                 </span>
                 <div>
-                  <p className="font-semibold text-slate-900 leading-snug text-xs sm:text-[12.5px]">
+                  <p className="font-bold text-slate-900 leading-snug text-sm sm:text-[15px]">
                     Daha büyük modellerin incelenmesi
                   </p>
-                  <p className="text-[11px] text-slate-600 font-normal leading-relaxed mt-0.5">
+                  <p className="text-xs sm:text-[13.5px] text-slate-700 font-normal leading-relaxed mt-0.5">
                     Model büyüdükçe performans doygunluğa (plato) ulaşmıyor; milyarlarca parametreli devasa mimarilerin sınırları henüz test edilmedi.
                   </p>
                 </div>
@@ -241,7 +233,7 @@ export const Slide18_Conclusion: React.FC = () => {
                       ViT Gelecek Çalışmalar: 3 Temel Yön
                     </h4>
                     <p className="text-xs text-slate-500 font-sans">
-                      1) Detection & Segmentation | 2) Self-Supervised Learning | 3) Scaling
+                      1) Detection &amp; Segmentation | 2) Self-Supervised Learning | 3) Scaling
                     </p>
                   </div>
                 </div>

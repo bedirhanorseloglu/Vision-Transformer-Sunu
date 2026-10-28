@@ -1,20 +1,20 @@
 import React, { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
-import { 
-  Play, 
-  Pause, 
-  RotateCcw, 
-  FastForward, 
-  Rewind, 
-  Volume2, 
-  VolumeX, 
-  Lightbulb 
+import {
+  Play,
+  Pause,
+  RotateCcw,
+  FastForward,
+  Rewind,
+  Volume2,
+  VolumeX,
+  Lightbulb
 } from 'lucide-react'
 
 export const Slide03_AttentionWalkthrough: React.FC = () => {
   const PUNCHY_EASE = [0.16, 1, 0.3, 1] as const
   const videoRef = useRef<HTMLVideoElement>(null)
-  
+
   const [isPlaying, setIsPlaying] = useState<boolean>(true)
   const [isMuted, setIsMuted] = useState<boolean>(true)
   const [progress, setProgress] = useState<number>(0)
@@ -78,7 +78,7 @@ export const Slide03_AttentionWalkthrough: React.FC = () => {
 
   return (
     <div className="relative w-full h-full bg-white rounded-3xl shadow-[0_20px_50px_-15px_rgba(37,99,235,0.07)] border border-slate-200/90 overflow-hidden flex flex-col justify-between p-6 sm:p-8 md:p-9 select-none">
-      
+
       {/* Background soft ambient accents */}
       <div className="absolute top-0 right-0 w-[500px] h-[350px] bg-blue-500/5 rounded-full blur-[90px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[450px] h-[300px] bg-emerald-500/5 rounded-full blur-[90px] pointer-events-none" />
@@ -108,7 +108,7 @@ export const Slide03_AttentionWalkthrough: React.FC = () => {
 
       {/* 2. MAIN CONTENT: 2-COLUMN (Left: Interactive Video, Right: Minimal Speaker Cues) */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-7 my-auto z-10 items-stretch flex-1 py-3 min-h-0">
-        
+
         {/* LEFT COLUMN: VIDEO PLAYER (8 Cols) - Clean Light Container */}
         <motion.div
           initial={{ opacity: 0, x: -20, scale: 0.98 }}
@@ -117,8 +117,8 @@ export const Slide03_AttentionWalkthrough: React.FC = () => {
           className="lg:col-span-8 flex flex-col justify-between bg-slate-50/80 rounded-2xl p-3 sm:p-4 border border-slate-200/90 shadow-sm overflow-hidden h-full group"
         >
           {/* Video Container (No blur when paused) */}
-          <div 
-            className="relative w-full flex-1 bg-black rounded-xl overflow-hidden flex items-center justify-center min-h-[260px] cursor-pointer" 
+          <div
+            className="relative w-full flex-1 bg-black rounded-xl overflow-hidden flex items-center justify-center min-h-[260px] cursor-pointer"
             onClick={togglePlay}
           >
             <video
@@ -262,16 +262,6 @@ export const Slide03_AttentionWalkthrough: React.FC = () => {
             <p className="text-xs sm:text-sm text-slate-700 leading-relaxed pl-8">
               Context vektörü decoder durumu ile birleştirilip <strong>Feedforward</strong> katmanına verilir ve yeni kelime üretilir.
             </p>
-          </div>
-
-          {/* Light Theme Example Box */}
-          <div className="bg-white rounded-xl p-3 border border-slate-200 shadow-xs shrink-0">
-            <div className="flex items-center gap-2 text-xs">
-              <Lightbulb className="w-4 h-4 text-blue-600 shrink-0" />
-              <span className="text-slate-700">
-                <strong className="text-slate-900">Videodaki Örnek:</strong> <em>"ate"</em> kelimesi Fransızca iki kelimeye (<em>"a mangé"</em>) çevrilirken model doğrudan <em>"ate"</em> durumuna kilitlenir.
-              </span>
-            </div>
           </div>
         </motion.div>
 

@@ -87,7 +87,7 @@ export const Slide16_WhenToUseCnnVsVit: React.FC = () => {
                   <span className="p-1 rounded-lg bg-blue-100 text-blue-800">
                     <Layers className="w-4 h-4" />
                   </span>
-                  <h3 className="text-xs sm:text-sm font-bold text-slate-900 font-montserrat">
+                  <h3 className="text-sm sm:text-base font-bold text-slate-900 font-montserrat">
                     1. Küçük & Orta Veri (&lt; 10M Görsel)
                   </h3>
                 </div>
@@ -95,7 +95,7 @@ export const Slide16_WhenToUseCnnVsVit: React.FC = () => {
                   CNN Tercih Edilmeli
                 </span>
               </div>
-              <p className="text-xs text-slate-700 leading-relaxed">
+              <p className="text-xs sm:text-[13.5px] text-slate-700 leading-relaxed">
                 Veriniz kısıtlıysa (ImageNet-1K gibi), <strong>CNN (ResNet)</strong> daha başarılıdır. CNN'in doğuştan gelen <em>yerel arama kuralı</em> az veride rehber olur. ViT ise bu kurallardan yoksun olduğu için az veriyi ezberler (overfitting).
               </p>
             </div>
@@ -113,7 +113,7 @@ export const Slide16_WhenToUseCnnVsVit: React.FC = () => {
                   <span className="p-1 rounded-lg bg-emerald-100 text-emerald-800">
                     <Network className="w-4 h-4" />
                   </span>
-                  <h3 className="text-xs sm:text-sm font-bold text-slate-900 font-montserrat">
+                  <h3 className="text-sm sm:text-base font-bold text-slate-900 font-montserrat">
                     2. Devasa Büyük Veri (&gt; 100M-300M)
                   </h3>
                 </div>
@@ -121,7 +121,7 @@ export const Slide16_WhenToUseCnnVsVit: React.FC = () => {
                   ViT Tercih Edilmeli
                 </span>
               </div>
-              <p className="text-xs text-slate-700 leading-relaxed">
+              <p className="text-xs sm:text-[13.5px] text-slate-700 leading-relaxed">
                 Elinizde JFT-300M gibi yüz milyonlarca görsel varsa, <strong>Vision Transformer</strong> seçilmelidir. CNN yerel filtreleri yüzünden bir süre sonra doygunluğa (tavana) ulaşır; ViT ise küresel dikkatiyle sınırsızca öğrenir ve rekor kırar.
               </p>
             </div>
@@ -139,7 +139,7 @@ export const Slide16_WhenToUseCnnVsVit: React.FC = () => {
                   <span className="p-1 rounded-lg bg-purple-100 text-purple-800">
                     <Zap className="w-4 h-4" />
                   </span>
-                  <h3 className="text-xs sm:text-sm font-bold text-slate-900 font-montserrat">
+                  <h3 className="text-sm sm:text-base font-bold text-slate-900 font-montserrat">
                     3. Pratikteki Çözüm: Fine-Tuning
                   </h3>
                 </div>
@@ -147,7 +147,7 @@ export const Slide16_WhenToUseCnnVsVit: React.FC = () => {
                   En Yaygın Kullanım
                 </span>
               </div>
-              <p className="text-xs text-slate-700 leading-relaxed">
+              <p className="text-xs sm:text-[13.5px] text-slate-700 leading-relaxed">
                 Kimsenin sıfırdan 300 milyon resim eğitecek TPU bütçesi yoktur. Bu yüzden pratikte <strong>büyük veride önceden eğitilmiş (Pre-trained) ViT alınır</strong> ve kendi küçük hedef verimize <strong>ince ayar (Fine-tuning)</strong> yapılır.
               </p>
             </div>

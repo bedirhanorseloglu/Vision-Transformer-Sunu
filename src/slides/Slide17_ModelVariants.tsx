@@ -105,7 +105,7 @@ export const Slide17_ModelVariants: React.FC = () => {
                 <span className="p-1.5 rounded-lg bg-blue-100 text-blue-800">
                   <Sliders className="w-4 h-4" />
                 </span>
-                <h3 className="text-xs sm:text-sm font-bold text-slate-900 font-montserrat">
+                <h3 className="text-sm sm:text-[15px] font-bold text-slate-900 font-montserrat">
                   1. &quot;ViT-L/16&quot; İsmi Ne Demektir?
                 </h3>
               </div>
@@ -158,7 +158,7 @@ export const Slide17_ModelVariants: React.FC = () => {
                 <span className="p-1.5 rounded-lg bg-amber-100 text-amber-800">
                   <Zap className="w-4 h-4" />
                 </span>
-                <h3 className="text-xs sm:text-sm font-bold text-slate-900 font-montserrat">
+                <h3 className="text-sm sm:text-[15px] font-bold text-slate-900 font-montserrat">
                   2. Neden /16 Modeller /32&apos;den Pahalı?
                 </h3>
               </div>
@@ -206,13 +206,13 @@ export const Slide17_ModelVariants: React.FC = () => {
                   <span className="p-1.5 rounded-lg bg-emerald-100 text-emerald-800">
                     <Lightbulb className="w-4 h-4" />
                   </span>
-                  <h3 className="text-xs sm:text-sm font-bold text-slate-900 font-montserrat">
+                  <h3 className="text-sm sm:text-[15px] font-bold text-slate-900 font-montserrat">
                     3. Tablodaki Sütunlar Ne İşe Yarar?
                   </h3>
                 </div>
 
                 {/* 3 Sütunun 1'er Cümlelik Net Açıklaması */}
-                <div className="bg-white/95 rounded-xl p-2.5 border border-emerald-200 shadow-2xs space-y-1.5 text-xs leading-snug">
+                <div className="bg-white/95 rounded-xl p-2.5 border border-emerald-200 shadow-2xs space-y-1.5 text-xs sm:text-[13px] leading-snug">
                   <div>
                     <span className="font-mono font-bold text-emerald-900 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200 mr-1.5">
                       Hidden Size D:
@@ -253,7 +253,7 @@ export const Slide17_ModelVariants: React.FC = () => {
                   </span>
                 </div>
 
-                <ul className="space-y-1 pl-2.5 border-l-2 border-emerald-400 text-slate-700 leading-snug text-[11.5px]">
+                <ul className="space-y-1 pl-2.5 border-l-2 border-emerald-400 text-slate-700 leading-snug text-xs sm:text-[12.5px]">
                   <li>
                     <strong>1. Başarı / Maliyet Dengesi:</strong> 4 kattan sonra (5×, 6×) bellek maliyeti katlanırken performans artışı doygunluğa ulaşır.
                   </li>

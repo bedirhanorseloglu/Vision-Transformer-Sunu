@@ -337,10 +337,10 @@ export const Slide14_SotaComparisonTable2: React.FC = () => {
             <ShieldAlert className="w-4 h-4" />
           </div>
           <div>
-            <h4 className="text-xs sm:text-sm font-bold text-slate-900 font-montserrat mb-0.5">
+            <h4 className="text-sm sm:text-base font-bold text-slate-900 font-montserrat mb-0.5">
               1. Kıyaslanan Dev CNN Modelleri
             </h4>
-            <p className="text-xs text-slate-700 leading-relaxed">
+            <p className="text-xs sm:text-[13.5px] text-slate-700 leading-relaxed">
               <code>JFT-300M</code> veri setinde eğitilen en güçlü iki <strong>CNN</strong> modeli <strong>BiT-L (ResNet152×4)</strong> ve <strong>Noisy Student (EfficientNet-L2)</strong> ile yarışılmıştır.
             </p>
           </div>
@@ -356,10 +356,10 @@ export const Slide14_SotaComparisonTable2: React.FC = () => {
             <TrendingUp className="w-4 h-4" />
           </div>
           <div>
-            <h4 className="text-xs sm:text-sm font-bold text-slate-900 font-montserrat mb-0.5">
+            <h4 className="text-sm sm:text-base font-bold text-slate-900 font-montserrat mb-0.5">
               2. Tüm Veri Kümelerinde Liderlik
             </h4>
-            <p className="text-xs text-slate-700 leading-relaxed">
+            <p className="text-xs sm:text-[13.5px] text-slate-700 leading-relaxed">
               <strong>ViT-H/14</strong>; <em>ImageNet-1K, ImageNet ReaL, CIFAR-100</em> ve <em>VTAB</em> veri setlerinin tamamında her iki dev <strong>CNN</strong> modelini de geçmiştir.
             </p>
           </div>
@@ -375,10 +375,10 @@ export const Slide14_SotaComparisonTable2: React.FC = () => {
             <CheckCircle2 className="w-4 h-4" />
           </div>
           <div>
-            <h4 className="text-xs sm:text-sm font-bold text-slate-900 font-montserrat mb-0.5">
+            <h4 className="text-sm sm:text-base font-bold text-slate-900 font-montserrat mb-0.5">
               3. 5× ila 18× Daha Az Maliyet
             </h4>
-            <p className="text-xs text-slate-700 leading-relaxed">
+            <p className="text-xs sm:text-[13.5px] text-slate-700 leading-relaxed">
               Dev <strong>CNN</strong>&apos;ler <strong>9.9k–12.3k</strong> TPU günü harcarken; ViT modelleri <em>JFT-300M</em>&apos;de <strong>0.68k–2.5k</strong>, <em>ImageNet-21k</em>&apos;da ise sadece <strong>0.23k</strong> gün sürmüştür.
             </p>
           </div>
