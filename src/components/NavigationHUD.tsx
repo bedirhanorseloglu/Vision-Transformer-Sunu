@@ -54,7 +54,7 @@ export const NavigationHUD: React.FC<NavigationHUDProps> = ({
         <div className="glass-capsule hairline-border px-3.5 py-1.5 rounded-full flex items-center gap-2.5 shadow-sm">
           <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_6px_#10b981]" />
           <span className="text-xs font-semibold tracking-wider text-slate-800 uppercase">
-            Vısıon Transformer
+            VISION TRANSFORMER
           </span>
         </div>
 
