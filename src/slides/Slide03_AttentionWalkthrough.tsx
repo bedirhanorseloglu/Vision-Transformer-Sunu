@@ -8,7 +8,7 @@ import {
   Rewind,
   Volume2,
   VolumeX,
-  Lightbulb
+  // Lightbulb
 } from 'lucide-react'
 
 export const Slide03_AttentionWalkthrough: React.FC = () => {
