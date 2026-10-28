@@ -15,22 +15,22 @@ export const Slide14_SotaComparisonTable2: React.FC = () => {
 
   const computeCostData = [
     {
-      model: 'Noisy Student (EfficientNet-L2)',
+      model: 'Noisy Student (EfficientNet-L2 • CNN)',
       tag: 'CNN',
       days: '12.3k gün',
       percent: 100,
-      badge: 'Baz (1×)',
+      badge: 'En Pahalı CNN',
       barColor: 'bg-gradient-to-r from-rose-500 to-red-600',
-      badgeColor: 'bg-rose-50 text-rose-700 border-rose-200',
+      badgeColor: 'bg-rose-50 text-rose-700 border-rose-200 font-semibold',
     },
     {
-      model: 'BiT-L (ResNet152×4)',
+      model: 'BiT-L (ResNet152×4 • CNN)',
       tag: 'CNN',
       days: '9.9k gün',
       percent: 80.5,
-      badge: '1.2×',
+      badge: 'Dev CNN',
       barColor: 'bg-gradient-to-r from-amber-500 to-orange-500',
-      badgeColor: 'bg-amber-50 text-amber-800 border-amber-200',
+      badgeColor: 'bg-amber-50 text-amber-800 border-amber-200 font-semibold',
     },
     {
       model: 'ViT-H/14 (JFT-300M)',
@@ -176,10 +176,10 @@ export const Slide14_SotaComparisonTable2: React.FC = () => {
                 <div className="flex items-center justify-between text-xs sm:text-sm">
                   <div className="flex items-center gap-2">
                     <span
-                      className={`text-[10px] font-bold px-2 py-0.5 rounded ${
+                      className={`text-[10px] font-extrabold px-2 py-0.5 rounded border ${
                         item.tag === 'ViT'
-                          ? 'bg-emerald-100 text-emerald-800'
-                          : 'bg-slate-200 text-slate-700'
+                          ? 'bg-emerald-100 text-emerald-800 border-emerald-300'
+                          : 'bg-rose-100 text-rose-800 border-rose-300'
                       }`}
                     >
                       {item.tag}
@@ -236,18 +236,18 @@ export const Slide14_SotaComparisonTable2: React.FC = () => {
               </div>
             </div>
 
-            <div className="flex items-center gap-3 text-xs font-bold">
-              <span className="inline-flex items-center gap-1.5 text-emerald-700">
-                <span className="w-3 h-3 rounded-sm bg-emerald-500" />
+            <div className="flex items-center gap-2.5 text-[11px] font-bold">
+              <span className="inline-flex items-center gap-1 text-emerald-700">
+                <span className="w-2.5 h-2.5 rounded-sm bg-emerald-500" />
                 ViT-H/14
               </span>
-              <span className="inline-flex items-center gap-1.5 text-amber-700">
-                <span className="w-3 h-3 rounded-sm bg-amber-500" />
-                BiT-L
+              <span className="inline-flex items-center gap-1 text-amber-700">
+                <span className="w-2.5 h-2.5 rounded-sm bg-amber-500" />
+                BiT-L (CNN)
               </span>
-              <span className="inline-flex items-center gap-1.5 text-rose-700">
-                <span className="w-3 h-3 rounded-sm bg-rose-500" />
-                Noisy Student
+              <span className="inline-flex items-center gap-1 text-rose-700">
+                <span className="w-2.5 h-2.5 rounded-sm bg-rose-500" />
+                Noisy Student (CNN)
               </span>
             </div>
           </div>
@@ -271,7 +271,7 @@ export const Slide14_SotaComparisonTable2: React.FC = () => {
                   {/* ViT-H/14 Bar */}
                   <div className="space-y-1">
                     <div className="flex justify-between font-bold text-emerald-800">
-                      <span>ViT-H/14</span>
+                      <span>ViT-H/14 (ViT)</span>
                       <span>%{item.vit}</span>
                     </div>
                     <div className="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden">
@@ -308,7 +308,7 @@ export const Slide14_SotaComparisonTable2: React.FC = () => {
                   {item.noisy && (
                     <div className="space-y-1">
                       <div className="flex justify-between text-slate-500">
-                        <span>Noisy Student</span>
+                        <span>Noisy Student (CNN)</span>
                         <span>%{item.noisy}</span>
                       </div>
                       <div className="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
@@ -346,7 +346,7 @@ export const Slide14_SotaComparisonTable2: React.FC = () => {
               1. Kıyaslanan Dev CNN Modelleri
             </h4>
             <p className="text-xs text-slate-700 leading-relaxed">
-              Dönemin en güçlü iki CNN modeli olan <strong>BiT-L (ResNet152×4)</strong> ve yarı-denetimli <strong>Noisy Student (EfficientNet-L2)</strong> ile yarışılmıştır.
+              Dönemin en güçlü iki <strong>CNN</strong> modeli olan <strong>BiT-L (ResNet152×4)</strong> ve <strong>Noisy Student (EfficientNet-L2)</strong> ile yarışılmıştır.
             </p>
           </div>
         </motion.div>
@@ -365,7 +365,7 @@ export const Slide14_SotaComparisonTable2: React.FC = () => {
               2. Tüm Kulvarlarda Liderlik
             </h4>
             <p className="text-xs text-slate-700 leading-relaxed">
-              <strong>ViT-H/14</strong>; ImageNet, ReaL, CIFAR-100 ve VTAB dahil tüm görevlerde her iki dev CNN modelini de geride bırakmıştır.
+              <strong>ViT-H/14</strong>; ImageNet, ReaL, CIFAR-100 ve VTAB dahil tüm görevlerde her iki dev <strong>CNN</strong> modelini de geride bırakmıştır.
             </p>
           </div>
         </motion.div>
@@ -384,7 +384,7 @@ export const Slide14_SotaComparisonTable2: React.FC = () => {
               3. 5× ila 18× Daha Az Maliyet
             </h4>
             <p className="text-xs text-slate-700 leading-relaxed">
-              CNN&apos;ler <strong>9.9k–12.3k</strong> TPU günü harcarken; ViT modelleri sadece <strong>0.23k–2.5k</strong> günde eğitilerek büyük tasarruf sağlamıştır.
+              Dev <strong>CNN</strong>&apos;ler <strong>9.9k–12.3k</strong> TPU günü harcarken; ViT modelleri sadece <strong>0.23k–2.5k</strong> günde eğitilerek büyük tasarruf sağlamıştır.
             </p>
           </div>
         </motion.div>
