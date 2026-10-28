@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "Bu interaktif sunum uygulamasını veya görsel materyallerini akademik ya da eğitim amaçlı kullanırsanız lütfen aşağıdaki şekilde atıf yapınız."
+title: "Vision Transformer (ViT): An Image is Worth 16x16 Words - İnteraktif Akademik Sunum"
+authors:
+  - family-names: "Örseloğlu"
+    given-names: "Bedirhan"
+    affiliation: "Karadeniz Teknik Üniversitesi, Fen Bilimleri Enstitüsü, Yapay Zeka ve Veri Mühendisliği"
+repository-code: "https://github.com/bedirhanorseloglu/Vision-Transformer-Sunu"
+url: "https://github.com/bedirhanorseloglu/Vision-Transformer-Sunu"
+date-released: 2026-10-28
+license: CC-BY-NC-SA-4.0
+keywords:
+  - Vision Transformer
+  - ViT
+  - Self-Attention
+  - Deep Learning
+  - Computer Vision
+  - Multimodal Machine Learning
+  - Karadeniz Teknik Üniversitesi
