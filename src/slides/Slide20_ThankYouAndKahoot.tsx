@@ -66,7 +66,7 @@ export const Slide20_ThankYouAndKahoot: React.FC = () => {
           </a>
           <div className="flex items-center gap-1.5 text-xs font-semibold text-purple-700 bg-purple-50 px-3 py-1.5 rounded-full border border-purple-200/80">
             <span className="w-2 h-2 rounded-full bg-purple-600 animate-pulse" />
-            <span>Slayt 20</span>
+            <span>Slayt 19</span>
           </div>
         </div>
       </motion.div>

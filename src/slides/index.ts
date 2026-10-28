@@ -9,7 +9,7 @@ import { Slide07_WhyViT } from './Slide07_WhyViT'
 import { Slide08_ViTArchitectureOverview } from './Slide08_ViTArchitectureOverview'
 import { Slide09_PatchingAndEmbedding } from './Slide09_PatchingAndEmbedding'
 import { Slide10_ClsPositionMLP } from './Slide10_ClsPositionMLP'
-import { Slide11_ClsAndPositionDetail } from './Slide11_ClsAndPositionDetail'
+// import { Slide11_ClsAndPositionDetail } from './Slide11_ClsAndPositionDetail' // Şimdilik pasif
 import { Slide12_CnnVsVitReceptiveField } from './Slide12_CnnVsVitReceptiveField'
 import { Slide13_InductiveBiasComparison } from './Slide13_InductiveBiasComparison'
 import { Slide14_SotaComparisonTable2 } from './Slide14_SotaComparisonTable2'
@@ -91,6 +91,7 @@ export const presentationSlides: SlideMeta[] = [
     section: 'BÖLÜM 3: VISION TRANSFORMER (ViT)',
     component: Slide10_ClsPositionMLP,
   },
+  /* Şimdilik Pasif:
   {
     id: 'vit-cls-position-detail',
     title: '3. Adım Detayı: [CLS] Token ve Position Embeddings',
@@ -98,6 +99,7 @@ export const presentationSlides: SlideMeta[] = [
     section: 'BÖLÜM 3: VISION TRANSFORMER (ViT)',
     component: Slide11_ClsAndPositionDetail,
   },
+  */
   {
     id: 'cnn-vs-vit-receptive-field',
     title: 'CNN vs ViT: Alıcı Alanı ve Görsel Algı',

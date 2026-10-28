@@ -133,7 +133,7 @@ export const NavigationHUD: React.FC<NavigationHUDProps> = ({
                   </div>
                   <div>
                     <h3 className="text-lg font-extrabold text-slate-900 tracking-tight font-montserrat">
-                      Slayt Gezgini (20 Slayt)
+                      Slayt Gezgini ({totalSlides} Slayt)
                     </h3>
                     <p className="text-xs text-slate-600">
                       İstediğiniz bölüme doğrudan geçiş yapın

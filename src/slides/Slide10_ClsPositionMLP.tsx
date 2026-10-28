@@ -1,22 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Eye, X } from 'lucide-react'
-/*
-  Eye, X, Key,
-  MapPin,
-  Cpu,
-  ArrowRight,
-  CheckCircle2,
-  Layers,
-  Target,
-  ExternalLink
-*/
 
 export const Slide10_ClsPositionMLP: React.FC = () => {
   const PUNCHY_EASE = [0.16, 1, 0.3, 1] as const
   const [isAttentionModalOpen, setIsAttentionModalOpen] = useState(false)
 
-  // Escape tuşu ile modalı kapatma
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -28,34 +17,33 @@ export const Slide10_ClsPositionMLP: React.FC = () => {
   }, [])
 
   return (
-    <div className="relative w-full h-full bg-white rounded-3xl shadow-[0_20px_50px_-15px_rgba(147,51,234,0.07)] border border-slate-200/90 overflow-hidden flex flex-col justify-between p-5 sm:p-7 md:p-8 select-none font-sans">
+    <div className="relative w-full h-full bg-white rounded-3xl shadow-[0_20px_50px_-15px_rgba(37,99,235,0.07)] border border-slate-200/90 overflow-hidden flex flex-col justify-between p-5 sm:p-6 md:p-7 select-none">
 
       {/* Background subtle ambient glows */}
       <div className="absolute top-0 right-0 w-[500px] h-[350px] bg-purple-500/5 rounded-full blur-[90px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[450px] h-[300px] bg-blue-500/5 rounded-full blur-[90px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[450px] h-[300px] bg-amber-500/5 rounded-full blur-[90px] pointer-events-none" />
 
       {/* 1. TOP HEADER */}
       <motion.div
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.25, ease: PUNCHY_EASE }}
-        className="w-full flex items-center justify-between pb-2.5 border-b border-slate-100 z-10 shrink-0"
+        className="w-full flex items-center justify-between pb-2 border-b border-slate-100 z-10 shrink-0"
       >
         <div>
           <div className="flex items-center gap-2 mb-1">
             <span className="text-xs font-sans font-bold tracking-wider text-purple-700 bg-purple-50 px-2.5 py-0.5 rounded-full border border-purple-200/60">
               BÖLÜM 3: VISION TRANSFORMER (ViT)
             </span>
-            <span className="text-xs text-slate-400 font-sans">| 197×768 Matrisi, Encoder & MLP Head Tahmini</span>
+            <span className="text-xs text-slate-400 font-sans">| 197×768 Matrisi, Encoder &amp; MLP Head Tahmini</span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-montserrat tracking-tight">
             3, 4 ve 5. Adım: [CLS] Token, Position Embedding ve Sınıflandırma
           </h2>
         </div>
 
-        {/* Sağ Üst: Slayt Numarası & Referans */}
+        {/* Sağ Üst: Slayt Numarası */}
         <div className="hidden sm:flex items-center gap-2">
-
           <div className="flex items-center gap-1.5 text-xs font-sans font-semibold text-purple-700 bg-purple-50 px-3 py-1.5 rounded-full border border-purple-200">
             <span className="w-2 h-2 rounded-full bg-purple-600 animate-pulse" />
             <span>Slayt 10</span>
@@ -63,15 +51,15 @@ export const Slide10_ClsPositionMLP: React.FC = () => {
         </div>
       </motion.div>
 
-      {/* 2. CENTER: WIDE PANORAMA DIAGRAM CONTAINER */}
+      {/* 2. CENTER: STACKED WIDE PANORAMA DIAGRAMS (Fig-2 + Fig-4) */}
       <motion.div
         initial={{ opacity: 0, scale: 0.98 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.28, delay: 0.05, ease: PUNCHY_EASE }}
-        className="w-full bg-slate-50/80 rounded-2xl p-2.5 sm:p-3 border border-slate-200/90 shadow-sm flex flex-col justify-between z-10 my-auto"
+        className="w-full bg-slate-50/80 rounded-2xl p-2.5 border border-slate-200/90 shadow-sm flex flex-col justify-between gap-2 z-10 my-auto flex-1 min-h-0"
       >
         {/* Caption bar */}
-        <div className="flex items-center justify-between pb-1.5 mb-1.5 border-b border-slate-200/70 text-xs">
+        <div className="flex items-center justify-between pb-1 border-b border-slate-200/70 text-xs shrink-0">
           <div className="flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-purple-600" />
             <span className="font-bold text-slate-900 font-montserrat">
@@ -83,34 +71,43 @@ export const Slide10_ClsPositionMLP: React.FC = () => {
           </span>
         </div>
 
-        {/* Wide Panorama Image */}
-        <div className="relative w-full h-[180px] sm:h-[205px] md:h-[225px] bg-white rounded-xl border border-slate-200 flex items-center justify-center p-2 overflow-hidden shadow-inner group">
+        {/* 1st Image: Slide 10 Original Diagram (vit_fig2_full_diagram.png) */}
+        <div className="relative w-full flex-1 min-h-[115px] bg-white rounded-xl border border-slate-200 flex items-center justify-center p-1.5 overflow-hidden shadow-inner group">
           <img
             src="/vit_fig2_full_diagram.png"
             alt="ViT [CLS] Token, Position Embeddings, Encoder and MLP Head"
             className="w-full h-full object-contain filter contrast-[1.03] transition-transform duration-300 group-hover:scale-[1.01]"
           />
         </div>
+
+        {/* 2nd Image: Slide 11 Diagram Placed Right Below (vit_fig4_cls_position_clean.png) */}
+        <div className="relative w-full flex-1 min-h-[115px] bg-white rounded-xl border border-slate-200 flex items-center justify-center p-1.5 overflow-hidden shadow-inner group">
+          <img
+            src="/vit_fig4_cls_position_clean.png"
+            alt="ViT Prepending [CLS] token and adding Positional Embeddings"
+            className="w-full h-full object-contain filter contrast-[1.03] transition-transform duration-300 group-hover:scale-[1.01]"
+          />
+        </div>
       </motion.div>
 
       {/* 3. BOTTOM: 3 CONCISE & BALANCED CARDS (Steps 3, 4, 5) */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 sm:gap-4 z-10 shrink-0">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 z-10 shrink-0 mt-2">
 
         {/* KART 1: 3. Adım - [CLS] Token ve Position Embeddings */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.28, delay: 0.1, ease: PUNCHY_EASE }}
-          className="bg-purple-50/40 hover:bg-purple-50/70 rounded-2xl p-3.5 border border-purple-200/80 shadow-xs flex flex-col justify-between transition-all"
+          className="bg-purple-50/40 hover:bg-purple-50/70 rounded-2xl p-3 border border-purple-200/80 shadow-xs flex flex-col justify-between transition-all"
         >
           <div>
-            <div className="flex items-center justify-between mb-1.5">
+            <div className="flex items-center justify-between mb-1">
               <div className="flex items-center gap-2">
                 <div className="w-5 h-5 rounded-lg bg-purple-600 text-white font-sans font-bold text-xs flex items-center justify-center shadow-xs">
                   3
                 </div>
                 <h3 className="text-xs sm:text-sm font-bold text-slate-900 font-montserrat">
-                  [CLS] Token & Position Embedding
+                  [CLS] Token &amp; Position Embedding
                 </h3>
               </div>
               <span className="text-[10px] font-sans font-semibold text-purple-700 bg-purple-100/70 px-2 py-0.5 rounded">
@@ -118,12 +115,11 @@ export const Slide10_ClsPositionMLP: React.FC = () => {
               </span>
             </div>
 
-            <p className="text-[11px] sm:text-xs text-slate-700 leading-relaxed">
-              Sınıflandırma için en başa bir <span className="font-semibold text-slate-900">[CLS] token</span> eklenir. Karışık bir yapboz gibi parça sırasını bilmeyen Transformer'a konum düzenini öğretmek için de her patch'e birer <span className="font-semibold text-slate-900">Position Embedding</span> toplanır.
+            <p className="text-[11px] sm:text-xs text-slate-700 leading-snug">
+              Sınıflandırma için en başa bir <span className="font-semibold text-slate-900">[CLS] token</span> eklenir. Karışık bir yapboz gibi parça sırasını bilmeyen Transformer&apos;a konum düzenini öğretmek için de her patch&apos;e birer <span className="font-semibold text-slate-900">1D Position Embedding</span> toplanır.
             </p>
-            <br />
-            <p className="text-[11px] sm:text-xs text-slate-700 leading-relaxed">
-              <span className="font-semibold text-purple-800">NOT:</span> <code>[CLS]</code> kullanımı zorunlu değildir; NLP'deki hazır ve verimli Transformer altyapısını <strong>hiç değiştirmeden (<em>out-of-the-box</em>)</strong> kullanabilmek adına orijinal mimariye (BERT) sadık kalınmıştır. (Doğru öğrenme oranıyla <code>3·10⁻⁴</code>, CNN'de de kullanılan <span className="italic">Average Pooling</span> de aynı performansı verir.)
+            <p className="text-[11px] sm:text-xs text-slate-700 leading-snug mt-1.5">
+              <span className="font-semibold text-purple-800">NOT:</span> <code>[CLS]</code> kullanımı zorunlu değildir; NLP&apos;deki hazır ve verimli Transformer altyapısını <strong>hiç değiştirmeden (<em>out-of-the-box</em>)</strong> kullanabilmek adına orijinal mimariye (BERT) sadık kalınmıştır. (Doğru öğrenme oranıyla <code>3·10⁻⁴</code>, CNN&apos;de de kullanılan <span className="italic">Average Pooling</span> de aynı performansı verir.)
             </p>
           </div>
 
@@ -138,10 +134,10 @@ export const Slide10_ClsPositionMLP: React.FC = () => {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.28, delay: 0.13, ease: PUNCHY_EASE }}
-          className="bg-amber-50/40 hover:bg-amber-50/70 rounded-2xl p-3.5 border border-amber-200/80 shadow-xs flex flex-col justify-between transition-all"
+          className="bg-amber-50/40 hover:bg-amber-50/70 rounded-2xl p-3 border border-amber-200/80 shadow-xs flex flex-col justify-between transition-all"
         >
           <div>
-            <div className="flex items-center justify-between mb-1.5">
+            <div className="flex items-center justify-between mb-1">
               <div className="flex items-center gap-2">
                 <div className="w-5 h-5 rounded-lg bg-amber-600 text-white font-sans font-bold text-xs flex items-center justify-center shadow-xs">
                   4
@@ -151,7 +147,7 @@ export const Slide10_ClsPositionMLP: React.FC = () => {
                 </h3>
               </div>
 
-              {/* Tıklanabilir Dikkat Haritası Butonu - Canlı, Animasyonlu ve Unutulmaz */}
+              {/* Tıklanabilir Dikkat Haritası Butonu */}
               <motion.button
                 animate={{
                   scale: [1, 1.05, 1],
@@ -181,8 +177,11 @@ export const Slide10_ClsPositionMLP: React.FC = () => {
               </motion.button>
             </div>
 
-            <p className="text-[11px] sm:text-xs text-slate-700 leading-relaxed">
-              197 vektör Encoder katmanlarından geçer. <strong>Self-Attention</strong> ile tüm patch'ler birbiriyle konuşur; arka planı karartıp doğrudan ana nesneye (köpek, uçak) odaklanır.
+            <p className="text-[11px] sm:text-xs text-slate-700 leading-snug">
+              197 vektör Encoder katmanlarından geçer. <strong>Self-Attention</strong> ile tüm patch&apos;ler birbiriyle konuşur; arka planı karartıp doğrudan ana nesneye (köpek, uçak) odaklanır.
+            </p>
+            <p className="text-[11px] sm:text-xs text-slate-700 leading-snug mt-1.5">
+              <span className="font-semibold text-amber-900">Neden 2D değil de 1D Konum?</span> Model <code>224×224</code> piksel yerine <code>14×14</code> gibi küçük bir yama ızgarasında çalıştığı için 2 boyutlu komşuluğu 1D vektörlerden de kolayca öğrenebilmektedir.
             </p>
           </div>
 
@@ -203,16 +202,16 @@ export const Slide10_ClsPositionMLP: React.FC = () => {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.28, delay: 0.16, ease: PUNCHY_EASE }}
-          className="bg-emerald-50/40 hover:bg-emerald-50/70 rounded-2xl p-3.5 border border-emerald-200/80 shadow-xs flex flex-col justify-between transition-all"
+          className="bg-emerald-50/40 hover:bg-emerald-50/70 rounded-2xl p-3 border border-emerald-200/80 shadow-xs flex flex-col justify-between transition-all"
         >
           <div>
-            <div className="flex items-center justify-between mb-1.5">
+            <div className="flex items-center justify-between mb-1">
               <div className="flex items-center gap-2">
                 <div className="w-5 h-5 rounded-lg bg-emerald-600 text-white font-sans font-bold text-xs flex items-center justify-center shadow-xs">
                   5
                 </div>
                 <h3 className="text-xs sm:text-sm font-bold text-slate-900 font-montserrat">
-                  MLP Head & Tahmin
+                  MLP Head &amp; Tahmin
                 </h3>
               </div>
               <span className="text-[10px] font-sans font-semibold text-emerald-700 bg-emerald-100/70 px-2 py-0.5 rounded">
@@ -220,8 +219,8 @@ export const Slide10_ClsPositionMLP: React.FC = () => {
               </span>
             </div>
 
-            <p className="text-[11px] sm:text-xs text-slate-700 leading-relaxed">
-              [CLS] token'ın 1×768 çıktısı bir <span className="font-semibold text-slate-900">Linear Katman (MLP Head)</span> ile sınıflandırma etiketlerine (Kurbağa, Kuş, Kedi, vb.) dönüştürülerek nihai tahmin elde edilir.
+            <p className="text-[11px] sm:text-xs text-slate-700 leading-snug">
+              Encoder çıkışındaki [CLS] token durumu (<code>1×768</code>), resmin nihai temsilidir. Hem ön eğitimde hem ince ayarda <span className="font-semibold text-slate-900">Linear Katman (MLP Head)</span> doğrudan bu duruma bağlanarak sınıf tahminini üretir.
             </p>
           </div>
 

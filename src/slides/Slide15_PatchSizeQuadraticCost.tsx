@@ -118,7 +118,7 @@ export const Slide15_PatchSizeQuadraticCost: React.FC = () => {
           </span>
           <div className="flex items-center gap-1.5 text-xs font-mono font-semibold text-blue-700 bg-blue-50 px-3 py-1.5 rounded-full border border-blue-200">
             <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
-            <span>Slayt 15</span>
+            <span>Slayt 14</span>
           </div>
         </div>
       </motion.div>
