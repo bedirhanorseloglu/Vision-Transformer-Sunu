@@ -15,7 +15,7 @@ import {
   Star
 } from 'lucide-react'
 
-export const Slide19_ThankYouAndKahoot: React.FC = () => {
+export const Slide20_ThankYouAndKahoot: React.FC = () => {
   const PUNCHY_EASE = [0.16, 1, 0.3, 1] as const
   const [platform, setPlatform] = useState<'wayground' | 'kahoot'>('wayground')
 

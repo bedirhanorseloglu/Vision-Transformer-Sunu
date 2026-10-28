@@ -7,7 +7,7 @@ import {
   Scale
 } from 'lucide-react'
 
-export const Slide16_ModelVariants: React.FC = () => {
+export const Slide17_ModelVariants: React.FC = () => {
   const PUNCHY_EASE = [0.16, 1, 0.3, 1] as const
 
   return (

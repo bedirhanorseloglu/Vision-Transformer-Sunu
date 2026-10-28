@@ -128,13 +128,6 @@ export const Slide14_SotaComparisonTable2: React.FC = () => {
         </div>
 
         <div className="flex items-center gap-2">
-          <button
-            onClick={() => setAnimKey((prev) => prev + 1)}
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-700 bg-blue-50 hover:bg-blue-100 px-3 py-1.5 rounded-full border border-blue-200 transition-colors cursor-pointer"
-          >
-            <RotateCcw className="w-3.5 h-3.5" />
-            <span>Grafiği Canlandır</span>
-          </button>
           <div className="hidden sm:flex items-center gap-1.5 text-xs font-mono font-semibold text-blue-700 bg-blue-50 px-3 py-1.5 rounded-full border border-blue-200">
             <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
             <span>Slayt 14</span>
@@ -211,45 +204,45 @@ export const Slide14_SotaComparisonTable2: React.FC = () => {
                 </div>
               </div>
             ))}
-          </div>
-        </motion.div>
+      </div>
+    </motion.div>
 
-        {/* SAĞ GRAFİK: DOĞRULUK KARŞILAŞTIRMASI (6 Kolon) */}
-        <motion.div
-          initial={{ opacity: 0, x: 15 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.28, delay: 0.08, ease: PUNCHY_EASE }}
-          className="lg:col-span-6 bg-slate-50/70 rounded-2xl p-5 border border-slate-200/90 shadow-xs flex flex-col justify-between"
-        >
-          <div className="flex items-center justify-between pb-3 border-b border-slate-200/80">
-            <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center">
-                <Trophy className="w-4 h-4" />
-              </div>
-              <div>
-                <h3 className="text-sm sm:text-base font-extrabold text-slate-900 font-montserrat">
-                  Doğruluk Rekorları (Tablo 2 — %)
-                </h3>
-                <span className="text-xs text-slate-500">
-                  JFT-300M ön eğitimi sonrası hedef veri kümeleri
-                </span>
-              </div>
-            </div>
+        {/* SAĞ GRAFİK: DOĞRULUK KARŞILAŞTIRMASI (6 Kolon) */ }
+  <motion.div
+    initial={{ opacity: 0, x: 15 }}
+    animate={{ opacity: 1, x: 0 }}
+    transition={{ duration: 0.28, delay: 0.08, ease: PUNCHY_EASE }}
+    className="lg:col-span-6 bg-slate-50/70 rounded-2xl p-5 border border-slate-200/90 shadow-xs flex flex-col justify-between"
+  >
+    <div className="flex items-center justify-between pb-3 border-b border-slate-200/80">
+      <div className="flex items-center gap-2.5">
+        <div className="w-8 h-8 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center">
+          <Trophy className="w-4 h-4" />
+        </div>
+        <div>
+          <h3 className="text-sm sm:text-base font-extrabold text-slate-900 font-montserrat">
+            Doğruluk Rekorları (Tablo 2 — %)
+          </h3>
+          <span className="text-xs text-slate-500">
+            JFT-300M ön eğitimi sonrası hedef veri kümeleri
+          </span>
+        </div>
+      </div>
 
-            <div className="flex items-center gap-2.5 text-[11px] font-bold">
-              <span className="inline-flex items-center gap-1 text-emerald-700">
-                <span className="w-2.5 h-2.5 rounded-sm bg-emerald-500" />
-                ViT-H/14
-              </span>
+          <div className="flex items-center gap-2.5 text-[11px] font-bold">
+            <span className="inline-flex items-center gap-1 text-emerald-700">
+              <span className="w-2.5 h-2.5 rounded-sm bg-emerald-500" />
+              ViT-H/14
+            </span>
               <span className="inline-flex items-center gap-1 text-amber-700">
                 <span className="w-2.5 h-2.5 rounded-sm bg-amber-500" />
                 BiT-L (CNN)
               </span>
-              <span className="inline-flex items-center gap-1 text-rose-700">
-                <span className="w-2.5 h-2.5 rounded-sm bg-rose-500" />
-                Noisy Student (CNN)
-              </span>
-            </div>
+                <span className="inline-flex items-center gap-1 text-rose-700">
+                  <span className="w-2.5 h-2.5 rounded-sm bg-rose-500" />
+                  Noisy Student (CNN)
+                </span>
+              </div>
           </div>
 
           <div className="grid grid-cols-2 gap-3.5 my-auto py-1">
@@ -391,5 +384,5 @@ export const Slide14_SotaComparisonTable2: React.FC = () => {
       </div>
 
     </div>
-  )
+    )
 }

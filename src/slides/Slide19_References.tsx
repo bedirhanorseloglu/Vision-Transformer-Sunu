@@ -2,7 +2,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { BookOpen, ExternalLink } from 'lucide-react'
 
-export const Slide18_References: React.FC = () => {
+export const Slide19_References: React.FC = () => {
   const PUNCHY_EASE = [0.16, 1, 0.3, 1] as const
 
   const references = [
@@ -243,4 +243,4 @@ export const Slide18_References: React.FC = () => {
   )
 }
 
-export default Slide18_References
+export default Slide19_References

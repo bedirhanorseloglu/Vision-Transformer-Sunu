@@ -7,7 +7,7 @@ import {
   Zap
 } from 'lucide-react'
 
-export const Slide15_WhenToUseCnnVsVit: React.FC = () => {
+export const Slide16_WhenToUseCnnVsVit: React.FC = () => {
   const PUNCHY_EASE = [0.16, 1, 0.3, 1] as const
 
   return (

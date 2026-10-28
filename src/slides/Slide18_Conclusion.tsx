@@ -9,7 +9,7 @@ import {
   Maximize2
 } from 'lucide-react'
 
-export const Slide17_Conclusion: React.FC = () => {
+export const Slide18_Conclusion: React.FC = () => {
   const PUNCHY_EASE = [0.16, 1, 0.3, 1] as const
   const [isModalOpen, setIsModalOpen] = useState(false)
 

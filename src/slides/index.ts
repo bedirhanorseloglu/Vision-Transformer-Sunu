@@ -13,12 +13,12 @@ import { Slide11_ClsAndPositionDetail } from './Slide11_ClsAndPositionDetail'
 import { Slide12_CnnVsVitReceptiveField } from './Slide12_CnnVsVitReceptiveField'
 import { Slide13_InductiveBiasComparison } from './Slide13_InductiveBiasComparison'
 import { Slide14_SotaComparisonTable2 } from './Slide14_SotaComparisonTable2'
-import { Slide14_PatchSizeQuadraticCost } from './Slide14_PatchSizeQuadraticCost'
-import { Slide15_WhenToUseCnnVsVit } from './Slide15_WhenToUseCnnVsVit'
-import { Slide16_ModelVariants } from './Slide16_ModelVariants'
-import { Slide17_Conclusion } from './Slide17_Conclusion'
-import { Slide18_References } from './Slide18_References'
-import { Slide19_ThankYouAndKahoot } from './Slide19_ThankYouAndKahoot'
+import { Slide15_PatchSizeQuadraticCost } from './Slide15_PatchSizeQuadraticCost'
+import { Slide16_WhenToUseCnnVsVit } from './Slide16_WhenToUseCnnVsVit'
+import { Slide17_ModelVariants } from './Slide17_ModelVariants'
+import { Slide18_Conclusion } from './Slide18_Conclusion'
+import { Slide19_References } from './Slide19_References'
+import { Slide20_ThankYouAndKahoot } from './Slide20_ThankYouAndKahoot'
 
 export const presentationSlides: SlideMeta[] = [
   {
@@ -124,41 +124,41 @@ export const presentationSlides: SlideMeta[] = [
     title: 'Neden 16×16 Patch? Karesel Maliyet ve Çözüm Yolları',
     subtitle: 'Çözünürlük Büyüdükçe O(N²) Patlaması, Donanım Kısıtı ve 2D İnterpolasyon',
     section: 'BÖLÜM 3: VISION TRANSFORMER (ViT)',
-    component: Slide14_PatchSizeQuadraticCost,
+    component: Slide15_PatchSizeQuadraticCost,
   },
   {
     id: 'when-to-use-cnn-vs-vit',
     title: 'Hangi Veride CNN, Hangi Veride ViT?',
     subtitle: 'Veri Boyutuna Göre Model Seçimi, Inductive Bias Avantajı ve Fine-Tuning Stratejisi',
     section: 'BÖLÜM 4: DENEYSEL ANALİZ & PRATİK SEÇİM',
-    component: Slide15_WhenToUseCnnVsVit,
+    component: Slide16_WhenToUseCnnVsVit,
   },
   {
     id: 'vit-model-variants',
     title: 'ViT Model Varyantları: Base, Large ve Huge',
     subtitle: 'BERT İsimlendirmesi, Tablo 1 Parametreleri ve Karesel Patch Bedeli',
     section: 'BÖLÜM 4: MODEL VARYANTLARI & PARAMETRELER',
-    component: Slide16_ModelVariants,
+    component: Slide17_ModelVariants,
   },
   {
     id: 'conclusion-future-work',
     title: 'Sonuç ve Gelecek Çalışmalar',
     subtitle: 'Büyük Ölçekli Başarı, Hesaplama Tasarrufu ve 3 Gelecek Hedef',
     section: 'BÖLÜM 5: SONUÇ VE GELECEK ÇALIŞMALAR',
-    component: Slide17_Conclusion,
+    component: Slide18_Conclusion,
   },
   {
     id: 'references',
     title: 'Kaynakça ve Referanslar',
     subtitle: 'Temel Makaleler, Akademik Kaynaklar ve İnteraktif Görselleştirme Araçları',
     section: 'BÖLÜM 6: KAYNAKÇA',
-    component: Slide18_References,
+    component: Slide19_References,
   },
   {
     id: 'thank-you-kahoot',
     title: 'Teşekkürler & Kahoot!',
     subtitle: 'Soru & Cevap (Q&A) ve Canlı Kahoot! Bilgi Yarışması',
     section: 'KAPANIŞ VE DEĞERLENDİRME',
-    component: Slide19_ThankYouAndKahoot,
+    component: Slide20_ThankYouAndKahoot,
   },
 ]

@@ -16,7 +16,7 @@ import {
   Wrench
 } from 'lucide-react'
 
-export const Slide14_PatchSizeQuadraticCost: React.FC = () => {
+export const Slide15_PatchSizeQuadraticCost: React.FC = () => {
   const PUNCHY_EASE = [0.16, 1, 0.3, 1] as const
   const videoRef = useRef<HTMLVideoElement>(null)
 
