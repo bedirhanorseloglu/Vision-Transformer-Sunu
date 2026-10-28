@@ -6,7 +6,8 @@ import {
   ShieldAlert,
   TrendingUp,
   RotateCcw,
-  CheckCircle2
+  CheckCircle2,
+  Database
 } from 'lucide-react'
 
 export const Slide14_SotaComparisonTable2: React.FC = () => {
@@ -15,8 +16,9 @@ export const Slide14_SotaComparisonTable2: React.FC = () => {
 
   const computeCostData = [
     {
-      model: 'Noisy Student (EfficientNet-L2 • CNN)',
+      model: 'Noisy Student (EfficientNet-L2)',
       tag: 'CNN',
+      pretrain: 'JFT-300M Veri Seti',
       days: '12.3k gün',
       percent: 100,
       badge: 'En Pahalı CNN',
@@ -24,8 +26,9 @@ export const Slide14_SotaComparisonTable2: React.FC = () => {
       badgeColor: 'bg-rose-50 text-rose-700 border-rose-200 font-semibold',
     },
     {
-      model: 'BiT-L (ResNet152×4 • CNN)',
+      model: 'BiT-L (ResNet152×4)',
       tag: 'CNN',
+      pretrain: 'JFT-300M Veri Seti',
       days: '9.9k gün',
       percent: 80.5,
       badge: 'Dev CNN',
@@ -33,8 +36,9 @@ export const Slide14_SotaComparisonTable2: React.FC = () => {
       badgeColor: 'bg-amber-50 text-amber-800 border-amber-200 font-semibold',
     },
     {
-      model: 'ViT-H/14 (JFT-300M)',
+      model: 'ViT-H/14 (Huge)',
       tag: 'ViT',
+      pretrain: 'JFT-300M Veri Seti',
       days: '2.5k gün',
       percent: 20.3,
       badge: '⚡ 5× Daha Ucuz',
@@ -42,8 +46,9 @@ export const Slide14_SotaComparisonTable2: React.FC = () => {
       badgeColor: 'bg-emerald-50 text-emerald-800 border-emerald-300 font-bold',
     },
     {
-      model: 'ViT-L/16 (JFT-300M)',
+      model: 'ViT-L/16 (Large)',
       tag: 'ViT',
+      pretrain: 'JFT-300M Veri Seti',
       days: '0.68k gün',
       percent: 6.5,
       badge: '⚡ 18× Daha Ucuz',
@@ -51,8 +56,9 @@ export const Slide14_SotaComparisonTable2: React.FC = () => {
       badgeColor: 'bg-blue-50 text-blue-800 border-blue-300 font-bold',
     },
     {
-      model: 'ViT-L/16 (ImageNet-21k)',
+      model: 'ViT-L/16 (Large)',
       tag: 'ViT',
+      pretrain: 'ImageNet-21k (Halka Açık Veri)',
       days: '0.23k gün',
       percent: 3.5,
       badge: '🎯 ~30 Gün (Bulut TPU)',
@@ -63,7 +69,8 @@ export const Slide14_SotaComparisonTable2: React.FC = () => {
 
   const accuracyData = [
     {
-      dataset: 'ImageNet',
+      dataset: 'ImageNet-1K',
+      desc: '1.3M Görsel • 1000 Sınıf',
       vit: 88.55,
       bit: 87.54,
       noisy: 88.40,
@@ -72,6 +79,7 @@ export const Slide14_SotaComparisonTable2: React.FC = () => {
     },
     {
       dataset: 'ImageNet ReaL',
+      desc: 'Temizlenmiş Çoklu Etiket',
       vit: 90.72,
       bit: 90.54,
       noisy: 90.55,
@@ -80,6 +88,7 @@ export const Slide14_SotaComparisonTable2: React.FC = () => {
     },
     {
       dataset: 'CIFAR-100',
+      desc: '60K Görsel • 100 Sınıf',
       vit: 94.55,
       bit: 93.51,
       noisy: null,
@@ -88,8 +97,9 @@ export const Slide14_SotaComparisonTable2: React.FC = () => {
     },
     {
       dataset: 'VTAB (19 Görev)',
+      desc: 'Doğal, Uzmanlık & Yapısal',
       vit: 77.63,
-      bit: 76.28,
+      bit: 76.29,
       noisy: null,
       minScale: 73,
       maxScale: 79,
@@ -119,7 +129,7 @@ export const Slide14_SotaComparisonTable2: React.FC = () => {
               BÖLÜM 3: VISION TRANSFORMER (ViT)
             </span>
             <span className="text-xs text-slate-400 font-mono">
-              | En Gelişmiş Modellerle Karşılaştırma (Tablo 2)
+              | En Gelişmiş Modellerle Karşılaştırma (Makale Tablo 2)
             </span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-montserrat tracking-tight">
@@ -128,6 +138,13 @@ export const Slide14_SotaComparisonTable2: React.FC = () => {
         </div>
 
         <div className="flex items-center gap-2">
+          <button
+            onClick={() => setAnimKey((prev) => prev + 1)}
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-700 bg-blue-50 hover:bg-blue-100 px-3 py-1.5 rounded-full border border-blue-200 transition-colors cursor-pointer"
+          >
+            <RotateCcw className="w-3.5 h-3.5" />
+            <span>Grafiği Canlandır</span>
+          </button>
           <div className="hidden sm:flex items-center gap-1.5 text-xs font-mono font-semibold text-blue-700 bg-blue-50 px-3 py-1.5 rounded-full border border-blue-200">
             <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
             <span>Slayt 14</span>
@@ -154,20 +171,20 @@ export const Slide14_SotaComparisonTable2: React.FC = () => {
               </div>
               <div>
                 <h3 className="text-sm sm:text-base font-extrabold text-slate-900 font-montserrat">
-                  Eğitim Maliyeti (TPUv3 Çekirdek-Günü)
+                  Ön Eğitim Maliyeti (TPUv3 Çekirdek-Günü)
                 </h3>
                 <span className="text-xs text-slate-500">
-                  Daha kısa çubuk = Daha az donanım süresi
+                  Hangi ön eğitim veri setinde (JFT-300M / ImageNet-21k) kaç gün sürdü?
                 </span>
               </div>
             </div>
           </div>
 
-          <div className="space-y-4 my-auto py-2">
+          <div className="space-y-3.5 my-auto py-2">
             {computeCostData.map((item, idx) => (
-              <div key={item.model} className="space-y-1.5">
+              <div key={`${item.model}-${item.pretrain}`} className="space-y-1.5">
                 <div className="flex items-center justify-between text-xs sm:text-sm">
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center gap-1.5 flex-wrap">
                     <span
                       className={`text-[10px] font-extrabold px-2 py-0.5 rounded border ${
                         item.tag === 'ViT'
@@ -178,13 +195,17 @@ export const Slide14_SotaComparisonTable2: React.FC = () => {
                       {item.tag}
                     </span>
                     <span className="font-bold text-slate-900">{item.model}</span>
+                    <span className="inline-flex items-center gap-1 text-[10.5px] font-semibold text-slate-600 bg-white px-2 py-0.5 rounded-md border border-slate-200">
+                      <Database className="w-2.5 h-2.5 text-blue-600" />
+                      {item.pretrain}
+                    </span>
                   </div>
 
-                  <div className="flex items-center gap-2">
-                    <span className={`text-[11px] px-2.5 py-0.5 rounded-full border ${item.badgeColor}`}>
+                  <div className="flex items-center gap-2 shrink-0">
+                    <span className={`text-[10.5px] px-2 py-0.5 rounded-full border ${item.badgeColor}`}>
                       {item.badge}
                     </span>
-                    <span className="font-mono font-extrabold text-slate-900 w-20 text-right">
+                    <span className="font-mono font-extrabold text-slate-900 w-18 text-right">
                       {item.days}
                     </span>
                   </div>
@@ -204,67 +225,57 @@ export const Slide14_SotaComparisonTable2: React.FC = () => {
                 </div>
               </div>
             ))}
-      </div>
-    </motion.div>
+          </div>
+        </motion.div>
 
-        {/* SAĞ GRAFİK: DOĞRULUK KARŞILAŞTIRMASI (6 Kolon) */ }
-  <motion.div
-    initial={{ opacity: 0, x: 15 }}
-    animate={{ opacity: 1, x: 0 }}
-    transition={{ duration: 0.28, delay: 0.08, ease: PUNCHY_EASE }}
-    className="lg:col-span-6 bg-slate-50/70 rounded-2xl p-5 border border-slate-200/90 shadow-xs flex flex-col justify-between"
-  >
-    <div className="flex items-center justify-between pb-3 border-b border-slate-200/80">
-      <div className="flex items-center gap-2.5">
-        <div className="w-8 h-8 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center">
-          <Trophy className="w-4 h-4" />
-        </div>
-        <div>
-          <h3 className="text-sm sm:text-base font-extrabold text-slate-900 font-montserrat">
-            Doğruluk Rekorları (Tablo 2 — %)
-          </h3>
-          <span className="text-xs text-slate-500">
-            JFT-300M ön eğitimi sonrası hedef veri kümeleri
-          </span>
-        </div>
-      </div>
-
-          <div className="flex items-center gap-2.5 text-[11px] font-bold">
-            <span className="inline-flex items-center gap-1 text-emerald-700">
-              <span className="w-2.5 h-2.5 rounded-sm bg-emerald-500" />
-              ViT-H/14
-            </span>
-              <span className="inline-flex items-center gap-1 text-amber-700">
-                <span className="w-2.5 h-2.5 rounded-sm bg-amber-500" />
-                BiT-L (CNN)
-              </span>
-                <span className="inline-flex items-center gap-1 text-rose-700">
-                  <span className="w-2.5 h-2.5 rounded-sm bg-rose-500" />
-                  Noisy Student (CNN)
+        {/* SAĞ GRAFİK: DOĞRULUK KARŞILAŞTIRMASI (6 Kolon) */}
+        <motion.div
+          initial={{ opacity: 0, x: 15 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.28, delay: 0.08, ease: PUNCHY_EASE }}
+          className="lg:col-span-6 bg-slate-50/70 rounded-2xl p-5 border border-slate-200/90 shadow-xs flex flex-col justify-between"
+        >
+          <div className="flex items-center justify-between pb-3 border-b border-slate-200/80">
+            <div className="flex items-center gap-2.5">
+              <div className="w-8 h-8 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center shrink-0">
+                <Trophy className="w-4 h-4" />
+              </div>
+              <div>
+                <h3 className="text-sm sm:text-base font-extrabold text-slate-900 font-montserrat">
+                  4 Hedef Veri Kümesinde Doğruluk (Tablo 2 — %)
+                </h3>
+                <span className="text-xs text-slate-600 font-medium">
+                  Tüm modeller <strong className="text-blue-700">JFT-300M</strong> üzerinde eğitilip bu 4 veri setine aktarılmıştır:
                 </span>
               </div>
+            </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-3.5 my-auto py-1">
+          <div className="grid grid-cols-2 gap-3 my-auto py-1">
             {accuracyData.map((item, idx) => (
               <div
                 key={item.dataset}
-                className="bg-white rounded-xl p-3.5 border border-slate-200/80 shadow-2xs flex flex-col justify-between gap-2.5"
+                className="bg-white rounded-xl p-3 border border-slate-200/80 shadow-2xs flex flex-col justify-between gap-2"
               >
-                <div className="flex items-center justify-between">
-                  <span className="text-xs sm:text-sm font-extrabold text-slate-900 font-montserrat">
-                    {item.dataset}
-                  </span>
-                  <span className="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
+                <div className="flex items-center justify-between pb-1 border-b border-slate-100">
+                  <div>
+                    <span className="text-xs sm:text-sm font-extrabold text-slate-900 font-montserrat block leading-tight">
+                      {item.dataset}
+                    </span>
+                    <span className="text-[10px] text-slate-500 font-medium">
+                      {item.desc}
+                    </span>
+                  </div>
+                  <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200 shrink-0">
                     🏆 ViT Lider
                   </span>
                 </div>
 
-                <div className="space-y-2 text-xs font-mono">
+                <div className="space-y-1.5 text-xs font-mono">
                   {/* ViT-H/14 Bar */}
-                  <div className="space-y-1">
-                    <div className="flex justify-between font-bold text-emerald-800">
-                      <span>ViT-H/14 (ViT)</span>
+                  <div className="space-y-0.5">
+                    <div className="flex justify-between font-bold text-emerald-800 text-[11px]">
+                      <span>ViT-H/14 (JFT-300M)</span>
                       <span>%{item.vit}</span>
                     </div>
                     <div className="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden">
@@ -280,9 +291,9 @@ export const Slide14_SotaComparisonTable2: React.FC = () => {
                   </div>
 
                   {/* BiT-L Bar */}
-                  <div className="space-y-1">
-                    <div className="flex justify-between text-slate-600">
-                      <span>BiT-L (CNN)</span>
+                  <div className="space-y-0.5">
+                    <div className="flex justify-between text-slate-600 text-[11px]">
+                      <span>BiT-L (CNN • JFT-300M)</span>
                       <span>%{item.bit}</span>
                     </div>
                     <div className="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
@@ -298,10 +309,10 @@ export const Slide14_SotaComparisonTable2: React.FC = () => {
                   </div>
 
                   {/* Noisy Student Bar (if available) */}
-                  {item.noisy && (
-                    <div className="space-y-1">
-                      <div className="flex justify-between text-slate-500">
-                        <span>Noisy Student (CNN)</span>
+                  {item.noisy ? (
+                    <div className="space-y-0.5">
+                      <div className="flex justify-between text-slate-500 text-[11px]">
+                        <span>Noisy Student (CNN • JFT)</span>
                         <span>%{item.noisy}</span>
                       </div>
                       <div className="w-full h-2 bg-slate-100 rounded-full overflow-hidden">
@@ -314,6 +325,10 @@ export const Slide14_SotaComparisonTable2: React.FC = () => {
                           className="h-full bg-rose-500 rounded-full"
                         />
                       </div>
+                    </div>
+                  ) : (
+                    <div className="text-[10px] text-slate-400 italic font-sans pt-0.5">
+                      * Noisy Student bu veri setinde raporlanmamıştır
                     </div>
                   )}
                 </div>
@@ -339,7 +354,7 @@ export const Slide14_SotaComparisonTable2: React.FC = () => {
               1. Kıyaslanan Dev CNN Modelleri
             </h4>
             <p className="text-xs text-slate-700 leading-relaxed">
-              Dönemin en güçlü iki <strong>CNN</strong> modeli olan <strong>BiT-L (ResNet152×4)</strong> ve <strong>Noisy Student (EfficientNet-L2)</strong> ile yarışılmıştır.
+              <code>JFT-300M</code> veri setinde eğitilen en güçlü iki <strong>CNN</strong> modeli <strong>BiT-L (ResNet152×4)</strong> ve <strong>Noisy Student (EfficientNet-L2)</strong> ile yarışılmıştır.
             </p>
           </div>
         </motion.div>
@@ -355,10 +370,10 @@ export const Slide14_SotaComparisonTable2: React.FC = () => {
           </div>
           <div>
             <h4 className="text-xs sm:text-sm font-bold text-slate-900 font-montserrat mb-0.5">
-              2. Tüm Kulvarlarda Liderlik
+              2. Tüm Veri Kümelerinde Liderlik
             </h4>
             <p className="text-xs text-slate-700 leading-relaxed">
-              <strong>ViT-H/14</strong>; ImageNet, ReaL, CIFAR-100 ve VTAB dahil tüm görevlerde her iki dev <strong>CNN</strong> modelini de geride bırakmıştır.
+              <strong>ViT-H/14</strong>; <em>ImageNet-1K, ImageNet ReaL, CIFAR-100</em> ve <em>VTAB</em> veri setlerinin tamamında her iki dev <strong>CNN</strong> modelini de geçmiştir.
             </p>
           </div>
         </motion.div>
@@ -377,12 +392,12 @@ export const Slide14_SotaComparisonTable2: React.FC = () => {
               3. 5× ila 18× Daha Az Maliyet
             </h4>
             <p className="text-xs text-slate-700 leading-relaxed">
-              Dev <strong>CNN</strong>&apos;ler <strong>9.9k–12.3k</strong> TPU günü harcarken; ViT modelleri sadece <strong>0.23k–2.5k</strong> günde eğitilerek büyük tasarruf sağlamıştır.
+              Dev <strong>CNN</strong>&apos;ler <strong>9.9k–12.3k</strong> TPU günü harcarken; ViT modelleri <em>JFT-300M</em>&apos;de <strong>0.68k–2.5k</strong>, <em>ImageNet-21k</em>&apos;da ise sadece <strong>0.23k</strong> gün sürmüştür.
             </p>
           </div>
         </motion.div>
       </div>
 
     </div>
-    )
+  )
 }
