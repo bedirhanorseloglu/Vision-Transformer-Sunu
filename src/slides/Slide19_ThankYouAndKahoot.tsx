@@ -42,9 +42,6 @@ export const Slide19_ThankYouAndKahoot: React.FC = () => {
               <span className="text-[11px] font-bold tracking-wider uppercase text-blue-700 bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-200/60 font-sans">
                 KAPANIŞ VE DEĞERLENDİRME
               </span>
-              <span className="text-xs text-slate-400 font-sans hidden sm:inline">
-                | Yüksek Lisans Seminer Sunumu
-              </span>
             </div>
             <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 font-montserrat tracking-tight leading-tight mt-0.5">
               Teşekkürler & Canlı Bilgi Yarışması
@@ -101,11 +98,6 @@ export const Slide19_ThankYouAndKahoot: React.FC = () => {
                     Yapay Zeka ve Veri Mühendisliği Yüksek Lisans
                   </span>
                 </div>
-              </div>
-
-              <div className="inline-flex items-center gap-1.5 text-[11px] font-bold text-blue-700 bg-blue-50 border border-blue-200/70 px-3 py-1 rounded-full">
-                <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" />
-                <span>Seminer Tamamlandı</span>
               </div>
             </div>
 
@@ -250,19 +242,17 @@ export const Slide19_ThankYouAndKahoot: React.FC = () => {
           initial={{ opacity: 0, x: 15 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.28, delay: 0.1, ease: PUNCHY_EASE }}
-          className={`lg:col-span-6 flex flex-col justify-between rounded-2xl p-5 sm:p-6 border shadow-[0_4px_25px_-5px_rgba(0,0,0,0.04)] h-full transition-all duration-300 relative overflow-hidden gap-3.5 ${
-            platform === 'wayground'
-              ? 'bg-gradient-to-br from-indigo-50/85 via-white to-sky-50/45 border-indigo-200/90'
-              : 'bg-gradient-to-br from-purple-50/85 via-white to-pink-50/45 border-purple-200/90'
-          }`}
+          className={`lg:col-span-6 flex flex-col justify-between rounded-2xl p-5 sm:p-6 border shadow-[0_4px_25px_-5px_rgba(0,0,0,0.04)] h-full transition-all duration-300 relative overflow-hidden gap-3.5 ${platform === 'wayground'
+            ? 'bg-gradient-to-br from-indigo-50/85 via-white to-sky-50/45 border-indigo-200/90'
+            : 'bg-gradient-to-br from-purple-50/85 via-white to-pink-50/45 border-purple-200/90'
+            }`}
         >
           {/* Üst Kısım: Başlık & Segmented Switcher */}
           <div className="flex items-center justify-between pb-2.5 border-b border-slate-200/80">
             <div className="flex items-center gap-2.5">
               <div
-                className={`w-9 h-9 rounded-xl text-white flex items-center justify-center font-extrabold text-sm shadow-sm transition-colors ${
-                  platform === 'wayground' ? 'bg-[#4F46E5]' : 'bg-[#46178F]'
-                }`}
+                className={`w-9 h-9 rounded-xl text-white flex items-center justify-center font-extrabold text-sm shadow-sm transition-colors ${platform === 'wayground' ? 'bg-[#4F46E5]' : 'bg-[#46178F]'
+                  }`}
               >
                 {platform === 'wayground' ? 'W!' : 'K!'}
               </div>
@@ -287,22 +277,20 @@ export const Slide19_ThankYouAndKahoot: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setPlatform('wayground')}
-                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                  platform === 'wayground'
-                    ? 'bg-[#4F46E5] text-white shadow-sm'
-                    : 'text-slate-600 hover:text-slate-900'
-                }`}
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${platform === 'wayground'
+                  ? 'bg-[#4F46E5] text-white shadow-sm'
+                  : 'text-slate-600 hover:text-slate-900'
+                  }`}
               >
                 Wayground
               </button>
               <button
                 type="button"
                 onClick={() => setPlatform('kahoot')}
-                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                  platform === 'kahoot'
-                    ? 'bg-[#46178F] text-white shadow-sm'
-                    : 'text-slate-600 hover:text-slate-900'
-                }`}
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all cursor-pointer ${platform === 'kahoot'
+                  ? 'bg-[#46178F] text-white shadow-sm'
+                  : 'text-slate-600 hover:text-slate-900'
+                  }`}
               >
                 Kahoot!
               </button>
@@ -331,9 +319,8 @@ export const Slide19_ThankYouAndKahoot: React.FC = () => {
             {/* QR Kod Çerçevesi (Büyütülmüş - Sınıftan Rahat Okunur) */}
             <div className="relative group shrink-0">
               <div
-                className={`absolute -inset-2.5 rounded-3xl opacity-45 blur-lg transition-colors ${
-                  platform === 'wayground' ? 'bg-indigo-300' : 'bg-purple-300'
-                }`}
+                className={`absolute -inset-2.5 rounded-3xl opacity-45 blur-lg transition-colors ${platform === 'wayground' ? 'bg-indigo-300' : 'bg-purple-300'
+                  }`}
               />
 
               <div className="relative bg-white rounded-2xl p-4 border-2 border-slate-200/90 shadow-xl flex flex-col items-center">
@@ -361,9 +348,8 @@ export const Slide19_ThankYouAndKahoot: React.FC = () => {
             <div className="flex flex-col justify-between gap-3 text-xs font-sans text-slate-700 w-full flex-1">
               <div className="flex items-center gap-3.5 bg-white/95 p-3.5 rounded-xl border border-slate-200/90 shadow-2xs hover:border-indigo-300 transition-colors">
                 <div
-                  className={`w-8 h-8 rounded-lg text-white font-extrabold text-xs flex items-center justify-center shrink-0 ${
-                    platform === 'wayground' ? 'bg-[#4F46E5]' : 'bg-[#46178F]'
-                  }`}
+                  className={`w-8 h-8 rounded-lg text-white font-extrabold text-xs flex items-center justify-center shrink-0 ${platform === 'wayground' ? 'bg-[#4F46E5]' : 'bg-[#46178F]'
+                    }`}
                 >
                   1
                 </div>
@@ -379,9 +365,8 @@ export const Slide19_ThankYouAndKahoot: React.FC = () => {
 
               <div className="flex items-center gap-3.5 bg-white/95 p-3.5 rounded-xl border border-slate-200/90 shadow-2xs hover:border-indigo-300 transition-colors">
                 <div
-                  className={`w-8 h-8 rounded-lg text-white font-extrabold text-xs flex items-center justify-center shrink-0 ${
-                    platform === 'wayground' ? 'bg-[#4F46E5]' : 'bg-[#46178F]'
-                  }`}
+                  className={`w-8 h-8 rounded-lg text-white font-extrabold text-xs flex items-center justify-center shrink-0 ${platform === 'wayground' ? 'bg-[#4F46E5]' : 'bg-[#46178F]'
+                    }`}
                 >
                   2
                 </div>
@@ -425,11 +410,10 @@ export const Slide19_ThankYouAndKahoot: React.FC = () => {
             </div>
 
             <div
-              className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-bold border shadow-2xs ${
-                platform === 'wayground'
-                  ? 'bg-indigo-50 text-indigo-700 border-indigo-200'
-                  : 'bg-purple-50 text-purple-700 border-purple-200'
-              }`}
+              className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-lg text-xs font-bold border shadow-2xs ${platform === 'wayground'
+                ? 'bg-indigo-50 text-indigo-700 border-indigo-200'
+                : 'bg-purple-50 text-purple-700 border-purple-200'
+                }`}
             >
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
               <span>{platform === 'wayground' ? 'KOD: EKRANDA CANLI' : 'PIN: EKRANDA CANLI'}</span>
