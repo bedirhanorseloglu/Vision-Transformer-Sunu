@@ -68,17 +68,6 @@ export const Slide13_InductiveBiasComparison: React.FC = () => {
               className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-[1.01]"
             />
           </div>
-
-          {/* Alt Görsel Bilgi Bandı */}
-          <div className="mt-3 pt-2 border-t border-slate-200/80 flex items-center justify-between text-xs text-slate-600">
-            <div className="flex items-center gap-2">
-              <Compass className="w-4 h-4 text-blue-600 shrink-0" />
-              <span className="text-slate-700 font-medium">
-                <strong className="text-slate-900 font-semibold">CNN Şablonu:</strong> Girdi küçük yerel konilerle işlenir; küresel bağlam ancak en son katmanda kurulur.
-              </span>
-            </div>
-
-          </div>
         </motion.div>
 
         {/* SAĞ: AÇIKLAYICI VE SOMUT KARŞILAŞTIRMA KARTLARI (5 Kolon) */}
@@ -135,6 +124,9 @@ export const Slide13_InductiveBiasComparison: React.FC = () => {
                 <p>
                   <strong>Konumu Veriden Öğrenir:</strong> Hangi parçanın nerede olduğu (Position Embedding) bile baştan dikte edilmez; model 2D uzamsal dünyayı tamamen sıfırdan keşfeder.
                 </p>
+                <p>
+                  ViT'in görüntüye özgü inductive bias'ı CNN'den çok daha azdır ama "sıfırdır" denemez.
+                </p>
               </div>
             </div>
 
@@ -157,7 +149,7 @@ export const Slide13_InductiveBiasComparison: React.FC = () => {
         <div className="flex items-center gap-2">
           <Scale className="w-4 h-4 text-blue-600 shrink-0" />
           <span className="text-slate-700 text-xs sm:text-sm">
-            <strong className="text-slate-900 font-semibold">Temel Çıkarım:</strong> CNN'e görüntüyü nasıl işleyeceği katman katman dikte edilirken (yüksek rehberlik); ViT ilk katmandan itibaren tüm resme küresel bakar ve uzamsal geometriyi sıfırdan öğrenir.
+            <strong className="text-slate-900 font-semibold">Inductive Bias İkilemi:</strong> ViT bu hazır kurallardan (<em>inductive bias</em>) yoksun olduğu için <strong>küçük/orta veride (ImageNet) iyi genelleme yapamaz ve CNN'in gerisinde kalır (Dezavantaj)</strong>; ancak <strong>büyük ölçekli veride (14M-300M1) katı kurallarla kısıtlanmadığı için çok daha esnek öğrenerek CNN'leri geçer (Avantaj)</strong>.
           </span>
         </div>
       </motion.div>

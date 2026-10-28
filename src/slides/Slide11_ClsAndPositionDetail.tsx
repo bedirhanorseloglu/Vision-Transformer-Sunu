@@ -1,4 +1,4 @@
-﻿import React from 'react'
+import React from 'react'
 import {
   motion
 } from 'framer-motion'
@@ -124,6 +124,9 @@ export const Slide11_ClsAndPositionDetail: React.FC = () => {
 
           <p className="text-[11px] sm:text-xs text-slate-700 leading-relaxed">
             Görseli patch'lere ayırdık ancak Transformer bunların resmin neresine ait olduğunu bilmez; tıpkı masaya karışık saçılmış bir <span className="font-semibold text-slate-900">yapboz</span> gibidir. Hangi parçanın nerede durduğunu öğretmek için her patch'e birer <span className="font-semibold text-slate-900">1D Position Embedding</span> eklenir; böylece yapboz anlamlı bir bütün haline gelir.
+          </p>
+          <p className="text-[11px] sm:text-xs text-slate-700 leading-relaxed mt-1.5">
+            <span className="font-semibold text-blue-800">Neden 2D değil de 1D?</span> Model <code>224×224</code> piksel yerine <code>14×14</code> gibi küçük bir yama ızgarasında çalıştığı için 2 boyutlu komşuluğu 1D vektörlerden de kolayca öğrenebilmektedir.
           </p>
 
           <div className="mt-2 bg-white/90 rounded-lg p-1.5 border border-blue-200/60 text-[11px] font-sans text-blue-900 font-medium flex items-center justify-between">

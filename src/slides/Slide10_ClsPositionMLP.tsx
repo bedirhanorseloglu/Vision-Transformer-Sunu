@@ -123,6 +123,10 @@ export const Slide10_ClsPositionMLP: React.FC = () => {
             <p className="text-[11px] sm:text-xs text-slate-700 leading-relaxed">
               Sınıflandırma için en başa bir <span className="font-semibold text-slate-900">[CLS] token</span> eklenir. Karışık bir yapboz gibi parça sırasını bilmeyen Transformer'a konum düzenini öğretmek için de her patch'e birer <span className="font-semibold text-slate-900">Position Embedding</span> toplanır.
             </p>
+            <br />
+            <p className="text-[11px] sm:text-xs text-slate-700 leading-relaxed">
+              <span className="font-semibold text-purple-800">NOT:</span> <code>[CLS]</code> kullanımı zorunlu değildir; NLP'deki hazır ve verimli Transformer altyapısını <strong>hiç değiştirmeden (<em>out-of-the-box</em>)</strong> kullanabilmek adına orijinal mimariye (BERT) sadık kalınmıştır. (Doğru öğrenme oranıyla <code>3·10⁻⁴</code>, CNN'de de kullanılan <span className="italic">Average Pooling</span> de aynı performansı verir.)
+            </p>
           </div>
 
           <div className="mt-2 bg-white/90 rounded-lg p-1.5 border border-purple-200/60 text-[11px] font-sans text-purple-900 font-medium flex items-center justify-between shadow-2xs">

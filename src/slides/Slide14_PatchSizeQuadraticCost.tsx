@@ -316,11 +316,11 @@ export const Slide14_PatchSizeQuadraticCost: React.FC = () => {
             <p className="text-xs sm:text-sm text-slate-700 leading-relaxed mb-2">
               <strong>1. Patch Boyutunu Büyütmek (ViT-32):</strong> Görüntü çok büyükse (2048px), 16×16 yerine <strong>32×32 patch</strong> kullanılır; böylece patch sayısı 4 kat azalarak donanım rahatlatılır.
               <br />
-              <strong>2. Küçük Başlayıp Büyütme:</strong> Model devasa resimlerle değil, önce küçük resimlerle (224px) hızlıca eğitilir; yüksek çözünürlüğe sadece en son ihtiyaç duyulduğunda geçilir.
+              <strong>2. Küçük Başlayıp Büyütme:</strong> <strong>Pre-training</strong> düşük çözünürlükte (<code>224×224</code>) hızlıca yapılır; <strong>fine-tuning</strong> aşamasında ise çözünürlük büyütülerek hem donanım korunur hem de <strong>performans artırılır</strong>.
             </p>
             <div className="bg-white/90 rounded-lg py-1 px-2.5 border border-emerald-100 text-[11px] font-mono flex items-center justify-between text-slate-700">
               <span>Büyük Resim İçin Pratik Çözüm:</span>
-              <strong className="text-emerald-800 font-bold">Daha Büyük Patch (32×32) & Küçük Başlamak</strong>
+              <strong className="text-emerald-800 font-bold">Daha Büyük Patch (32×32)</strong>
             </div>
           </div>
         </motion.div>

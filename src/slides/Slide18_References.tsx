@@ -24,6 +24,14 @@ export const Slide18_References: React.FC = () => {
     },
     {
       id: '03',
+      author: 'Google Research. (2020)',
+      title: 'Vision Transformer and MLP-Mixer Architectures [Computer software]',
+      venue: 'GitHub Resmi Kaynak Kodu Deposu (google-research/vision_transformer)',
+      url: 'https://github.com/google-research/vision_transformer',
+      type: 'Resmi Kod'
+    },
+    {
+      id: '04',
       author: 'Çobanov, M. (2021)',
       title: 'Vision Transformers (ViT) Nedir?',
       venue: 'Medium Teknoloji İncelemesi',
@@ -31,7 +39,7 @@ export const Slide18_References: React.FC = () => {
       type: 'İnceleme'
     },
     {
-      id: '04',
+      id: '05',
       author: 'Google Research (2020)',
       title: 'Transformers for Image Recognition at Scale',
       venue: 'Google Research Blog Resmi Duyurusu',
@@ -39,7 +47,7 @@ export const Slide18_References: React.FC = () => {
       type: 'Blog'
     },
     {
-      id: '05',
+      id: '06',
       author: 'GeeksforGeeks (2023)',
       title: 'Vision Transformer (ViT) Architecture',
       venue: 'GeeksforGeeks Deep Learning Rehberi',
@@ -47,7 +55,7 @@ export const Slide18_References: React.FC = () => {
       type: 'Rehber'
     },
     {
-      id: '06',
+      id: '07',
       author: 'Stanford HAI (2023)',
       title: 'What is a Vision Transformer (ViT)?',
       venue: 'Stanford Human-Centered Artificial Intelligence',
@@ -55,7 +63,7 @@ export const Slide18_References: React.FC = () => {
       type: 'Rapor'
     },
     {
-      id: '07',
+      id: '08',
       author: 'Arora, A. (2021)',
       title: 'Vision Transformers (ViT) - An Image is Worth 16x16 Words (Code Walkthrough)',
       venue: 'Teknik Kod İncelemesi & PyTorch Uygulaması',
@@ -63,7 +71,7 @@ export const Slide18_References: React.FC = () => {
       type: 'Kod'
     },
     {
-      id: '08',
+      id: '09',
       author: 'Pavlic, T. (2021)',
       title: 'Transformer Explorer & Vision Transformer',
       venue: 'ASU Bioinspired AI and Optimization',
@@ -71,7 +79,7 @@ export const Slide18_References: React.FC = () => {
       type: 'Rehber'
     },
     {
-      id: '09',
+      id: '10',
       author: 'Shin, J. (2023)',
       title: 'Attention Visualization in Vision Transformers',
       venue: 'İnteraktif Görselleştirme ve Dikkat Haritası Aracı',
@@ -79,7 +87,7 @@ export const Slide18_References: React.FC = () => {
       type: 'İnteraktif'
     },
     {
-      id: '10',
+      id: '11',
       author: 'Mao, M. (2023)',
       title: 'Visualize Attention in ViT',
       venue: 'Hugging Face Spaces Canlı İnteraktif Model',
@@ -112,29 +120,29 @@ export const Slide18_References: React.FC = () => {
             </span>
           </div>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 font-montserrat tracking-tight">
-            Kaynakça ve İleri Okuma Listesi
+            Kaynakça ve Referanslar
           </h2>
         </div>
 
         <div className="flex items-center gap-2">
 
           <span className="text-xs text-blue-700 bg-blue-50 px-2.5 py-1 rounded-full font-sans font-semibold border border-blue-200/60">
-            10 Temel Kaynak
+            11 Temel Kaynak
           </span>
         </div>
       </motion.div>
 
       {/* 2. MAIN 2-COLUMN REFERENCES LIST */}
-      <div className="z-10 my-auto py-2 grid grid-cols-1 md:grid-cols-2 gap-3 w-full">
-        {/* Left Column (01 - 05) */}
-        <div className="flex flex-col gap-2.5">
-          {references.slice(0, 5).map((ref, idx) => (
+      <div className="z-10 my-auto py-1.5 grid grid-cols-1 md:grid-cols-2 gap-3 w-full">
+        {/* Left Column (01 - 06) */}
+        <div className="flex flex-col gap-2">
+          {references.slice(0, 6).map((ref, idx) => (
             <motion.div
               key={ref.id}
               initial={{ opacity: 0, x: -12 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.25, delay: idx * 0.04, ease: PUNCHY_EASE }}
-              className="p-3 rounded-2xl bg-slate-50/80 border border-slate-200/70 hover:border-blue-300 hover:bg-blue-50/20 transition-all flex items-start gap-3 group"
+              className="p-2.5 rounded-2xl bg-slate-50/80 border border-slate-200/70 hover:border-blue-300 hover:bg-blue-50/20 transition-all flex items-start gap-3 group"
             >
               <div className="w-7 h-7 rounded-xl bg-blue-100 text-blue-700 font-bold text-xs flex items-center justify-center shrink-0 font-montserrat mt-0.5">
                 {ref.id}
@@ -148,7 +156,7 @@ export const Slide18_References: React.FC = () => {
                     {ref.type}
                   </span>
                 </div>
-                <p className="text-xs text-slate-700 italic font-medium font-sans line-clamp-1 mb-1">
+                <p className="text-xs text-slate-700 italic font-medium font-sans line-clamp-1 mb-0.5">
                   {ref.title}
                 </p>
                 <div className="flex items-center justify-between">
@@ -170,15 +178,15 @@ export const Slide18_References: React.FC = () => {
           ))}
         </div>
 
-        {/* Right Column (06 - 10) */}
-        <div className="flex flex-col gap-2.5">
-          {references.slice(5, 10).map((ref, idx) => (
+        {/* Right Column (07 - 11) */}
+        <div className="flex flex-col gap-2">
+          {references.slice(6, 11).map((ref, idx) => (
             <motion.div
               key={ref.id}
               initial={{ opacity: 0, x: 12 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.25, delay: idx * 0.04 + 0.1, ease: PUNCHY_EASE }}
-              className="p-3 rounded-2xl bg-slate-50/80 border border-slate-200/70 hover:border-indigo-300 hover:bg-indigo-50/20 transition-all flex items-start gap-3 group"
+              className="p-2.5 rounded-2xl bg-slate-50/80 border border-slate-200/70 hover:border-indigo-300 hover:bg-indigo-50/20 transition-all flex items-start gap-3 group"
             >
               <div className="w-7 h-7 rounded-xl bg-indigo-100 text-indigo-700 font-bold text-xs flex items-center justify-center shrink-0 font-montserrat mt-0.5">
                 {ref.id}
@@ -192,7 +200,7 @@ export const Slide18_References: React.FC = () => {
                     {ref.type}
                   </span>
                 </div>
-                <p className="text-xs text-slate-700 italic font-medium font-sans line-clamp-1 mb-1">
+                <p className="text-xs text-slate-700 italic font-medium font-sans line-clamp-1 mb-0.5">
                   {ref.title}
                 </p>
                 <div className="flex items-center justify-between">

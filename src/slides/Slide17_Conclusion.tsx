@@ -110,7 +110,7 @@ export const Slide17_Conclusion: React.FC = () => {
               </h3>
             </div>
             <p className="text-xs sm:text-[13px] text-slate-800 font-medium leading-relaxed font-sans pl-1">
-              Görüntüyü <strong>patch'lere bölüp</strong> standart bir <strong>Transformer’a vermek</strong>, büyük veri ile eğitildiğinde <strong>CNN’lerden daha iyi sonuç verebiliyor</strong> ve <strong>daha az hesaplama gücü</strong> harcıyor.
+              Görüntüyü <strong>patch'lere bölüp</strong> standart bir <strong>Transformer’a</strong> vermek; büyük veride <strong>pre-training</strong> yapılıp orta/küçük ölçekli veri kümelerine (<strong>ImageNet, CIFAR-100, VTAB</strong>) aktarıldığında en gelişmiş <strong>CNN’leri geçmekte</strong> ve önemli ölçüde <strong>daha az hesaplama kaynağı</strong> harcamaktadır.
             </p>
           </motion.div>
 

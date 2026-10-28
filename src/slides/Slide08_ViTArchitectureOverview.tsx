@@ -114,7 +114,7 @@ export const Slide08_ViTArchitectureOverview: React.FC = () => {
           {/* Large Image/GIF Container */}
           <div className="relative w-full flex-1 bg-white rounded-xl border border-slate-200 flex items-center justify-center p-2 sm:p-3 overflow-hidden shadow-inner min-h-[260px]">
             <img
-              src="/vit_overview_google.gif"
+              src="https://media.geeksforgeeks.org/wp-content/uploads/20250108160032710219/Vision-Transformer-Architecture_.webp"
               alt="Vision Transformer Overall Architecture"
               className="max-h-full max-w-full object-contain filter contrast-[1.03]"
             />
