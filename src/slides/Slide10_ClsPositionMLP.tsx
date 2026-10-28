@@ -2,16 +2,13 @@ import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Eye, X } from 'lucide-react'
 /*
-  Key,
+  Eye, X, Key,
   MapPin,
   Cpu,
   ArrowRight,
   CheckCircle2,
   Layers,
   Target,
-  Eye,
-  X,
-  Sparkles,
   ExternalLink
 */
 
