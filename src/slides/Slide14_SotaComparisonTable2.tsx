@@ -138,13 +138,6 @@ export const Slide14_SotaComparisonTable2: React.FC = () => {
         </div>
 
         <div className="flex items-center gap-2">
-          <button
-            onClick={() => setAnimKey((prev) => prev + 1)}
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-blue-700 bg-blue-50 hover:bg-blue-100 px-3 py-1.5 rounded-full border border-blue-200 transition-colors cursor-pointer"
-          >
-            <RotateCcw className="w-3.5 h-3.5" />
-            <span>Grafiği Canlandır</span>
-          </button>
           <div className="hidden sm:flex items-center gap-1.5 text-xs font-mono font-semibold text-blue-700 bg-blue-50 px-3 py-1.5 rounded-full border border-blue-200">
             <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
             <span>Slayt 14</span>
@@ -186,11 +179,10 @@ export const Slide14_SotaComparisonTable2: React.FC = () => {
                 <div className="flex items-center justify-between text-xs sm:text-sm">
                   <div className="flex items-center gap-1.5 flex-wrap">
                     <span
-                      className={`text-[10px] font-extrabold px-2 py-0.5 rounded border ${
-                        item.tag === 'ViT'
-                          ? 'bg-emerald-100 text-emerald-800 border-emerald-300'
-                          : 'bg-rose-100 text-rose-800 border-rose-300'
-                      }`}
+                      className={`text-[10px] font-extrabold px-2 py-0.5 rounded border ${item.tag === 'ViT'
+                        ? 'bg-emerald-100 text-emerald-800 border-emerald-300'
+                        : 'bg-rose-100 text-rose-800 border-rose-300'
+                        }`}
                     >
                       {item.tag}
                     </span>
