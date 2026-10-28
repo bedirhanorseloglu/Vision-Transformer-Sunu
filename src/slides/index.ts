@@ -12,6 +12,7 @@ import { Slide10_ClsPositionMLP } from './Slide10_ClsPositionMLP'
 import { Slide11_ClsAndPositionDetail } from './Slide11_ClsAndPositionDetail'
 import { Slide12_CnnVsVitReceptiveField } from './Slide12_CnnVsVitReceptiveField'
 import { Slide13_InductiveBiasComparison } from './Slide13_InductiveBiasComparison'
+import { Slide14_SotaComparisonTable2 } from './Slide14_SotaComparisonTable2'
 import { Slide14_PatchSizeQuadraticCost } from './Slide14_PatchSizeQuadraticCost'
 import { Slide15_WhenToUseCnnVsVit } from './Slide15_WhenToUseCnnVsVit'
 import { Slide16_ModelVariants } from './Slide16_ModelVariants'
@@ -110,6 +111,13 @@ export const presentationSlides: SlideMeta[] = [
     subtitle: 'Katı Mimari Şablon (Yerel Koniler) vs İlk Katmandan İtibaren Özgür Küresel Dikkat',
     section: 'BÖLÜM 3: VISION TRANSFORMER (ViT)',
     component: Slide13_InductiveBiasComparison,
+  },
+  {
+    id: 'sota-comparison-table2',
+    title: 'SOTA CNN vs ViT: Doğruluk ve Hesaplama Maliyeti',
+    subtitle: 'Tablo 2: BiT-L & Noisy Student Karşılaştırması ve TPUv3 Çekirdek-Günü Tasarrufu',
+    section: 'BÖLÜM 3: VISION TRANSFORMER (ViT)',
+    component: Slide14_SotaComparisonTable2,
   },
   {
     id: 'vit-patch-size-quadratic-cost',
