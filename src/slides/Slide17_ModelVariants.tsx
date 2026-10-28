@@ -193,7 +193,7 @@ export const Slide17_ModelVariants: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* KART 3: Tablodaki Gizli Kural (MLP = 4 × D) */}
+          {/* KART 3: Tablodaki Sütunlar (Hidden Size D, MLP Size, Heads) */}
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
@@ -207,43 +207,53 @@ export const Slide17_ModelVariants: React.FC = () => {
                     <Lightbulb className="w-4 h-4" />
                   </span>
                   <h3 className="text-xs sm:text-sm font-bold text-slate-900 font-montserrat">
-                    3. Tablodaki Sütunlar: MLP Neden Hep 4 Katı?
+                    3. Tablodaki Sütunlar Ne İşe Yarar?
                   </h3>
                 </div>
 
-                {/* Matematiksel Kanıt Kutusu */}
-                <div className="bg-white/95 rounded-xl p-2.5 border border-emerald-200 shadow-2xs space-y-1 my-2 text-xs font-mono">
-                  <div className="flex justify-between items-center">
-                    <span className="text-slate-600 font-sans font-semibold">ViT-Base:</span>
-                    <span className="text-slate-800">D = 768 ➔ MLP = <strong>768 × 4 = 3072</strong></span>
+                {/* 3 Sütunun 1'er Cümlelik Net Açıklaması */}
+                <div className="bg-white/95 rounded-xl p-2.5 border border-emerald-200 shadow-2xs space-y-1.5 text-xs leading-snug">
+                  <div>
+                    <span className="font-mono font-bold text-emerald-900 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200 mr-1.5">
+                      Hidden Size D:
+                    </span>
+                    <span className="text-slate-700">
+                      Her bir patch&apos;in kaç sayılık vektörle temsil edildiğidir (<code>768/1024/1280</code>); büyüdükçe parçanın taşıdığı görsel detay kapasitesi artar.
+                    </span>
                   </div>
-                  <div className="flex justify-between items-center border-t border-slate-100 pt-1">
-                    <span className="text-slate-600 font-sans font-semibold">ViT-Large:</span>
-                    <span className="text-slate-800">D = 1024 ➔ MLP = <strong>1024 × 4 = 4096</strong></span>
+
+                  <div className="border-t border-slate-100 pt-1.5">
+                    <span className="font-mono font-bold text-emerald-900 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200 mr-1.5">
+                      MLP Size (4×D):
+                    </span>
+                    <span className="text-slate-700">
+                      Attention&apos;ın topladığı bilginin <strong>4 kat genişletilip</strong> (<code>3072/4096/5120</code>) anlamlandırıldığı doğrusal olmayan (<em>non-linear</em>) ara işlem katmanıdır.
+                    </span>
                   </div>
-                  <div className="flex justify-between items-center border-t border-slate-100 pt-1">
-                    <span className="text-slate-600 font-sans font-semibold">ViT-Huge:</span>
-                    <span className="text-slate-800">D = 1280 ➔ MLP = <strong>1280 × 4 = 5120</strong></span>
+
+                  <div className="border-t border-slate-100 pt-1.5">
+                    <span className="font-mono font-bold text-emerald-900 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200 mr-1.5">
+                      Heads (12/16):
+                    </span>
+                    <span className="text-slate-700">
+                      Modelin resme aynı anda kaç farklı &quot;gözle&quot; (biri renge, biri dokuya, biri kenara odaklanarak paralel) baktığını belirler.
+                    </span>
                   </div>
                 </div>
               </div>
 
-              {/* Neden 4x Açıklama Kutusu - Büyütülmüş ve Ferah */}
-              <div className="bg-white/95 rounded-xl p-3.5 border border-emerald-200/90 text-xs sm:text-[13px] text-slate-700 space-y-2.5 shadow-2xs my-auto">
-                <div className="flex items-center justify-between pb-1.5 border-b border-emerald-100">
-                  <span className="font-bold text-emerald-950 text-xs sm:text-sm">
-                    💡 Neden 4 Kat Genişletiyoruz (4×D)?
+              {/* Neden 4x Açıklama Kutusu */}
+              <div className="bg-white/95 rounded-xl p-2.5 border border-emerald-200/90 text-xs text-slate-700 space-y-1 shadow-2xs mt-2">
+                <div className="flex items-center justify-between pb-1 border-b border-emerald-100">
+                  <span className="font-bold text-emerald-950 text-xs">
+                    💡 Neden MLP Hep 4 Kat Genişletilir (4×D)?
                   </span>
-                  <span className="font-mono text-xs text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 font-bold">
+                  <span className="font-mono text-[11px] text-emerald-800 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200 font-bold">
                     D ➔ 4×D ➔ D
                   </span>
                 </div>
 
-                <p className="leading-relaxed text-slate-700">
-                  • <strong>Attention Bağlar, MLP Anlamlandırır:</strong> Bilgi 4 kat geniş alanda açılıp analiz edilir ve tekrar <strong>D boyutuna sıkıştırılır</strong>.
-                </p>
-
-                <ul className="space-y-1.5 pl-3 border-l-2 border-emerald-400 text-slate-700 leading-relaxed">
+                <ul className="space-y-1 pl-2.5 border-l-2 border-emerald-400 text-slate-700 leading-snug text-[11.5px]">
                   <li>
                     <strong>1. Başarı / Maliyet Dengesi:</strong> 4 kattan sonra (5×, 6×) bellek maliyeti katlanırken performans artışı doygunluğa ulaşır.
                   </li>
@@ -253,9 +263,9 @@ export const Slide17_ModelVariants: React.FC = () => {
                 </ul>
               </div>
 
-              <div className="mt-2.5 bg-white/90 rounded-lg py-1.5 px-3 border border-emerald-200/70 text-xs font-mono text-emerald-900 flex items-center justify-between">
-                <span>Altın Oran:</span>
-                <strong>MLP Boyutu = 4 × Hidden Size (D)</strong>
+              <div className="mt-2 bg-white/90 rounded-lg py-1.5 px-3 border border-emerald-200/70 text-xs font-mono text-emerald-900 flex items-center justify-between">
+                <span>Sabit Oran:</span>
+                <strong>MLP = 4×D • Her Head = D / Heads (64)</strong>
               </div>
             </div>
           </motion.div>
