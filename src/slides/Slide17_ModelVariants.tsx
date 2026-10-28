@@ -212,7 +212,7 @@ export const Slide17_ModelVariants: React.FC = () => {
                 </div>
 
                 {/* 3 Sütunun 1'er Cümlelik Net Açıklaması */}
-                <div className="bg-white/95 rounded-xl p-2.5 border border-emerald-200 shadow-2xs space-y-1.5 text-xs sm:text-[13px] leading-snug">
+                <div className="bg-white/95 rounded-xl p-2.5 border border-emerald-200 shadow-2xs space-y-1.5 text-xs sm:text-[13px] leading-snug text-justify">
                   <div>
                     <span className="font-mono font-bold text-emerald-900 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200 mr-1.5">
                       Hidden Size D:
@@ -283,7 +283,7 @@ export const Slide17_ModelVariants: React.FC = () => {
       >
         <div className="flex items-center gap-2">
           <Scale className="w-4 h-4 text-blue-600 shrink-0" />
-          <span className="text-slate-700 text-xs sm:text-sm">
+          <span className="text-slate-700 text-xs sm:text-sm text-justify">
             <strong className="text-slate-900 font-semibold">Temel Çıkarım:</strong> Model seçiminde donanımı asıl zorlayan faktör modelin büyüklüğü (Base/Large) kadar <strong>seçilen patch boyutudur (/14, /16, /32)</strong>; çünkü patch küçüldükçe hesaplama maliyeti karesel olarak patlar.
           </span>
         </div>

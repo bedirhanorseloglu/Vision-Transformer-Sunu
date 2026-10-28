@@ -169,7 +169,7 @@ export const Slide16_WhenToUseCnnVsVit: React.FC = () => {
       >
         <div className="flex items-center gap-2">
           <Scale className="w-4 h-4 text-blue-600 shrink-0" />
-          <span className="text-slate-700 text-xs sm:text-sm">
+          <span className="text-slate-700 text-xs sm:text-sm text-justify">
             <strong className="text-slate-900 font-semibold">Temel Çıkarım:</strong> Küçük veride CNN'in mimari varsayımları hayat kurtarır (ViT overfit olur); devasa veride ise ViT sınır tanımaz. Gerçek hayatta ise hazır eğitilmiş ViT alınıp hedef veriye ince ayar (fine-tuning) yapılır.
           </span>
         </div>

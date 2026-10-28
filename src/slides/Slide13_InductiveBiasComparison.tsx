@@ -147,7 +147,7 @@ export const Slide13_InductiveBiasComparison: React.FC = () => {
       >
         <div className="flex items-center gap-2">
           <Scale className="w-4 h-4 text-blue-600 shrink-0" />
-          <span className="text-slate-700 text-xs sm:text-sm">
+          <span className="text-slate-700 text-xs sm:text-sm text-justify">
             <strong className="text-slate-900 font-semibold">Inductive Bias İkilemi:</strong> ViT bu hazır kurallardan (<em>inductive bias</em>) yoksun olduğu için <strong>küçük/orta veride (ImageNet) iyi genelleme yapamaz ve CNN'in gerisinde kalır (Dezavantaj)</strong>; ancak <strong>büyük ölçekli veride (14M-300M1) katı kurallarla kısıtlanmadığı için çok daha esnek öğrenerek CNN'leri geçer (Avantaj)</strong>.
           </span>
         </div>

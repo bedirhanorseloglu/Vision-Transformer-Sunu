@@ -368,7 +368,7 @@ export const Slide12_CnnVsVitReceptiveField: React.FC = () => {
       >
         <div className="flex items-center gap-2">
           <Scale className="w-4 h-4 text-blue-600 shrink-0" />
-          <span className="text-slate-700 text-xs sm:text-sm">
+          <span className="text-slate-700 text-xs sm:text-sm text-justify">
             <strong className="text-slate-900 font-semibold">Temel Çıkarım:</strong> CNN yerel filtreleriyle nesneleri daha çok dokusundan (kürk, desen) yakalarken; ViT ilk katmandan itibaren tüm patch'leri eşleştirerek küresel şekil ve silüete odaklanır.
           </span>
         </div>
