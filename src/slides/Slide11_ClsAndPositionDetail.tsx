@@ -3,13 +3,13 @@ import {
   motion
 } from 'framer-motion'
 import {
-  Key,
-  MapPin,
+  // Key,
+  // MapPin,
   ArrowRight,
   Layers,
-  Plus,
-  Cpu,
-  Target
+  // Plus,
+  // Cpu,
+  // Target
 } from 'lucide-react'
 
 export const Slide11_ClsAndPositionDetail: React.FC = () => {

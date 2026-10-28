@@ -1,12 +1,12 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import {
-  Grid,
+//
+/*
   Layers,
   ArrowRight,
   Maximize2,
   Hash,
-} from 'lucide-react'
+*/
 
 export const Slide09_PatchingAndEmbedding: React.FC = () => {
   const PUNCHY_EASE = [0.16, 1, 0.3, 1] as const

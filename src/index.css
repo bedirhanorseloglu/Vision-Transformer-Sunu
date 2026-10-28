@@ -12,6 +12,14 @@
     font-family: var(--font-sans);
     background-color: #f8fafc;
     color: #0f172a;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  img, video {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
   }
 
   h1, h2, h3, h4, h5, h6 {

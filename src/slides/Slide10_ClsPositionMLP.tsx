@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import {
+import { Eye, X } from 'lucide-react'
+/*
   Key,
   MapPin,
   Cpu,
@@ -12,7 +13,7 @@ import {
   X,
   Sparkles,
   ExternalLink
-} from 'lucide-react'
+*/
 
 export const Slide10_ClsPositionMLP: React.FC = () => {
   const PUNCHY_EASE = [0.16, 1, 0.3, 1] as const

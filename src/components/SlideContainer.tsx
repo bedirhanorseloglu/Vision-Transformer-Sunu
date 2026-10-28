@@ -113,17 +113,21 @@ export const SlideContainer: React.FC<SlideContainerProps> = ({
   return (
     <div
       ref={containerRef}
-      className={`relative w-full h-screen flex items-center justify-center ${isExportMode ? "p-3 sm:p-4" : "p-3 sm:p-5 md:p-6 lg:p-8 pt-4 pb-20"} overflow-hidden select-none`}
+      className={`relative w-full h-screen flex items-center justify-center ${
+        isExportMode
+          ? 'p-2 sm:p-3'
+          : 'px-3 sm:px-5 md:px-6 pt-2.5 pb-14'
+      } overflow-hidden select-none`}
     >
       {/* Dynamic Ambient Glow Backdrops */}
-      <div className="absolute top-1/4 -left-32 w-96 h-96 ambient-glow-indigo rounded-full pointer-events-none opacity-20" />
-      <div className="absolute bottom-1/4 -right-32 w-96 h-96 ambient-glow-cyan rounded-full pointer-events-none opacity-15" />
-      
-      {/* Background Matrix Pattern */}
-      <div className="absolute inset-0 bg-grid-pattern opacity-25 pointer-events-none" />
+      <div className="absolute top-1/4 -left-32 w-96 h-96 ambient-glow-indigo rounded-full pointer-events-none opacity-25" />
+      <div className="absolute bottom-1/4 -right-32 w-96 h-96 ambient-glow-cyan rounded-full pointer-events-none opacity-20" />
 
-      {/* Slide Content taking full presentation width/height */}
-      <div className="relative z-10 w-full max-w-[1520px] h-[calc(100vh-5.5rem)] max-h-[860px] flex flex-col justify-center">
+      {/* Background Matrix Pattern */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" />
+
+      {/* Slide Content taking full 16:9 projector width/height */}
+      <div className="relative z-10 w-full max-w-[1680px] h-[calc(100vh-4rem)] max-h-[960px] flex flex-col justify-center">
         <AnimatePresence mode="wait" custom={direction}>
           <motion.div
             key={currentSlide}
@@ -132,7 +136,7 @@ export const SlideContainer: React.FC<SlideContainerProps> = ({
             initial="enter"
             animate="center"
             exit="exit"
-            className="w-full h-full flex flex-col"
+            className="w-full h-full flex flex-col will-change-transform"
           >
             {children}
           </motion.div>

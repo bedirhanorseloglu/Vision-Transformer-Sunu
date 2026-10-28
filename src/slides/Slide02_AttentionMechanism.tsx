@@ -1,6 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { ArrowRight, AlertCircle, CheckCircle2 } from 'lucide-react'
+import { AlertCircle, CheckCircle2 } from 'lucide-react'
 
 export const Slide02_AttentionMechanism: React.FC = () => {
   const PUNCHY_EASE = [0.16, 1, 0.3, 1] as const

@@ -4,7 +4,7 @@ import {
   CheckCircle2,
   Award,
   Compass,
-  ZoomIn,
+
   X,
   Maximize2
 } from 'lucide-react'

@@ -8,10 +8,7 @@ import {
   Rewind,
   Volume2,
   VolumeX,
-  AlertTriangle,
-  Cpu,
   Layers,
-  Scale,
   Network,
   Wrench
 } from 'lucide-react'

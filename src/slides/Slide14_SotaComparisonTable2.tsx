@@ -1,18 +1,16 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { motion } from 'framer-motion'
 import {
   Trophy,
   Cpu,
   ShieldAlert,
   TrendingUp,
-  RotateCcw,
   CheckCircle2,
   Database
 } from 'lucide-react'
 
 export const Slide14_SotaComparisonTable2: React.FC = () => {
   const PUNCHY_EASE = [0.16, 1, 0.3, 1] as const
-  const [animKey, setAnimKey] = useState(0)
 
   const computeCostData = [
     {
@@ -146,10 +144,7 @@ export const Slide14_SotaComparisonTable2: React.FC = () => {
       </motion.div>
 
       {/* 2. CENTER HERO: YAN YANA 2 BÜYÜK VE FERAH ANİMASYONLU GRAFİK */}
-      <div
-        key={animKey}
-        className="grid grid-cols-1 lg:grid-cols-12 gap-5 my-auto z-10 items-stretch flex-1 py-3 min-h-0"
-      >
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 my-auto z-10 items-stretch flex-1 py-3 min-h-0">
         {/* SOL GRAFİK: HESAPLAMA MALİYETİ (6 Kolon) */}
         <motion.div
           initial={{ opacity: 0, x: -15 }}

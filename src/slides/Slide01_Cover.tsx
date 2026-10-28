@@ -47,8 +47,6 @@ export function Slide01_Cover() {
             <span>GOOGLE RESEARCH</span>
             <span className="w-1.5 h-1.5 rounded-full bg-slate-400" />
             <span>BRAIN TEAM</span>
-            <span className="w-1.5 h-1.5 rounded-full bg-slate-400" />
-            <span className="text-blue-600 font-semibold tracking-wider">AKADEMİK SUNUM</span>
           </motion.div>
 
           {/* Main Title (Single Line & Grand) */}
