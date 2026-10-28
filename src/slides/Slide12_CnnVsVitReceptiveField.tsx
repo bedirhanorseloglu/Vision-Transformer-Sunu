@@ -11,7 +11,7 @@ import {
   VolumeX,
   Eye,
   Layers, Scale,
-  Network
+  Network,
 } from 'lucide-react'
 
 export const Slide12_CnnVsVitReceptiveField: React.FC = () => {
@@ -112,18 +112,30 @@ export const Slide12_CnnVsVitReceptiveField: React.FC = () => {
           </h2>
         </div>
 
-        {/* Sağ Üst: Slayt Numarası */}
-        <div className="hidden sm:flex items-center gap-2">
-          <a
+        {/* Sağ Üst: Slayt Numarası & Canlı Simülatör */}
+        <div className="hidden sm:flex items-center gap-2.5">
+          <motion.a
             href="https://jaden-shin-1214.github.io/attention-visualization/"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 text-xs font-mono font-semibold text-blue-700 bg-blue-50 hover:bg-blue-100 px-3 py-1.5 rounded-full border border-blue-200 transition-colors shadow-2xs group"
-            title="Canlı Attention Görselleştirme Uygulamasını Aç"
+            whileHover={{ scale: 1.04, y: -1 }}
+            whileTap={{ scale: 0.96 }}
+            className="relative flex items-center gap-2 text-xs font-bold text-white bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700 hover:from-blue-700 hover:to-indigo-800 px-3.5 py-1.5 rounded-full shadow-md shadow-blue-500/25 ring-2 ring-blue-400/40 hover:ring-blue-500 transition-all group overflow-hidden cursor-pointer"
+            title="Canlı Attention Görselleştirme Uygulamasını Yeni Sekmede Aç"
           >
-            <ExternalLink className="w-3.5 h-3.5 text-blue-600 group-hover:scale-110 transition-transform" />
-            <span>Canlı Simülatör</span>
-          </a>
+            {/* Canlı Parlama Efekti */}
+            <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-700 bg-gradient-to-r from-transparent via-white/25 to-transparent pointer-events-none" />
+
+            {/* Yanıp Sönen Yeşil Canlı Durum Sinyali */}
+            <span className="relative flex h-2 w-2 shrink-0">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-300 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
+            </span>
+
+            <span className="tracking-wide">Canlı Simülatör</span>
+            <ExternalLink className="w-3.5 h-3.5 text-white/90 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform shrink-0" />
+          </motion.a>
+
           <span className="text-xs font-mono text-slate-500 bg-slate-50 px-3 py-1.5 rounded-full border border-slate-200 font-medium">
             Makale Bölüm 3.1 & 4.5
           </span>
@@ -291,16 +303,18 @@ export const Slide12_CnnVsVitReceptiveField: React.FC = () => {
                 <span>Görüş Kapsamı: </span>
                 <strong className="text-blue-700 font-bold">İlk Katmandan Tüm Resim</strong>
               </div>
-              <a
+              <motion.a
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.96 }}
                 href="https://jaden-shin-1214.github.io/attention-visualization/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-1 text-[11px] font-mono font-bold text-blue-700 bg-white hover:bg-blue-50 py-1 px-2.5 rounded-lg border border-blue-200 shadow-2xs transition-all shrink-0 hover:border-blue-300"
-                title="Patch Attention Simülasyonunu Aç"
+                className="flex items-center gap-1.5 text-[11px] font-mono font-bold text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 py-1.5 px-3 rounded-lg shadow-xs shadow-blue-500/20 transition-all shrink-0 cursor-pointer"
+                title="Canlı Attention Simülasyonunu Aç"
               >
-                <span>Uygulama Örneği</span>
-                <ExternalLink className="w-3 h-3 text-blue-600" />
-              </a>
+                <span>Canlı Simülatör</span>
+                <ExternalLink className="w-3 h-3 text-white/90" />
+              </motion.a>
             </div>
           </div>
 
@@ -327,6 +341,7 @@ export const Slide12_CnnVsVitReceptiveField: React.FC = () => {
           <div className="bg-amber-50/50 hover:bg-amber-50/70 rounded-2xl p-4 border border-amber-200/70 shadow-xs flex flex-col justify-center flex-1 transition-all">
             <div className="flex items-center gap-2 mb-1.5">
               <span className="p-1 rounded-lg bg-amber-100 text-amber-800">
+                <Eye className="w-4 h-4" />
               </span>
               <h3 className="text-sm sm:text-base font-bold text-slate-900 font-montserrat">
                 Görsel Algı: Doku (CNN) vs Şekil (ViT)
@@ -357,6 +372,18 @@ export const Slide12_CnnVsVitReceptiveField: React.FC = () => {
             <strong className="text-slate-900 font-semibold">Temel Çıkarım:</strong> CNN yerel filtreleriyle nesneleri daha çok dokusundan (kürk, desen) yakalarken; ViT ilk katmandan itibaren tüm patch'leri eşleştirerek küresel şekil ve silüete odaklanır.
           </span>
         </div>
+
+        <motion.a
+          whileHover={{ scale: 1.04 }}
+          whileTap={{ scale: 0.96 }}
+          href="https://jaden-shin-1214.github.io/attention-visualization/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hidden md:flex items-center gap-1.5 text-xs font-bold text-blue-700 hover:text-blue-900 bg-white hover:bg-blue-50 px-3 py-1 rounded-lg border border-blue-200 shadow-2xs transition-all shrink-0 cursor-pointer"
+          title="Canlı Attention Görselleştirme Uygulamasını Aç"
+        >
+          <span>Canlı Simülatör ↗</span>
+        </motion.a>
       </motion.div>
 
     </div>

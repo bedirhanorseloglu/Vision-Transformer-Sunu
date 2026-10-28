@@ -162,30 +162,47 @@ export const Slide17_Conclusion: React.FC = () => {
               </h3>
             </div>
 
-            <div className="space-y-1.5 pl-1 text-xs sm:text-[12.5px] text-slate-800 font-medium font-sans">
-              <div className="flex items-center gap-2">
-                <span className="w-5 h-5 rounded-md bg-emerald-100 text-emerald-800 font-bold text-[11px] flex items-center justify-center shrink-0">
+            <div className="space-y-2 pl-0.5 text-xs font-sans">
+              <div className="flex items-start gap-2">
+                <span className="w-5 h-5 rounded-md bg-emerald-100 text-emerald-800 font-bold text-[11px] flex items-center justify-center shrink-0 mt-0.5">
                   1
                 </span>
-                <p className="leading-snug">
-                  <strong>Detection ve segmentation’a</strong> uyarlanması
-                </p>
+                <div>
+                  <p className="font-semibold text-slate-900 leading-snug text-xs sm:text-[12.5px]">
+                    Detection ve segmentation'a uyarlanması
+                  </p>
+                  <p className="text-[11px] text-slate-600 font-normal leading-relaxed mt-0.5">
+                    ViT makalede sadece tüm resmi sınıflandırdı; nesnelerin yerini bulma (detection) ve piksel sınırlarını çizme görevlerine uyarlanması gerekiyor.
+                  </p>
+                </div>
               </div>
-              <div className="flex items-center gap-2">
-                <span className="w-5 h-5 rounded-md bg-emerald-100 text-emerald-800 font-bold text-[11px] flex items-center justify-center shrink-0">
+
+              <div className="flex items-start gap-2">
+                <span className="w-5 h-5 rounded-md bg-emerald-100 text-emerald-800 font-bold text-[11px] flex items-center justify-center shrink-0 mt-0.5">
                   2
                 </span>
-                <p className="leading-snug">
-                  <strong>Self-supervised öğrenmenin</strong> güçlendirilmesi
-                </p>
+                <div>
+                  <p className="font-semibold text-slate-900 leading-snug text-xs sm:text-[12.5px]">
+                    Self-supervised öğrenmenin güçlendirilmesi
+                  </p>
+                  <p className="text-[11px] text-slate-600 font-normal leading-relaxed mt-0.5">
+                    İnsan etiketine muhtaç olmadan, etiketlenmemiş devasa görsellerden (BERT gibi maskeleme ile) kendi kendine öğrenme başarısı henüz sınırlı.
+                  </p>
+                </div>
               </div>
-              <div className="flex items-center gap-2">
-                <span className="w-5 h-5 rounded-md bg-emerald-100 text-emerald-800 font-bold text-[11px] flex items-center justify-center shrink-0">
+
+              <div className="flex items-start gap-2">
+                <span className="w-5 h-5 rounded-md bg-emerald-100 text-emerald-800 font-bold text-[11px] flex items-center justify-center shrink-0 mt-0.5">
                   3
                 </span>
-                <p className="leading-snug">
-                  <strong>Daha büyük modellerin</strong> incelenmesi
-                </p>
+                <div>
+                  <p className="font-semibold text-slate-900 leading-snug text-xs sm:text-[12.5px]">
+                    Daha büyük modellerin incelenmesi
+                  </p>
+                  <p className="text-[11px] text-slate-600 font-normal leading-relaxed mt-0.5">
+                    Model büyüdükçe performans doygunluğa (plato) ulaşmıyor; milyarlarca parametreli devasa mimarilerin sınırları henüz test edilmedi.
+                  </p>
+                </div>
               </div>
             </div>
           </motion.div>

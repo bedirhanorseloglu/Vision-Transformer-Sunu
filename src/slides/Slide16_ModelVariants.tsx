@@ -194,9 +194,38 @@ export const Slide16_ModelVariants: React.FC = () => {
               </div>
 
               <p className="text-xs text-slate-700 leading-relaxed mt-1">
-                <strong>Gizli Boyut (D):</strong> Bir resim parçasını tarif etmek için kullanılan özellik sayısıdır (hafızasıdır). <br></br> <br />
-                <strong>MLP:</strong> Modelin düşündüğü yerdir; bilgiyi <strong>tam 4 kat geniş bir masaya yayarak (4×D)</strong> derin ilişkileri öğrenir. Bu 4 katlık oran, Transformer mimarisinin evrensel standardıdır.
+                <strong>Gizli Boyut (D):</strong> Bir patch'i tarif eden özellik sayısıdır (vektör hafızası).
               </p>
+
+              {/* Neden 4x Açıklama Kutusu */}
+              <div className="bg-white/95 rounded-xl p-2.5 border border-emerald-200/90 text-[11px] text-slate-700 space-y-2 mt-1.5 shadow-2xs">
+                <div className="flex items-center justify-between pb-1 border-b border-emerald-100">
+                  <span className="font-bold text-emerald-900 text-xs flex items-center gap-1">
+                    💡 Neden 4 Kat Genişletiyoruz (4×D)?
+                  </span>
+                  <span className="font-mono text-[10px] text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 font-semibold">
+                    D ➔ 4×D ➔ D
+                  </span>
+                </div>
+
+                <p className="leading-relaxed text-slate-600">
+                  • <strong>Attention Bağlar, MLP Anlamlandırır:</strong> Attention parçaları eşleştirir ("nereye bakacağını" bulur); MLP ise parçanın <em>ne olduğunu</em> çözer. Detayların üst üste binmemesi için bilgi 4 kat geniş masada açılır, analiz edilir ve en kritik özet tekrar <strong>D boyutuna sıkıştırılır</strong>.
+                </p>
+
+                <div className="pt-1 border-t border-slate-100">
+                  <strong className="text-emerald-900 font-bold block mb-1">
+                    ❓ Peki Neden 5 veya 6 Değil de Tam 4 Kat?
+                  </strong>
+                  <ul className="space-y-1 pl-2 border-l-2 border-emerald-300 text-slate-600 leading-relaxed text-[10.5px]">
+                    <li>
+                      <strong>1. Başarı / Maliyet Dengesi (Sweet Spot):</strong> 2× yapıldığında model yetersiz kalır. 4 kattan sonra (5×, 6×) parametre sayısı ve GPU bellek maliyeti katlanırken performanstaki artış neredeyse sıfıra iner (doygunluk sınırı).
+                    </li>
+                    <li>
+                      <strong>2. Donanım Uyumu (2'nin Kuvveti):</strong> 4 çarpanı (2²), GPU/TPU tensör çekirdeklerinin matris çarpımlarını %100 paralellikte ve sıfır israfla yapmasını sağlar; 5 veya 7 gibi tek sayılar donanımı yavaşlatır.
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </motion.div>
 
