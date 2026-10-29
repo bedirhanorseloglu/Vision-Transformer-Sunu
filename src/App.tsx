@@ -79,6 +79,12 @@ export function App() {
         }
         if (e.repeat) return
 
+        const toggleBtn = document.querySelector('[data-video-toggle="true"]') as HTMLButtonElement | null
+        if (toggleBtn) {
+          toggleBtn.click()
+          return
+        }
+
         const video = document.querySelector('video') as HTMLVideoElement | null
         if (video) {
           if (video.paused) {

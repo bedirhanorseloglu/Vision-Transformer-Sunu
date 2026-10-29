@@ -54,8 +54,9 @@ export const LaserPointerOverlay: React.FC<LaserPointerOverlayProps> = ({ curren
     resizeCanvas()
     window.addEventListener('resize', resizeCanvas)
 
+    // IMPORTANT: Use Element (not HTMLElement) so SVG icons (<svg>, <rect>, <path>) inside <button> match!
     const isInteractiveControl = (target: EventTarget | null): boolean => {
-      if (!(target instanceof HTMLElement)) return false
+      if (!(target instanceof Element)) return false
       return Boolean(
         target.closest('button, a, input, textarea, select, [role="button"]')
       )
@@ -63,7 +64,10 @@ export const LaserPointerOverlay: React.FC<LaserPointerOverlayProps> = ({ curren
 
     const handlePointerDown = (e: PointerEvent) => {
       dragDistanceRef.current = 0
-      if (e.button !== 0 || isInteractiveControl(e.target)) return
+      if (e.button !== 0 || isInteractiveControl(e.target)) {
+        isDrawingRef.current = false
+        return
+      }
 
       isDrawingRef.current = true
       const now = performance.now()
@@ -106,14 +110,14 @@ export const LaserPointerOverlay: React.FC<LaserPointerOverlayProps> = ({ curren
       }, 80)
     }
 
-    // Prevent accidental click on video/slide right after drawing a laser stroke,
-    // but NEVER block clicks on interactive buttons/controls
+    // Prevent accidental click on video/slide ONLY after a deliberate laser drawing stroke (>= 22px),
+    // and NEVER block clicks on interactive buttons/controls (including SVG icons inside buttons).
     const handleClickCapture = (e: MouseEvent) => {
       if (isInteractiveControl(e.target)) {
         dragDistanceRef.current = 0
         return
       }
-      if (dragDistanceRef.current >= 6) {
+      if (dragDistanceRef.current >= 22) {
         e.stopPropagation()
         e.preventDefault()
         dragDistanceRef.current = 0

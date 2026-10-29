@@ -184,7 +184,7 @@ export const Slide04_AttentionExample: React.FC = () => {
             <div className="flex flex-wrap items-center justify-between gap-2">
               <div className="flex items-center gap-1.5">
                 <button
-                  onClick={togglePlay}
+                  onClick={togglePlay} data-video-toggle="true"
                   className="p-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white transition-colors shadow-xs cursor-pointer"
                   title={isPlaying ? 'Durdur' : 'Oynat'}
                 >
