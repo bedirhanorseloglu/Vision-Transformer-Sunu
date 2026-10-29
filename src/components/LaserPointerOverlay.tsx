@@ -1,21 +1,21 @@
 import React, { useEffect, useRef } from 'react'
 
-interface Point {
+interface TimedPoint {
   x: number
   y: number
+  t: number
 }
 
 interface Stroke {
-  points: Point[]
-  finishedAt: number | null // null while actively drawing, timestamp when released
+  points: TimedPoint[]
 }
 
 interface LaserPointerOverlayProps {
   currentSlide: number
 }
 
-const HOLD_DURATION_MS = 1500 // 1.5 seconds stays 100% visible after stroke ends
-const FADE_DURATION_MS = 500  // 0.5 seconds smooth fade-out
+const HOLD_DURATION_MS = 220 // 0.22s full brightness per drawn point
+const FADE_DURATION_MS = 230 // 0.23s smooth fade-out (total ~0.45s lifetime)
 
 export const LaserPointerOverlay: React.FC<LaserPointerOverlayProps> = ({ currentSlide }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -23,7 +23,7 @@ export const LaserPointerOverlay: React.FC<LaserPointerOverlayProps> = ({ curren
   const activeStrokeRef = useRef<Stroke | null>(null)
   const isDrawingRef = useRef<boolean>(false)
   const dragDistanceRef = useRef<number>(0)
-  const lastPosRef = useRef<Point | null>(null)
+  const lastPosRef = useRef<{ x: number; y: number } | null>(null)
 
   // Clear all strokes when changing slides
   useEffect(() => {
@@ -61,17 +61,16 @@ export const LaserPointerOverlay: React.FC<LaserPointerOverlayProps> = ({ curren
     }
 
     const handlePointerDown = (e: PointerEvent) => {
-      // Only draw with primary button (left click / pen touch) and not on UI buttons/sliders
       if (e.button !== 0 || isInteractiveControl(e.target)) return
 
       isDrawingRef.current = true
       dragDistanceRef.current = 0
-      const startPoint = { x: e.clientX, y: e.clientY }
-      lastPosRef.current = startPoint
+      const now = performance.now()
+      const startPoint: TimedPoint = { x: e.clientX, y: e.clientY, t: now }
+      lastPosRef.current = { x: e.clientX, y: e.clientY }
 
       const newStroke: Stroke = {
         points: [startPoint],
-        finishedAt: null,
       }
       activeStrokeRef.current = newStroke
       strokesRef.current.push(newStroke)
@@ -80,7 +79,11 @@ export const LaserPointerOverlay: React.FC<LaserPointerOverlayProps> = ({ curren
     const handlePointerMove = (e: PointerEvent) => {
       if (!isDrawingRef.current || !activeStrokeRef.current) return
 
-      const currentPoint = { x: e.clientX, y: e.clientY }
+      const currentPoint: TimedPoint = {
+        x: e.clientX,
+        y: e.clientY,
+        t: performance.now(),
+      }
       if (lastPosRef.current) {
         const dx = currentPoint.x - lastPosRef.current.x
         const dy = currentPoint.y - lastPosRef.current.y
@@ -89,23 +92,14 @@ export const LaserPointerOverlay: React.FC<LaserPointerOverlayProps> = ({ curren
         dragDistanceRef.current += dist
       }
 
-      lastPosRef.current = currentPoint
+      lastPosRef.current = { x: currentPoint.x, y: currentPoint.y }
       activeStrokeRef.current.points.push(currentPoint)
     }
 
     const endDrawing = () => {
       if (!isDrawingRef.current) return
       isDrawingRef.current = false
-
-      if (activeStrokeRef.current) {
-        // If user just clicked without dragging (< 6px), don't leave a stray dot
-        if (dragDistanceRef.current < 6) {
-          strokesRef.current = strokesRef.current.filter((s) => s !== activeStrokeRef.current)
-        } else {
-          activeStrokeRef.current.finishedAt = performance.now()
-        }
-        activeStrokeRef.current = null
-      }
+      activeStrokeRef.current = null
     }
 
     // Prevent accidental click (e.g. pausing video or opening modal) right after drawing a laser stroke
@@ -128,47 +122,47 @@ export const LaserPointerOverlay: React.FC<LaserPointerOverlayProps> = ({ curren
     const renderLoop = (now: number) => {
       ctx.clearRect(0, 0, window.innerWidth, window.innerHeight)
 
-      // Keep only strokes that haven't completely faded out
-      strokesRef.current = strokesRef.current.filter((stroke) => {
-        if (stroke.finishedAt === null) return true
-        return now - stroke.finishedAt < HOLD_DURATION_MS + FADE_DURATION_MS
-      })
+      const maxAge = HOLD_DURATION_MS + FADE_DURATION_MS
+
+      // Prune expired points from each stroke
+      for (const stroke of strokesRef.current) {
+        stroke.points = stroke.points.filter((pt) => now - pt.t < maxAge)
+      }
+      strokesRef.current = strokesRef.current.filter(
+        (stroke) => stroke.points.length >= 2 || stroke === activeStrokeRef.current
+      )
+
+      ctx.save()
+      ctx.lineCap = 'round'
+      ctx.lineJoin = 'round'
+      ctx.lineWidth = 3.2
 
       for (const stroke of strokesRef.current) {
         const pts = stroke.points
         if (pts.length < 2) continue
 
-        let alpha = 1
-        if (stroke.finishedAt !== null) {
-          const elapsed = now - stroke.finishedAt
-          if (elapsed > HOLD_DURATION_MS) {
-            alpha = Math.max(0, 1 - (elapsed - HOLD_DURATION_MS) / FADE_DURATION_MS)
+        for (let i = 1; i < pts.length; i++) {
+          const p0 = pts[i - 1]
+          const p1 = pts[i]
+          const age = now - p1.t
+
+          let alpha = 1
+          if (age > HOLD_DURATION_MS) {
+            alpha = Math.max(0, 1 - (age - HOLD_DURATION_MS) / FADE_DURATION_MS)
           }
+          if (alpha <= 0.01) continue
+
+          ctx.beginPath()
+          ctx.moveTo(p0.x, p0.y)
+          ctx.lineTo(p1.x, p1.y)
+          ctx.shadowColor = `rgba(220, 38, 38, ${0.35 * alpha})`
+          ctx.shadowBlur = 4
+          ctx.strokeStyle = `rgba(220, 38, 38, ${0.95 * alpha})`
+          ctx.stroke()
         }
-
-        ctx.save()
-        ctx.lineCap = 'round'
-        ctx.lineJoin = 'round'
-
-        // Build smooth quadratic curve path
-        ctx.beginPath()
-        ctx.moveTo(pts[0].x, pts[0].y)
-        for (let i = 1; i < pts.length - 1; i++) {
-          const midX = (pts[i].x + pts[i + 1].x) / 2
-          const midY = (pts[i].y + pts[i + 1].y) / 2
-          ctx.quadraticCurveTo(pts[i].x, pts[i].y, midX, midY)
-        }
-        ctx.lineTo(pts[pts.length - 1].x, pts[pts.length - 1].y)
-
-        // Sleek, crisp red ink with subtle soft shadow
-        ctx.shadowColor = `rgba(220, 38, 38, ${0.35 * alpha})`
-        ctx.shadowBlur = 4
-        ctx.strokeStyle = `rgba(220, 38, 38, ${0.95 * alpha})`
-        ctx.lineWidth = 3
-        ctx.stroke()
-
-        ctx.restore()
       }
+
+      ctx.restore()
 
       animationFrameId = requestAnimationFrame(renderLoop)
     }
