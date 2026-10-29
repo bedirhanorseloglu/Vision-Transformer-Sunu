@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import { NavigationHUD } from './components/NavigationHUD'
 import { SlideContainer } from './components/SlideContainer'
 import { presentationSlides } from './slides'
@@ -17,6 +17,30 @@ export function App() {
   const [direction, setDirection] = useState<number>(1)
   const [isOverviewOpen, setIsOverviewOpen] = useState<boolean>(false)
   const [isFullscreen, setIsFullscreen] = useState<boolean>(false)
+  const laserGlowRef = useRef<HTMLDivElement>(null)
+
+  // Real-time GPU-accelerated laser pointer glow tracking
+  useEffect(() => {
+    if (isExportMode) return
+    const el = laserGlowRef.current
+    if (!el) return
+
+    const handlePointerMove = (e: PointerEvent) => {
+      el.style.opacity = '1'
+      el.style.transform = `translate3d(${e.clientX - 18}px, ${e.clientY - 18}px, 0)`
+    }
+
+    const handlePointerLeave = () => {
+      el.style.opacity = '0'
+    }
+
+    window.addEventListener('pointermove', handlePointerMove, { passive: true })
+    document.addEventListener('mouseleave', handlePointerLeave)
+    return () => {
+      window.removeEventListener('pointermove', handlePointerMove)
+      document.removeEventListener('mouseleave', handlePointerLeave)
+    }
+  }, [isExportMode])
 
   // Sync hash with current slide
   useEffect(() => {
@@ -108,6 +132,19 @@ export function App() {
 
   return (
     <main className="relative w-screen h-screen overflow-hidden bg-[#f8fafc] text-slate-900 select-none">
+      {/* Red Laser Pointer Ambient Halo */}
+      {!isExportMode && (
+        <div
+          ref={laserGlowRef}
+          className="fixed top-0 left-0 w-9 h-9 rounded-full pointer-events-none z-[9999] opacity-0 transition-opacity duration-150"
+          style={{
+            background: 'radial-gradient(circle, rgba(239,68,68,0.45) 0%, rgba(220,38,38,0.22) 45%, rgba(239,68,68,0) 75%)',
+            boxShadow: '0 0 18px 4px rgba(239, 68, 68, 0.35)',
+            willChange: 'transform',
+          }}
+        />
+      )}
+
       <SlideContainer currentSlide={currentSlide} direction={direction} isExportMode={isExportMode}>
         <CurrentSlideComponent />
       </SlideContainer>
