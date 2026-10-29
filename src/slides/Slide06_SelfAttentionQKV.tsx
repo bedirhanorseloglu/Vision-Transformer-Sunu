@@ -1,17 +1,17 @@
 import React, { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
-import { 
-  Play, 
-  Pause, 
-  RotateCcw, 
-  FastForward, 
-  Rewind, 
-  Volume2, 
-  VolumeX, 
-  Search, 
-  Tag, 
-  Package, 
-  Layers, 
+import {
+  Play,
+  Pause,
+  RotateCcw,
+  FastForward,
+  Rewind,
+  Volume2,
+  VolumeX,
+  Search,
+  Tag,
+  Package,
+  Layers,
   Lightbulb,
   Users
 } from 'lucide-react'
@@ -19,7 +19,7 @@ import {
 export const Slide06_SelfAttentionQKV: React.FC = () => {
   const PUNCHY_EASE = [0.16, 1, 0.3, 1] as const
   const videoRef = useRef<HTMLVideoElement>(null)
-  
+
   const [isPlaying, setIsPlaying] = useState<boolean>(true)
   const [isMuted, setIsMuted] = useState<boolean>(true)
   const [progress, setProgress] = useState<number>(0)
@@ -91,7 +91,7 @@ export const Slide06_SelfAttentionQKV: React.FC = () => {
 
   return (
     <div className="relative w-full h-full bg-white rounded-3xl shadow-[0_20px_50px_-15px_rgba(37,99,235,0.07)] border border-slate-200/90 overflow-hidden flex flex-col justify-between p-5 sm:p-7 md:p-8 select-none">
-      
+
       {/* Background subtle ambient glows */}
       <div className="absolute top-0 right-0 w-[500px] h-[350px] bg-blue-500/5 rounded-full blur-[90px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[450px] h-[300px] bg-indigo-500/5 rounded-full blur-[90px] pointer-events-none" />
@@ -123,7 +123,7 @@ export const Slide06_SelfAttentionQKV: React.FC = () => {
 
       {/* 2. MAIN CONTENT: 12 COLS (7 Cols Video, 5 Cols Detailed Speaker Cues) */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 my-auto z-10 items-stretch flex-1 py-2.5 min-h-0">
-        
+
         {/* LEFT COLUMN: INTERACTIVE VIDEO PLAYER (7 Cols) */}
         <motion.div
           initial={{ opacity: 0, x: -20, scale: 0.98 }}
@@ -132,8 +132,8 @@ export const Slide06_SelfAttentionQKV: React.FC = () => {
           className="lg:col-span-7 flex flex-col justify-between bg-slate-50/80 rounded-2xl p-3 sm:p-4 border border-slate-200/90 shadow-sm overflow-hidden h-full group"
         >
           {/* Video Container - White background eliminates top/bottom black letterboxing bars */}
-          <div 
-            className="relative w-full flex-1 bg-white border border-slate-200/80 rounded-xl overflow-hidden flex items-center justify-center min-h-[250px] cursor-pointer shadow-xs" 
+          <div
+            className="relative w-full flex-1 bg-white border border-slate-200/80 rounded-xl overflow-hidden flex items-center justify-center min-h-[250px] cursor-pointer shadow-xs"
             onClick={togglePlay}
           >
             <video
@@ -232,7 +232,7 @@ export const Slide06_SelfAttentionQKV: React.FC = () => {
                 <button
                   onClick={() => jumpToTime(14)}
                   className="px-2 py-1 rounded-md bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200/80 transition-colors cursor-pointer"
-                  title="8 Kafanın Birleştirilmesi (Z0..Z7 x W^O = Z)"
+                  title="8 Başlıkların Birleştirilmesi (Z0..Z7 x W^O = Z)"
                 >
                   3. Multi-Head (Z)
                 </button>
@@ -309,7 +309,7 @@ export const Slide06_SelfAttentionQKV: React.FC = () => {
                 <div className="flex items-center gap-1.5">
                   <Users className="w-4 h-4 text-amber-600 shrink-0" />
                   <h4 className="text-sm sm:text-[15px] font-bold text-slate-900 font-montserrat">
-                    2. Z₀, Z₁ ... Z₇ Nedir? (8 Uzman Kafa)
+                    2. Z₀, Z₁ ... Z₇ Nedir? (8 Uzman Başlık)
                   </h4>
                 </div>
                 <span className="text-[10px] font-sans font-bold text-amber-800 bg-amber-100/80 px-2 py-0.5 rounded border border-amber-200">
@@ -317,17 +317,17 @@ export const Slide06_SelfAttentionQKV: React.FC = () => {
                 </span>
               </div>
               <p className="text-xs sm:text-[13px] text-slate-700 leading-snug">
-                <span className="font-sans font-bold text-slate-900">Z₀, Z₁ ... Z₇</span> farklı cümleler değil; <strong>aynı cümlenin 8 farklı uzman kafa (Attention Head)</strong> tarafından çıkarılmış dikkat özetleridir:
+                <span className="font-sans font-bold text-slate-900">Z₀, Z₁ ... Z₇</span> farklı cümleler değil; <strong>aynı cümlenin 8 farklı uzman başlık (Attention Head)</strong> tarafından çıkarılmış dikkat özetleridir:
               </p>
             </div>
 
             <div className="mt-2 grid grid-cols-3 gap-1.5 text-[11px] font-sans">
               <div className="bg-white/90 rounded-lg px-2 py-1.5 border border-amber-200/80 text-center">
-                <div className="font-extrabold text-amber-900">Z₀ (1. Kafa)</div>
+                <div className="font-extrabold text-amber-900">Z₀ (1. Başlık)</div>
                 <div className="text-slate-600 text-[10.5px] leading-tight mt-0.5"><em>"Kim?"</em> (Özne-Zamir)</div>
               </div>
               <div className="bg-white/90 rounded-lg px-2 py-1.5 border border-amber-200/80 text-center">
-                <div className="font-extrabold text-amber-900">Z₁ (2. Kafa)</div>
+                <div className="font-extrabold text-amber-900">Z₁ (2. Başlık)</div>
                 <div className="text-slate-600 text-[10.5px] leading-tight mt-0.5"><em>"Ne yaptı?"</em> (Fiil-Eylem)</div>
               </div>
               <div className="bg-white/90 rounded-lg px-2 py-1.5 border border-amber-200/80 text-center">
@@ -372,7 +372,7 @@ export const Slide06_SelfAttentionQKV: React.FC = () => {
             <div className="flex items-center gap-2 text-xs">
               <Lightbulb className="w-4 h-4 text-blue-600 shrink-0" />
               <span className="text-slate-700 text-justify leading-snug">
-                <strong className="text-slate-900">ViT Bağlantısı:</strong> ViT'de de aynı resme bakan kafalardan <strong>Z₀ renge</strong>, <strong>Z₁ şekle</strong>, <strong>Z₂ arka plana</strong> odaklanır; <strong>Z matrisi</strong> resmin bütünsel özeti olur!
+                <strong className="text-slate-900">ViT Bağlantısı:</strong> ViT'de de aynı resme bakan başlıklardan <strong>Z₀ renge</strong>, <strong>Z₁ şekle</strong>, <strong>Z₂ arka plana</strong> odaklanır; <strong>Z matrisi</strong> resmin bütünsel özeti olur!
               </span>
             </div>
           </div>
