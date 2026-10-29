@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import {
   Play,
@@ -20,6 +20,22 @@ export const Slide03_AttentionWalkthrough: React.FC = () => {
   const [progress, setProgress] = useState<number>(0)
   const [duration, setDuration] = useState<number>(21)
   const [currentTime, setCurrentTime] = useState<number>(0)
+
+  useEffect(() => {
+    const v = videoRef.current
+    if (!v) return
+    const sync = () => setIsPlaying(!v.paused)
+    v.addEventListener('play', sync)
+    v.addEventListener('playing', sync)
+    v.addEventListener('pause', sync)
+    v.addEventListener('ended', sync)
+    return () => {
+      v.removeEventListener('play', sync)
+      v.removeEventListener('playing', sync)
+      v.removeEventListener('pause', sync)
+      v.removeEventListener('ended', sync)
+    }
+  }, [])
 
   const togglePlay = () => {
     if (!videoRef.current) return

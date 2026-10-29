@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, useRef } from 'react'
 import { NavigationHUD } from './components/NavigationHUD'
 import { SlideContainer } from './components/SlideContainer'
 import { LaserPointerOverlay } from './components/LaserPointerOverlay'
@@ -18,6 +18,7 @@ export function App() {
   const [direction, setDirection] = useState<number>(1)
   const [isOverviewOpen, setIsOverviewOpen] = useState<boolean>(false)
   const [isFullscreen, setIsFullscreen] = useState<boolean>(false)
+  const lastSpaceToggleRef = useRef<number>(0)
 
   // Sync hash with current slide
   useEffect(() => {
@@ -78,6 +79,10 @@ export function App() {
           document.activeElement.blur()
         }
         if (e.repeat) return
+
+        const now = performance.now()
+        if (now - lastSpaceToggleRef.current < 160) return
+        lastSpaceToggleRef.current = now
 
         const toggleBtn = document.querySelector('[data-video-toggle="true"]') as HTMLButtonElement | null
         if (toggleBtn) {
