@@ -7,21 +7,23 @@ interface Point {
 
 interface Stroke {
   points: Point[]
-  finishedAt: number | null // null while mouse button is held down; timestamp when released
 }
 
 interface LaserPointerOverlayProps {
   currentSlide: number
 }
 
-const HOLD_AFTER_RELEASE_MS = 600 // Stays 100% visible for 0.6s after releasing click
-const FADE_DURATION_MS = 350      // Smoothly fades out over 0.35s (medium-fast total ~0.95s)
+// While mouse is held down (or while actively writing multi-stroke words), nothing fades.
+// After releasing the mouse and pausing writing for 1.1s, everything smoothly fades out in 0.45s.
+const IDLE_BEFORE_FADE_MS = 1100
+const FADE_DURATION_MS = 450
 
 export const LaserPointerOverlay: React.FC<LaserPointerOverlayProps> = ({ currentSlide }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const strokesRef = useRef<Stroke[]>([])
   const activeStrokeRef = useRef<Stroke | null>(null)
   const isDrawingRef = useRef<boolean>(false)
+  const lastReleasedAtRef = useRef<number | null>(null)
   const dragDistanceRef = useRef<number>(0)
   const lastPosRef = useRef<Point | null>(null)
 
@@ -30,6 +32,7 @@ export const LaserPointerOverlay: React.FC<LaserPointerOverlayProps> = ({ curren
     strokesRef.current = []
     activeStrokeRef.current = null
     isDrawingRef.current = false
+    lastReleasedAtRef.current = null
     dragDistanceRef.current = 0
   }, [currentSlide])
 
@@ -54,12 +57,29 @@ export const LaserPointerOverlay: React.FC<LaserPointerOverlayProps> = ({ curren
     resizeCanvas()
     window.addEventListener('resize', resizeCanvas)
 
-    // IMPORTANT: Use Element (not HTMLElement) so SVG icons (<svg>, <rect>, <path>) inside <button> match!
     const isInteractiveControl = (target: EventTarget | null): boolean => {
       if (!(target instanceof Element)) return false
       return Boolean(
         target.closest('button, a, input, textarea, select, [role="button"]')
       )
+    }
+
+    // Prevent browser native image/element drag from firing pointercancel mid-drawing!
+    const handleDragStart = (e: DragEvent) => {
+      e.preventDefault()
+    }
+
+    const startNewStroke = (x: number, y: number) => {
+      isDrawingRef.current = true
+      lastReleasedAtRef.current = null // Pause any fade-out while drawing!
+      const startPoint: Point = { x, y }
+      lastPosRef.current = startPoint
+
+      const newStroke: Stroke = {
+        points: [startPoint],
+      }
+      activeStrokeRef.current = newStroke
+      strokesRef.current.push(newStroke)
     }
 
     const handlePointerDown = (e: PointerEvent) => {
@@ -68,21 +88,27 @@ export const LaserPointerOverlay: React.FC<LaserPointerOverlayProps> = ({ curren
         isDrawingRef.current = false
         return
       }
-
-      isDrawingRef.current = true
-      const startPoint: Point = { x: e.clientX, y: e.clientY }
-      lastPosRef.current = startPoint
-
-      const newStroke: Stroke = {
-        points: [startPoint],
-        finishedAt: null, // Never fades while mouse button is held down
-      }
-      activeStrokeRef.current = newStroke
-      strokesRef.current.push(newStroke)
+      startNewStroke(e.clientX, e.clientY)
     }
 
     const handlePointerMove = (e: PointerEvent) => {
-      if (!isDrawingRef.current || !activeStrokeRef.current) return
+      // If left mouse button is physically held down ((e.buttons & 1) === 1),
+      // keep drawing even if browser fired a stray pointer event
+      const isLeftButtonPressed = (e.buttons & 1) === 1
+
+      if (!isLeftButtonPressed) {
+        if (isDrawingRef.current) {
+          endDrawing()
+        }
+        return
+      }
+
+      if (!isDrawingRef.current || !activeStrokeRef.current) {
+        if (isInteractiveControl(e.target)) return
+        startNewStroke(e.clientX, e.clientY)
+      }
+
+      lastReleasedAtRef.current = null // Never fade while mouse button is held down
 
       const currentPoint: Point = { x: e.clientX, y: e.clientY }
       if (lastPosRef.current) {
@@ -94,7 +120,7 @@ export const LaserPointerOverlay: React.FC<LaserPointerOverlayProps> = ({ curren
       }
 
       lastPosRef.current = currentPoint
-      activeStrokeRef.current.points.push(currentPoint)
+      activeStrokeRef.current?.points.push(currentPoint)
     }
 
     const endDrawing = () => {
@@ -102,13 +128,15 @@ export const LaserPointerOverlay: React.FC<LaserPointerOverlayProps> = ({ curren
       isDrawingRef.current = false
 
       if (activeStrokeRef.current) {
-        if (dragDistanceRef.current < 6) {
+        if (activeStrokeRef.current.points.length < 2 && dragDistanceRef.current < 6) {
           strokesRef.current = strokesRef.current.filter((s) => s !== activeStrokeRef.current)
-        } else {
-          // Start the fade timer only when the user releases the mouse button
-          activeStrokeRef.current.finishedAt = performance.now()
         }
         activeStrokeRef.current = null
+      }
+
+      // Start the countdown only after mouse button is released
+      if (strokesRef.current.length > 0) {
+        lastReleasedAtRef.current = performance.now()
       }
 
       setTimeout(() => {
@@ -116,8 +144,6 @@ export const LaserPointerOverlay: React.FC<LaserPointerOverlayProps> = ({ curren
       }, 80)
     }
 
-    // Prevent accidental click on video/slide ONLY after a deliberate laser drawing stroke (>= 22px),
-    // and NEVER block clicks on interactive buttons/controls (including SVG icons inside buttons).
     const handleClickCapture = (e: MouseEvent) => {
       if (isInteractiveControl(e.target)) {
         dragDistanceRef.current = 0
@@ -135,52 +161,54 @@ export const LaserPointerOverlay: React.FC<LaserPointerOverlayProps> = ({ curren
         strokesRef.current = []
         activeStrokeRef.current = null
         isDrawingRef.current = false
+        lastReleasedAtRef.current = null
       }
     }
 
     const renderLoop = (now: number) => {
       ctx.clearRect(0, 0, window.innerWidth, window.innerHeight)
 
-      // Keep active strokes (finishedAt === null) forever while mouse is held down;
-      // remove finished strokes after HOLD_AFTER_RELEASE_MS + FADE_DURATION_MS
-      strokesRef.current = strokesRef.current.filter((stroke) => {
-        if (stroke.finishedAt === null) return true
-        return now - stroke.finishedAt < HOLD_AFTER_RELEASE_MS + FADE_DURATION_MS
-      })
-
-      for (const stroke of strokesRef.current) {
-        const pts = stroke.points
-        if (pts.length < 2) continue
-
+      if (strokesRef.current.length > 0) {
         let alpha = 1
-        if (stroke.finishedAt !== null) {
-          const elapsed = now - stroke.finishedAt
-          if (elapsed > HOLD_AFTER_RELEASE_MS) {
-            alpha = Math.max(0, 1 - (elapsed - HOLD_AFTER_RELEASE_MS) / FADE_DURATION_MS)
+
+        // ONLY fade when user is NOT holding down the mouse button
+        if (!isDrawingRef.current && lastReleasedAtRef.current !== null) {
+          const idleElapsed = now - lastReleasedAtRef.current
+          if (idleElapsed >= IDLE_BEFORE_FADE_MS + FADE_DURATION_MS) {
+            strokesRef.current = []
+            lastReleasedAtRef.current = null
+            alpha = 0
+          } else if (idleElapsed > IDLE_BEFORE_FADE_MS) {
+            alpha = Math.max(0, 1 - (idleElapsed - IDLE_BEFORE_FADE_MS) / FADE_DURATION_MS)
           }
         }
 
-        ctx.save()
-        ctx.lineCap = 'round'
-        ctx.lineJoin = 'round'
+        if (alpha > 0.01) {
+          ctx.save()
+          ctx.lineCap = 'round'
+          ctx.lineJoin = 'round'
+          ctx.shadowColor = `rgba(220, 38, 38, ${0.35 * alpha})`
+          ctx.shadowBlur = 4
+          ctx.strokeStyle = `rgba(220, 38, 38, ${0.95 * alpha})`
+          ctx.lineWidth = 3.2
 
-        // Smooth quadratic curve path
-        ctx.beginPath()
-        ctx.moveTo(pts[0].x, pts[0].y)
-        for (let i = 1; i < pts.length - 1; i++) {
-          const midX = (pts[i].x + pts[i + 1].x) / 2
-          const midY = (pts[i].y + pts[i + 1].y) / 2
-          ctx.quadraticCurveTo(pts[i].x, pts[i].y, midX, midY)
+          for (const stroke of strokesRef.current) {
+            const pts = stroke.points
+            if (pts.length < 2) continue
+
+            ctx.beginPath()
+            ctx.moveTo(pts[0].x, pts[0].y)
+            for (let i = 1; i < pts.length - 1; i++) {
+              const midX = (pts[i].x + pts[i + 1].x) / 2
+              const midY = (pts[i].y + pts[i + 1].y) / 2
+              ctx.quadraticCurveTo(pts[i].x, pts[i].y, midX, midY)
+            }
+            ctx.lineTo(pts[pts.length - 1].x, pts[pts.length - 1].y)
+            ctx.stroke()
+          }
+
+          ctx.restore()
         }
-        ctx.lineTo(pts[pts.length - 1].x, pts[pts.length - 1].y)
-
-        ctx.shadowColor = `rgba(220, 38, 38, ${0.35 * alpha})`
-        ctx.shadowBlur = 4
-        ctx.strokeStyle = `rgba(220, 38, 38, ${0.95 * alpha})`
-        ctx.lineWidth = 3.2
-        ctx.stroke()
-
-        ctx.restore()
       }
 
       animationFrameId = requestAnimationFrame(renderLoop)
@@ -188,20 +216,20 @@ export const LaserPointerOverlay: React.FC<LaserPointerOverlayProps> = ({ curren
 
     animationFrameId = requestAnimationFrame(renderLoop)
 
+    window.addEventListener('dragstart', handleDragStart, { capture: true })
     window.addEventListener('pointerdown', handlePointerDown, { capture: true })
     window.addEventListener('pointermove', handlePointerMove, { passive: true })
     window.addEventListener('pointerup', endDrawing, { capture: true })
-    window.addEventListener('pointercancel', endDrawing, { capture: true })
     window.addEventListener('click', handleClickCapture, { capture: true })
     window.addEventListener('keydown', handleKeyDown)
 
     return () => {
       cancelAnimationFrame(animationFrameId)
       window.removeEventListener('resize', resizeCanvas)
+      window.removeEventListener('dragstart', handleDragStart, { capture: true })
       window.removeEventListener('pointerdown', handlePointerDown, { capture: true })
       window.removeEventListener('pointermove', handlePointerMove)
       window.removeEventListener('pointerup', endDrawing, { capture: true })
-      window.removeEventListener('pointercancel', endDrawing, { capture: true })
       window.removeEventListener('click', handleClickCapture, { capture: true })
       window.removeEventListener('keydown', handleKeyDown)
     }
