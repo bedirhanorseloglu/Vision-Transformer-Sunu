@@ -362,7 +362,6 @@ export const Slide05_TransformerArchitecture: React.FC = () => {
                 </p>
                 <p>
                   <strong>2. Feedforward (Linear / MLP):</strong> Her kelime vektörüne bağımsız uygulanan tam bağlantılı katman .
-                  <strong>2. Feedforward (Linear / MLP):</strong> Her kelime vektörüne bağımsız uygulanan tam bağlantılı katman (<em>Decoder&apos;da ek olarak <code>E</code>&apos;yi dinleyen Cross-Attention vardır</em>).
                 </p>
               </div>
             </div>
