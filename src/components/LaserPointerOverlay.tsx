@@ -14,8 +14,8 @@ interface LaserPointerOverlayProps {
   currentSlide: number
 }
 
-const HOLD_DURATION_MS = 3500 // 3.5 seconds stays 100% visible after stroke ends
-const FADE_DURATION_MS = 800  // 0.8 seconds smooth fade-out
+const HOLD_DURATION_MS = 1500 // 1.5 seconds stays 100% visible after stroke ends
+const FADE_DURATION_MS = 500  // 0.5 seconds smooth fade-out
 
 export const LaserPointerOverlay: React.FC<LaserPointerOverlayProps> = ({ currentSlide }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null)
