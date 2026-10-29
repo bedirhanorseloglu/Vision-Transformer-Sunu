@@ -276,8 +276,7 @@ export const Slide15_PatchSizeQuadraticCost: React.FC = () => {
               Tek bir piksel görsel bir desen taşımaz. 16×16 piksellik bir patch; kenar, köşe ve doku gibi <strong>anlamlı görsel parçaları</strong> korur. Patch çok büyürse detaylar kaybolur; çok küçülürse hesaplama patlar.
             </p>
             <div className="bg-white/90 rounded-lg py-1 px-2.5 border border-blue-100 text-[11px] font-mono text-slate-600 flex items-center justify-between">
-              <span>Patch Seçenekleri:</span>
-              <strong className="text-blue-900 font-bold">ViT-14 (Detaylı) | ViT-16 (Standart) | ViT-32 (Hızlı)</strong>
+              <span>Cordonnier vd. (2020): ViT'e en çok benzeyen çalışmadır.</span>
             </div>
           </div>
 
