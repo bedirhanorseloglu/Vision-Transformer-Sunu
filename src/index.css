@@ -6,7 +6,7 @@
     --font-heading: 'Plus Jakarta Sans', var(--font-sans);
     --font-mono: 'JetBrains Mono', monospace;
     --ease-punchy: cubic-bezier(0.16, 1, 0.3, 1);
-    --laser-cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Ccircle cx='10' cy='10' r='6.5' fill='%23ef4444' fill-opacity='0.22'/%3E%3Ccircle cx='10' cy='10' r='4.2' fill='%23dc2626' stroke='%23ffffff' stroke-width='1.4'/%3E%3C/svg%3E") 10 10, auto;
+    --laser-cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 28 28'%3E%3Ccircle cx='14' cy='14' r='11' fill='%23ef4444' fill-opacity='0.24'/%3E%3Ccircle cx='14' cy='14' r='6.8' fill='%23dc2626' stroke='%23ffffff' stroke-width='1.8'/%3E%3C/svg%3E") 14 14, auto;
   }
 
   html,
