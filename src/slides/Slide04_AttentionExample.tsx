@@ -220,31 +220,28 @@ export const Slide04_AttentionExample: React.FC = () => {
               <div className="flex items-center gap-1.5 font-mono text-[10px]">
                 <button
                   onClick={() => seekToTime(0)}
-                  className={`px-2.5 py-1 rounded-md transition-all border cursor-pointer ${
-                    currentTime < 22
+                  className={`px-2.5 py-1 rounded-md transition-all border cursor-pointer ${currentTime < 22
                       ? 'bg-amber-50 text-amber-800 border-amber-200 font-bold shadow-2xs'
                       : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100'
-                  }`}
+                    }`}
                 >
                   1. Ters Sıra (Chat noir)
                 </button>
                 <button
                   onClick={() => seekToTime(23)}
-                  className={`px-2.5 py-1 rounded-md transition-all border cursor-pointer ${
-                    currentTime >= 22 && currentTime < 45
+                  className={`px-2.5 py-1 rounded-md transition-all border cursor-pointer ${currentTime >= 22 && currentTime < 45
                       ? 'bg-blue-50 text-blue-700 border-blue-200 font-bold shadow-2xs'
                       : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100'
-                  }`}
+                    }`}
                 >
                   2. Bire-Çok (a mangé)
                 </button>
                 <button
                   onClick={() => seekToTime(46)}
-                  className={`px-2.5 py-1 rounded-md transition-all border cursor-pointer ${
-                    currentTime >= 45
+                  className={`px-2.5 py-1 rounded-md transition-all border cursor-pointer ${currentTime >= 45
                       ? 'bg-emerald-50 text-emerald-800 border-emerald-200 font-bold shadow-2xs'
                       : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100'
-                  }`}
+                    }`}
                 >
                   3. Tam Matris (α)
                 </button>
@@ -341,9 +338,7 @@ export const Slide04_AttentionExample: React.FC = () => {
                     1. Ters Kelime Sırası (Inversion)
                   </h4>
                 </div>
-                <span className="text-[10px] font-mono font-bold text-amber-800 bg-white px-2 py-0.5 rounded border border-amber-200">
-                  Çapraz Kırmızı Hücre
-                </span>
+
               </div>
               <p className="text-xs sm:text-[13.5px] text-slate-700 leading-relaxed">
                 İngilizce&apos;de sıfat öndedir (<strong>&quot;Black cat&quot;</strong>), Fransızca&apos;da ise isim (<strong>&quot;Chat noir&quot;</strong>). Model ilk kelimeyi (<em>&quot;Chat&quot;</em>) üretirken 1. kelime <em>&quot;Black&quot;</em> yerine doğrudan 2. kelime olan <strong className="text-amber-900">&quot;cat&quot; (H₂)</strong> durumuna odaklanır.
