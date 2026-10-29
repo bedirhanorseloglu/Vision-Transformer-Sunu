@@ -146,7 +146,7 @@ export const Slide04_AttentionExample: React.FC = () => {
               loop
               playsInline
               onTimeUpdate={handleTimeUpdate}
-              onLoadedMetadata={handleLoadedMetadata}
+              onLoadedMetadata={handleLoadedMetadata} onPlay={() => setIsPlaying(true)} onPause={() => setIsPlaying(false)}
               className="w-full h-full object-contain"
             />
 

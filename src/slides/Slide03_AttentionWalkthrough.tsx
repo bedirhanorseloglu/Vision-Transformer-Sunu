@@ -143,7 +143,7 @@ export const Slide03_AttentionWalkthrough: React.FC = () => {
               loop
               playsInline
               onTimeUpdate={handleTimeUpdate}
-              onLoadedMetadata={handleLoadedMetadata}
+              onLoadedMetadata={handleLoadedMetadata} onPlay={() => setIsPlaying(true)} onPause={() => setIsPlaying(false)}
               className="w-full h-full object-contain"
             />
 
