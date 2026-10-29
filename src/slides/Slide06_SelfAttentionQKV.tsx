@@ -13,7 +13,7 @@ import {
   Package, 
   Layers, 
   Lightbulb,
-  Filter
+  Users
 } from 'lucide-react'
 
 export const Slide06_SelfAttentionQKV: React.FC = () => {
@@ -259,106 +259,110 @@ export const Slide06_SelfAttentionQKV: React.FC = () => {
           transition={{ duration: 0.28, delay: 0.1, ease: PUNCHY_EASE }}
           className="lg:col-span-5 flex flex-col justify-between gap-2.5 h-full"
         >
-          {/* Card 1: Q, K, V Somut Açıklama */}
+          {/* Card 1: Q, K, V Somut Açıklama & Softmax */}
           <div className="bg-white rounded-2xl p-3.5 border border-slate-200 shadow-xs flex flex-col justify-between flex-1">
             <div>
               <div className="flex items-center justify-between mb-1.5 pb-1 border-b border-slate-100">
                 <h3 className="text-xs sm:text-[13px] font-sans font-bold tracking-wider text-blue-700 uppercase">
-                  1. Q, K, V Vektörleri Ne İşe Yarar?
+                  1. Q, K, V Vektörleri & Softmax Filtresi
                 </h3>
                 <span className="text-[10px] font-sans font-bold text-slate-600 bg-slate-100 px-2 py-0.5 rounded border border-slate-200">
-                  Öğrenilebilir Ağırlıklar
+                  X · W = Q, K, V
                 </span>
               </div>
-              <ul className="space-y-1.5 text-xs sm:text-[13px]">
+              <ul className="space-y-1 text-xs sm:text-[13px]">
                 <li className="flex items-start gap-2">
                   <Search className="w-3.5 h-3.5 text-blue-600 shrink-0 mt-0.5" />
                   <span>
                     <strong className="text-slate-900 font-bold">Query (Q):</strong>{' '}
-                    <span className="text-slate-600"><em>"Ben ne arıyorum?"</em> (Kelimenin diğerlerine yönelttiği sorgu).</span>
+                    <span className="text-slate-600"><em>"Ben ne arıyorum?"</em> (Kelimenin sorgusu).</span>
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <Tag className="w-3.5 h-3.5 text-indigo-600 shrink-0 mt-0.5" />
                   <span>
                     <strong className="text-slate-900 font-bold">Key (K):</strong>{' '}
-                    <span className="text-slate-600"><em>"Ben ne içeriyorum?"</em> (Diğer kelimelerin kimlik etiketleri).</span>
+                    <span className="text-slate-600"><em>"Ben ne içeriyorum?"</em> (Diğer kelimelerin etiketleri).</span>
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <Package className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
                   <span>
                     <strong className="text-slate-900 font-bold">Value (V):</strong>{' '}
-                    <span className="text-slate-600"><em>"Taşıdığım bilgi nedir?"</em> (Kelimenin aktarılan asıl anlam içeriği).</span>
+                    <span className="text-slate-600"><em>"Taşıdığım bilgi nedir?"</em> (Asıl içerik vektörü).</span>
                   </span>
                 </li>
               </ul>
             </div>
 
             <div className="mt-2 bg-slate-50 rounded-lg px-2.5 py-1.5 border border-slate-200/80 flex items-center justify-between text-[11px] font-sans">
-              <span className="text-slate-500 font-semibold">Üretim:</span>
-              <span className="font-bold text-slate-800">
-                X · W<sub className="text-[9px]">Q</sub> = <span className="text-blue-700">Q</span> &nbsp;|&nbsp; X · W<sub className="text-[9px]">K</sub> = <span className="text-indigo-700">K</span> &nbsp;|&nbsp; X · W<sub className="text-[9px]">V</sub> = <span className="text-emerald-700">V</span>
+              <span className="text-slate-600 font-medium">
+                <strong>Softmax Elemesi:</strong> İlgili kelimeler parlatılır, alakasızlar <strong className="text-amber-800">0.001</strong> ile bastırılır.
               </span>
             </div>
           </div>
 
-          {/* Card 2: Softmax Filtrelemesi */}
+          {/* Card 2 (2. Kısım): Z0, Z1 ... Z7 Nedir? (8 Uzman Kafa) */}
           <div className="bg-amber-50/50 hover:bg-amber-50/80 rounded-2xl p-3.5 border border-amber-200/70 shadow-xs flex flex-col justify-between flex-1 transition-all">
             <div>
               <div className="flex items-center justify-between mb-1">
                 <div className="flex items-center gap-1.5">
-                  <Filter className="w-4 h-4 text-amber-600 shrink-0" />
+                  <Users className="w-4 h-4 text-amber-600 shrink-0" />
                   <h4 className="text-sm sm:text-[15px] font-bold text-slate-900 font-montserrat">
-                    2. Q·K Skoru ve Softmax Elemesi
+                    2. Z₀, Z₁ ... Z₇ Nedir? (8 Uzman Kafa)
                   </h4>
                 </div>
                 <span className="text-[10px] font-sans font-bold text-amber-800 bg-amber-100/80 px-2 py-0.5 rounded border border-amber-200">
-                  Attention Skoru
+                  Aynı Cümleye 8 Bakış
                 </span>
               </div>
               <p className="text-xs sm:text-[13px] text-slate-700 leading-snug">
-                Sorgu (<strong>Q</strong>) ile etiketlerin (<strong>K</strong>) çarpımı uyum puanını verir. <strong>Softmax</strong> ile ilgili kelimeler parlatılırken, alakasız kelimeler <span className="font-sans font-bold text-amber-900">0.001</span> gibi küçük katsayılarla çarpılarak bastırılır.
+                <span className="font-sans font-bold text-slate-900">Z₀, Z₁ ... Z₇</span> farklı cümleler değil; <strong>aynı cümlenin 8 farklı uzman kafa (Attention Head)</strong> tarafından çıkarılmış dikkat özetleridir:
               </p>
             </div>
 
-            <div className="mt-2 bg-white/90 rounded-lg px-2.5 py-1.5 border border-amber-200/80 flex items-center justify-between text-[11px] font-sans">
-              <span className="font-bold text-slate-700">
-                Softmax(Q · K<sup className="text-[9px]">T</sup> / √d<sub className="text-[9px]">k</sub>) · V
-              </span>
-              <span className="text-slate-400">➔</span>
-              <span className="font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.5 rounded border border-emerald-200">
-                İlgili: ×0.88 | Alakasız: ×0.001
-              </span>
+            <div className="mt-2 grid grid-cols-3 gap-1.5 text-[11px] font-sans">
+              <div className="bg-white/90 rounded-lg px-2 py-1.5 border border-amber-200/80 text-center">
+                <div className="font-extrabold text-amber-900">Z₀ (1. Kafa)</div>
+                <div className="text-slate-600 text-[10.5px] leading-tight mt-0.5"><em>"Kim?"</em> (Özne-Zamir)</div>
+              </div>
+              <div className="bg-white/90 rounded-lg px-2 py-1.5 border border-amber-200/80 text-center">
+                <div className="font-extrabold text-amber-900">Z₁ (2. Kafa)</div>
+                <div className="text-slate-600 text-[10.5px] leading-tight mt-0.5"><em>"Ne yaptı?"</em> (Fiil-Eylem)</div>
+              </div>
+              <div className="bg-white/90 rounded-lg px-2 py-1.5 border border-amber-200/80 text-center">
+                <div className="font-extrabold text-amber-900">Z₂..Z₇ (Diğer)</div>
+                <div className="text-slate-600 text-[10.5px] leading-tight mt-0.5"><em>"Nasıl / Nerede?"</em></div>
+              </div>
             </div>
           </div>
 
-          {/* Card 3: Multi-Head Attention (Hiperparametre & Z Çıktısı) */}
+          {/* Card 3: Multi-Head Attention (Nihai Z Matrisi & W^O Ortak Karar) */}
           <div className="bg-blue-50/50 hover:bg-blue-50/80 rounded-2xl p-3.5 border border-blue-200/70 shadow-xs flex flex-col justify-between flex-1 transition-all">
             <div>
               <div className="flex items-center justify-between mb-1">
                 <div className="flex items-center gap-1.5">
                   <Layers className="w-4 h-4 text-blue-600 shrink-0" />
                   <h4 className="text-sm sm:text-[15px] font-bold text-slate-900 font-montserrat">
-                    3. Multi-Head Attention (h = 8 Kafa)
+                    3. Sonuçtaki Z Matrisi (Nihai Ortak Karar)
                   </h4>
                 </div>
                 <span className="text-[10px] font-sans font-bold text-blue-700 bg-blue-100/80 px-2 py-0.5 rounded border border-blue-200">
-                  Z₀ .. Z₇ ➔ Z
+                  Hiperparametre: h = 8
                 </span>
               </div>
               <p className="text-xs sm:text-[13px] text-slate-700 leading-snug">
-                Kafa sayısı bir <strong>hiperparametredir</strong> (<span className="font-sans font-bold">h = 8</span>). 8 kafa farklı anlam ilişkilerini (<span className="font-sans font-bold">Z₀ ... Z₇</span>) hesaplar; bunlar yan yana birleştirilip <strong>Wᴼ ağırlık matrisiyle</strong> çarpılarak tek bir <strong>Z matrisine</strong> indirgenir ve Linear katmana verilir.
+                Bu 8 uzmanın raporları (<span className="font-sans font-bold">Z₀ ... Z₇</span>) yan yana konulup <strong className="text-emerald-800">Wᴼ ağırlık matrisiyle</strong> harmanlanarak cümlenin <strong>nihai ortak kararına (Z matrisine)</strong> dönüştürülür ve <strong>Linear katmana</strong> aktarılır.
               </p>
             </div>
 
             <div className="mt-2 bg-white/90 rounded-lg px-2.5 py-1.5 border border-blue-200/80 flex items-center justify-between text-[11px] font-sans">
               <span className="font-bold text-slate-700">
-                Concat[Z₀, Z₁, ..., Z₇] × <span className="text-emerald-700">Wᴼ</span> = <span className="text-blue-700 font-extrabold">Z</span>
+                Concat[Z₀ ... Z₇] × <span className="text-emerald-700">Wᴼ</span> = <span className="text-blue-700 font-extrabold">Z (Ortak Özeti)</span>
               </span>
               <span className="text-blue-400 font-bold">➔</span>
               <span className="font-bold text-indigo-800 bg-indigo-50 px-2 py-0.5 rounded border border-indigo-200">
-                Feedforward (MLP)
+                Linear Katman
               </span>
             </div>
           </div>
@@ -368,7 +372,7 @@ export const Slide06_SelfAttentionQKV: React.FC = () => {
             <div className="flex items-center gap-2 text-xs">
               <Lightbulb className="w-4 h-4 text-blue-600 shrink-0" />
               <span className="text-slate-700 text-justify leading-snug">
-                <strong className="text-slate-900">ViT Bağlantısı:</strong> ViT'de kelimeler yerine <strong>16×16 görüntü patch'leri</strong> birbirine Q, K, V soruları sorarak resimdeki nesnelerin birbiriyle ilişkisini (örn. yüz ve gövde) tek adımda yakalar!
+                <strong className="text-slate-900">ViT Bağlantısı:</strong> ViT'de de aynı resme bakan kafalardan <strong>Z₀ renge</strong>, <strong>Z₁ şekle</strong>, <strong>Z₂ arka plana</strong> odaklanır; <strong>Z matrisi</strong> resmin bütünsel özeti olur!
               </span>
             </div>
           </div>
