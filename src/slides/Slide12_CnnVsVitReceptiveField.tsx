@@ -136,9 +136,7 @@ export const Slide12_CnnVsVitReceptiveField: React.FC = () => {
             <ExternalLink className="w-3.5 h-3.5 text-white/90 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform shrink-0" />
           </motion.a>
 
-          <span className="text-xs font-mono text-slate-500 bg-slate-50 px-3 py-1.5 rounded-full border border-slate-200 font-medium">
-            Makale Bölüm 3.1 & 4.5
-          </span>
+
           <div className="flex items-center gap-1.5 text-xs font-mono font-semibold text-blue-700 bg-blue-50 px-3 py-1.5 rounded-full border border-blue-200">
             <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
             <span>Slayt 11</span>

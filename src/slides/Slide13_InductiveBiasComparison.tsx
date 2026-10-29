@@ -39,9 +39,7 @@ export const Slide13_InductiveBiasComparison: React.FC = () => {
 
         {/* Sağ Üst: Referans & Slayt Numarası */}
         <div className="hidden sm:flex items-center gap-2">
-          <span className="text-xs font-mono text-slate-500 bg-slate-50 px-3 py-1.5 rounded-full border border-slate-200 font-medium">
-            Makale Bölüm 3.1 & 4.3
-          </span>
+
           <div className="flex items-center gap-1.5 text-xs font-mono font-semibold text-blue-700 bg-blue-50 px-3 py-1.5 rounded-full border border-blue-200">
             <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
             <span>Slayt 12</span>
