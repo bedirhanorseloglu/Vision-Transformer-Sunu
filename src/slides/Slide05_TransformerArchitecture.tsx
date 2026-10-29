@@ -219,33 +219,39 @@ export const Slide05_TransformerArchitecture: React.FC = () => {
               <div className="flex items-center gap-1.5 font-mono text-[10px]">
                 <button
                   onClick={() => seekToTime(0)}
-                  className={`px-2.5 py-1 rounded-md transition-all border cursor-pointer ${
-                    currentTime < 15
-                      ? 'bg-amber-50 text-amber-800 border-amber-200 font-bold shadow-2xs'
-                      : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100'
-                  }`}
+                  className={`px-2.5 py-1 rounded-md transition-all border cursor-pointer ${currentTime < 15
+                    ? 'bg-amber-50 text-amber-800 border-amber-200 font-bold shadow-2xs'
+                    : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100'
+                    }`}
                 >
                   1. Genel Yapı (X ➔ Y)
                 </button>
                 <button
                   onClick={() => seekToTime(15)}
-                  className={`px-2.5 py-1 rounded-md transition-all border cursor-pointer ${
-                    currentTime >= 15 && currentTime < 32
-                      ? 'bg-blue-50 text-blue-700 border-blue-200 font-bold shadow-2xs'
-                      : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100'
-                  }`}
+                  className={`px-2.5 py-1 rounded-md transition-all border cursor-pointer ${currentTime >= 15 && currentTime < 32
+                    ? 'bg-blue-50 text-blue-700 border-blue-200 font-bold shadow-2xs'
+                    : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100'
+                    }`}
                 >
                   2. 6× Encoder Yığını
                 </button>
                 <button
                   onClick={() => seekToTime(32)}
-                  className={`px-2.5 py-1 rounded-md transition-all border cursor-pointer ${
-                    currentTime >= 32
-                      ? 'bg-emerald-50 text-emerald-800 border-emerald-200 font-bold shadow-2xs'
-                      : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100'
-                  }`}
+                  className={`px-2.5 py-1 rounded-md transition-all border cursor-pointer ${currentTime >= 32
+                    ? 'bg-emerald-50 text-emerald-800 border-emerald-200 font-bold shadow-2xs'
+                    : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100'
+                    }`}
                 >
                   3. İç Katmanlar
+                </button>
+
+                <button
+                  onClick={() => seekToTime(0)}
+                  className={`px-2.5 py-1 rounded-md transition-all border cursor-pointer ${currentTime < 15
+                    ? 'bg-amber-50 text-amber-800 border-amber-200 font-bold shadow-2xs'
+                    : 'bg-slate-50 text-slate-600 border-slate-200 hover:bg-slate-100'
+                    }`}
+                >
                 </button>
 
                 <button
@@ -355,6 +361,7 @@ export const Slide05_TransformerArchitecture: React.FC = () => {
                   <strong>1. Self-Attention:</strong> Dizideki kelimelerin birbiriyle ilişkilerini aynı anda modeller.
                 </p>
                 <p>
+                  <strong>2. Feedforward (Linear / MLP):</strong> Her kelime vektörüne bağımsız uygulanan tam bağlantılı katman .
                   <strong>2. Feedforward (Linear / MLP):</strong> Her kelime vektörüne bağımsız uygulanan tam bağlantılı katman (<em>Decoder&apos;da ek olarak <code>E</code>&apos;yi dinleyen Cross-Attention vardır</em>).
                 </p>
               </div>
