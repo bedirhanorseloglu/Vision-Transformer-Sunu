@@ -15,11 +15,10 @@ interface LaserPointerOverlayProps {
 }
 
 const HOLD_DURATION_MS = 3500 // 3.5 seconds stays 100% visible after stroke ends
-const FADE_DURATION_MS = 900  // 0.9 seconds smooth fade-out
+const FADE_DURATION_MS = 800  // 0.8 seconds smooth fade-out
 
 export const LaserPointerOverlay: React.FC<LaserPointerOverlayProps> = ({ currentSlide }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null)
-  const glowRef = useRef<HTMLDivElement>(null)
   const strokesRef = useRef<Stroke[]>([])
   const activeStrokeRef = useRef<Stroke | null>(null)
   const isDrawingRef = useRef<boolean>(false)
@@ -35,8 +34,7 @@ export const LaserPointerOverlay: React.FC<LaserPointerOverlayProps> = ({ curren
 
   useEffect(() => {
     const canvas = canvasRef.current
-    const glow = glowRef.current
-    if (!canvas || !glow) return
+    if (!canvas) return
 
     const ctx = canvas.getContext('2d')
     if (!ctx) return
@@ -63,10 +61,6 @@ export const LaserPointerOverlay: React.FC<LaserPointerOverlayProps> = ({ curren
     }
 
     const handlePointerDown = (e: PointerEvent) => {
-      // Move laser glow immediately
-      glow.style.opacity = '1'
-      glow.style.transform = `translate3d(${e.clientX - 18}px, ${e.clientY - 18}px, 0) scale(1.25)`
-
       // Only draw with primary button (left click / pen touch) and not on UI buttons/sliders
       if (e.button !== 0 || isInteractiveControl(e.target)) return
 
@@ -84,10 +78,6 @@ export const LaserPointerOverlay: React.FC<LaserPointerOverlayProps> = ({ curren
     }
 
     const handlePointerMove = (e: PointerEvent) => {
-      glow.style.opacity = '1'
-      const scale = isDrawingRef.current ? 1.3 : 1
-      glow.style.transform = `translate3d(${e.clientX - 18}px, ${e.clientY - 18}px, 0) scale(${scale})`
-
       if (!isDrawingRef.current || !activeStrokeRef.current) return
 
       const currentPoint = { x: e.clientX, y: e.clientY }
@@ -104,7 +94,6 @@ export const LaserPointerOverlay: React.FC<LaserPointerOverlayProps> = ({ curren
     }
 
     const endDrawing = () => {
-      glow.style.transform = glow.style.transform.replace(/scale\([^)]+\)/, 'scale(1)')
       if (!isDrawingRef.current) return
       isDrawingRef.current = false
 
@@ -126,11 +115,6 @@ export const LaserPointerOverlay: React.FC<LaserPointerOverlayProps> = ({ curren
         e.preventDefault()
         dragDistanceRef.current = 0
       }
-    }
-
-    const handlePointerLeave = () => {
-      glow.style.opacity = '0'
-      endDrawing()
     }
 
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -176,17 +160,11 @@ export const LaserPointerOverlay: React.FC<LaserPointerOverlayProps> = ({ curren
         }
         ctx.lineTo(pts[pts.length - 1].x, pts[pts.length - 1].y)
 
-        // Outer red laser glow
-        ctx.shadowColor = `rgba(239, 68, 68, ${0.85 * alpha})`
-        ctx.shadowBlur = 12
-        ctx.strokeStyle = `rgba(220, 38, 38, ${0.92 * alpha})`
-        ctx.lineWidth = 4.2
-        ctx.stroke()
-
-        // Inner bright laser core
-        ctx.shadowBlur = 0
-        ctx.strokeStyle = `rgba(255, 220, 220, ${0.85 * alpha})`
-        ctx.lineWidth = 1.6
+        // Sleek, crisp red ink with subtle soft shadow
+        ctx.shadowColor = `rgba(220, 38, 38, ${0.35 * alpha})`
+        ctx.shadowBlur = 4
+        ctx.strokeStyle = `rgba(220, 38, 38, ${0.95 * alpha})`
+        ctx.lineWidth = 3
         ctx.stroke()
 
         ctx.restore()
@@ -202,7 +180,6 @@ export const LaserPointerOverlay: React.FC<LaserPointerOverlayProps> = ({ curren
     window.addEventListener('pointerup', endDrawing, { capture: true })
     window.addEventListener('pointercancel', endDrawing, { capture: true })
     window.addEventListener('click', handleClickCapture, { capture: true })
-    document.addEventListener('mouseleave', handlePointerLeave)
     window.addEventListener('keydown', handleKeyDown)
 
     return () => {
@@ -213,30 +190,14 @@ export const LaserPointerOverlay: React.FC<LaserPointerOverlayProps> = ({ curren
       window.removeEventListener('pointerup', endDrawing, { capture: true })
       window.removeEventListener('pointercancel', endDrawing, { capture: true })
       window.removeEventListener('click', handleClickCapture, { capture: true })
-      document.removeEventListener('mouseleave', handlePointerLeave)
       window.removeEventListener('keydown', handleKeyDown)
     }
   }, [])
 
   return (
-    <>
-      {/* Full-screen Laser Ink Canvas */}
-      <canvas
-        ref={canvasRef}
-        className="fixed inset-0 pointer-events-none z-[9998]"
-      />
-
-      {/* Red Laser Pointer Ambient Halo */}
-      <div
-        ref={glowRef}
-        className="fixed top-0 left-0 w-9 h-9 rounded-full pointer-events-none z-[9999] opacity-0 transition-opacity duration-150"
-        style={{
-          background:
-            'radial-gradient(circle, rgba(239,68,68,0.48) 0%, rgba(220,38,38,0.24) 45%, rgba(239,68,68,0) 75%)',
-          boxShadow: '0 0 18px 4px rgba(239, 68, 68, 0.35)',
-          willChange: 'transform',
-        }}
-      />
-    </>
+    <canvas
+      ref={canvasRef}
+      className="fixed inset-0 pointer-events-none z-[9998]"
+    />
   )
 }

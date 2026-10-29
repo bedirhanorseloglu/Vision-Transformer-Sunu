@@ -6,7 +6,7 @@
     --font-heading: 'Plus Jakarta Sans', var(--font-sans);
     --font-mono: 'JetBrains Mono', monospace;
     --ease-punchy: cubic-bezier(0.16, 1, 0.3, 1);
-    --laser-cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cdefs%3E%3CradialGradient id='g' cx='50%25' cy='50%25' r='50%25'%3E%3Cstop offset='0%25' stop-color='%23ffffff' stop-opacity='1'/%3E%3Cstop offset='28%25' stop-color='%23ff1e1e' stop-opacity='1'/%3E%3Cstop offset='60%25' stop-color='%23dc2626' stop-opacity='0.65'/%3E%3Cstop offset='100%25' stop-color='%23ef4444' stop-opacity='0'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx='16' cy='16' r='14' fill='url(%23g)'/%3E%3Ccircle cx='16' cy='16' r='5.5' fill='%23ef4444' stroke='%23dc2626' stroke-width='1.5'/%3E%3Ccircle cx='16' cy='16' r='2.2' fill='%23ffffff'/%3E%3C/svg%3E") 16 16, auto;
+    --laser-cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Ccircle cx='10' cy='10' r='6.5' fill='%23ef4444' fill-opacity='0.22'/%3E%3Ccircle cx='10' cy='10' r='4.2' fill='%23dc2626' stroke='%23ffffff' stroke-width='1.4'/%3E%3C/svg%3E") 10 10, auto;
   }
 
   html,
