@@ -63,7 +63,6 @@ export function App() {
   // Keyboard navigation
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      // Don't trigger if user is typing in an input/textarea (except range slider where Space should still control video)
       const target = e.target as HTMLInputElement
       if (
         (target.tagName === 'INPUT' && target.type !== 'range') ||
@@ -74,6 +73,12 @@ export function App() {
 
       if (e.key === ' ' || e.code === 'Space') {
         e.preventDefault()
+        e.stopPropagation()
+        if (document.activeElement instanceof HTMLElement) {
+          document.activeElement.blur()
+        }
+        if (e.repeat) return
+
         const video = document.querySelector('video') as HTMLVideoElement | null
         if (video) {
           if (video.paused) {
@@ -101,8 +106,19 @@ export function App() {
       }
     }
 
+    const handleKeyUp = (e: KeyboardEvent) => {
+      if (e.key === ' ' || e.code === 'Space') {
+        e.preventDefault()
+        e.stopPropagation()
+      }
+    }
+
     window.addEventListener('keydown', handleKeyDown, { capture: true })
-    return () => window.removeEventListener('keydown', handleKeyDown, { capture: true })
+    window.addEventListener('keyup', handleKeyUp, { capture: true })
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown, { capture: true })
+      window.removeEventListener('keyup', handleKeyUp, { capture: true })
+    }
   }, [nextSlide, prevSlide, toggleFullscreen])
 
   const CurrentSlideComponent = presentationSlides[currentSlide]?.component || presentationSlides[0].component

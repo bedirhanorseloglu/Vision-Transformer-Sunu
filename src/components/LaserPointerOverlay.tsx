@@ -30,6 +30,7 @@ export const LaserPointerOverlay: React.FC<LaserPointerOverlayProps> = ({ curren
     strokesRef.current = []
     activeStrokeRef.current = null
     isDrawingRef.current = false
+    dragDistanceRef.current = 0
   }, [currentSlide])
 
   useEffect(() => {
@@ -61,10 +62,10 @@ export const LaserPointerOverlay: React.FC<LaserPointerOverlayProps> = ({ curren
     }
 
     const handlePointerDown = (e: PointerEvent) => {
+      dragDistanceRef.current = 0
       if (e.button !== 0 || isInteractiveControl(e.target)) return
 
       isDrawingRef.current = true
-      dragDistanceRef.current = 0
       const now = performance.now()
       const startPoint: TimedPoint = { x: e.clientX, y: e.clientY, t: now }
       lastPosRef.current = { x: e.clientX, y: e.clientY }
@@ -100,10 +101,18 @@ export const LaserPointerOverlay: React.FC<LaserPointerOverlayProps> = ({ curren
       if (!isDrawingRef.current) return
       isDrawingRef.current = false
       activeStrokeRef.current = null
+      setTimeout(() => {
+        dragDistanceRef.current = 0
+      }, 80)
     }
 
-    // Prevent accidental click (e.g. pausing video or opening modal) right after drawing a laser stroke
+    // Prevent accidental click on video/slide right after drawing a laser stroke,
+    // but NEVER block clicks on interactive buttons/controls
     const handleClickCapture = (e: MouseEvent) => {
+      if (isInteractiveControl(e.target)) {
+        dragDistanceRef.current = 0
+        return
+      }
       if (dragDistanceRef.current >= 6) {
         e.stopPropagation()
         e.preventDefault()
